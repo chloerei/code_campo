@@ -1,0 +1,27 @@
+.topbar
+  .topbar-inner
+    .container
+      %h3{:id => 'logo'}
+        %a{:href => '#'} Code Campo
+      %ul.nav
+        %li
+          %a{:href => '#'} Home
+        %li
+          %a{:href => '#'} Resources
+        %li
+          %a{:href => '#'} Topics
+      %ul.nav.secondary-nav
+        %li.notifications
+          %a{:href => '#'}
+            %span.count 0
+        %li.dropdown{'data-dropdown' => 'dropdown'}
+          %a{:href => '#', :class => 'dropdown-toggle'}
+            Rei
+          %ul.dropdown-menu
+            %li
+              %a{:href => '#'} Profile
+            %li
+              %a{:href => '#'} Settings
+            %li.divider
+            %li
+              %a{:href => '#'} Logout

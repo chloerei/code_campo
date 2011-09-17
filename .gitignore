@@ -6,3 +6,4 @@ tmp/
 *.swp
 *.swo
 config/mongoid.yml
+public/assets

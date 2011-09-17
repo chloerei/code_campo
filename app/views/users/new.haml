@@ -1,0 +1,20 @@
+#main
+  .container
+    #login.box
+      = form_for @user, :url => users_path, :html => {:class => 'form-stacked'} do |f|
+        %fieldset
+          %legend Signup
+          .clearfix
+            = f.label :name
+            = f.text_field :name, :class => 'span6'
+          .clearfix
+            = f.label :email
+            = f.text_field :email, :class => 'span6'
+          .clearfix
+            = f.label :password
+            = f.password_field :password, :class => 'span6'
+          .clearfix
+            = f.label :password_confimation
+            = f.password_field :password_confimation, :class => 'span6'
+          .actions
+            = f.submit 'Signup', :class => 'btn primary'
