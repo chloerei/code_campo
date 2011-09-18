@@ -28,7 +28,7 @@ class UserSessionsControllerTest < ActionController::TestCase
     assert_nil current_user
   end
 
-  test "login from session" do
+  test "should login from session" do
     session[:user_id] = @user.id
     assert_equal @user, current_user
   end

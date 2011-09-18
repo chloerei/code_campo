@@ -1,8 +1,11 @@
 body {padding-top: 40px;}
+html, body{background-color: #EEE;}
 .secondary-nav .notifications a {font-weight: bold; padding: 11px 8px 10px; }
 .secondary-nav .notifications a .count {background-color: #666; padding: 2px 6px; border-radius: 2px; color: #999; -moz-border-radius: 2px;}
 
 footer div > p {text-align: center;}
 
-.box {border: 1px solid white; background-color: #EEE; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 10px; -moz-box-shadow: 0 0 0 1px #DDD; -webkit-box-shadow: 0 0 0 1px #DDD; box-shadow: 0 0 0 1px #DDD;}
+.box {background-color: white; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 10px; -moz-box-shadow: 0 0 0 1px #DDD; -webkit-box-shadow: 0 0 0 1px #DDD; box-shadow: 0 0 0 1px #DDD;}
 #login-form, #signup-form {margin: 90px auto 70px; width: 380px; padding: 20px;}
+
+.field_with_errors label.message {color: red; font-weight: normal; display: inline-block;}
