@@ -11,6 +11,8 @@ gem 'bson_ext', "~> 1.3"
 gem 'haml'
 gem 'css-bootstrap-rails'
 gem 'client_side_validations'
+gem 'kaminari'
+gem 'gravtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,5 +37,8 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+end
+
+group :test, :development do
   gem 'factory_girl_rails'
 end

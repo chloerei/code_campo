@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def require_logined
+    redirect_to login_url unless logined?
+  end
+
   def current_user
     @current_user ||= login_from_session unless defined?(@current_user)
     @current_user

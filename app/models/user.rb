@@ -1,6 +1,8 @@
 class User
   include Mongoid::Document
   include ActiveModel::SecurePassword
+  include Gravtastic
+  gravtastic :rating => 'G', :size => 48
 
   field :name
   field :email
@@ -13,4 +15,6 @@ class User
   validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, :message => 'Invalid Email address'}
   validates :password, :password_confirmation, :presence => true, :on => :create
   validates :password, :length => {:minimum => 6}
+
+  has_many :topics
 end

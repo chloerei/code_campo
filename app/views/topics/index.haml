@@ -1,0 +1,28 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        #topics.box
+          %table.item-list
+            - @topics.each do |topic|
+              %tr
+                %td.avatar
+                  = image_tag topic.user.gravatar_url
+                %td
+                  %h3
+                    %a{:href => '#'} This is a title
+                  .info
+                    - if topic.tags.present?
+                      %span.tags
+                        - topic.tags.each do |tag|
+                          %a{:href => '#'}= tag
+                    %span.author
+                      by
+                      %a{:href => '#'}= topic.user.name
+                    %span.time
+                      at
+                      = time_ago_in_words topic.created_at
+                      ago.
+                %td.reply-count
+                  %a{:href => '#'} 0
+      #sidebar.span4

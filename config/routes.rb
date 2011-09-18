@@ -6,4 +6,6 @@ CodeCampo::Application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', :as => :logout
   resources :users, :only => [:create]
   resources :user_sessions, :only => [:create]
+
+  resources :topics
 end

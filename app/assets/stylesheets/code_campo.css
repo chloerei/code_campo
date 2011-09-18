@@ -9,3 +9,17 @@ footer div > p {text-align: center;}
 #login-form, #signup-form {margin: 90px auto 70px; width: 380px; padding: 20px;}
 
 .field_with_errors label.message {color: red; font-weight: normal; display: inline-block;}
+
+#main {margin-top: 20px;}
+table.item-list {border: none; margin-bottom: 0;}
+table.item-list th, table.item-list td {vertical-align: middle;}
+table.item-list td.avatar {padding-right: 0; width: 48px; line-height: 0;}
+table.item-list td.avatar img {height: 48px; width: 48px;}
+table.item-list td span.domain {font-weight: bold;}
+table.item-list td h3 {font-size: 16px; padding-bottom: 11px; line-height: 18px;}
+table.item-list td.reply-count a {float: right; color: #FFF; background-color: #BFBFBF; padding: 2px 9px; -moz-border-radius: 10px; border-radius: 10px; font-size: 11px; font-weight: bold; text-decoration: none;}
+table.item-list td.reply-count a:hover {background-color: #AAA;}
+table.item-list th + th, table.item-list td + td {border-left: none;}
+
+.tags a {color: white; font-weight: bold; font-size: 11px; padding: 1px 4px; background-color: #BFBFBF; border-radius: 3px; -moz-border-radius: 3px;}
+.tags a:hover {text-decoration: none; background-color: #AAA;}
