@@ -11,17 +11,23 @@
         %li
           %a{:href => '#'} Topics
       %ul.nav.secondary-nav
-        %li.notifications
-          %a{:href => '#'}
-            %span.count 0
-        %li.dropdown{'data-dropdown' => 'dropdown'}
-          %a{:href => '#', :class => 'dropdown-toggle'}
-            Rei
-          %ul.dropdown-menu
-            %li
-              %a{:href => '#'} Profile
-            %li
-              %a{:href => '#'} Settings
-            %li.divider
-            %li
-              %a{:href => '#'} Logout
+        - if logined?
+          %li.notifications
+            %a{:href => '#'}
+              %span.count 0
+          %li.dropdown{'data-dropdown' => 'dropdown'}
+            %a{:href => '#', :class => 'dropdown-toggle'}
+              = current_user.name
+            %ul.dropdown-menu
+              %li
+                %a{:href => '#'} Profile
+              %li
+                %a{:href => '#'} Settings
+              %li.divider
+              %li
+                = link_to 'Logout', logout_path, :method => :delete
+        - else
+          %li
+            = link_to 'Signup', signup_path
+          %li
+            = link_to 'Login', login_path

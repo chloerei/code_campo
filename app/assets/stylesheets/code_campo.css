@@ -5,4 +5,4 @@ body {padding-top: 40px;}
 footer div > p {text-align: center;}
 
 .box {border: 1px solid white; background-color: #EEE; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 10px; -moz-box-shadow: 0 0 0 1px #DDD; -webkit-box-shadow: 0 0 0 1px #DDD; box-shadow: 0 0 0 1px #DDD;}
-#login {margin: 50px auto 0; width: 380px; padding: 20px;}
+#login-form, #signup-form {margin: 90px auto 70px; width: 380px; padding: 20px;}

@@ -11,3 +11,8 @@ class ActiveSupport::TestCase
     end
   end
 end
+
+class ActionController::TestCase
+  attr_reader :controller
+  delegate :login_as, :logout, :current_user, :logined?, :to => :controller
+end
