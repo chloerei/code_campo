@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
   def new
+    store_location request.referrer if request.referrer.present?
   end
 
   def create
@@ -7,7 +8,7 @@ class UserSessionsController < ApplicationController
     user = User.any_of({:name => login}, {:email => login}).first
     if user and user.authenticate(params[:password])
       login_as user
-      redirect_to root_url
+      redirect_back_or_default root_url
     else
       flash[:error] = 'Wrong login name or password'
       redirect_to login_url
@@ -16,6 +17,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_url
+    redirect_to request.referrer || root_url
   end
 end

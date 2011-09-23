@@ -1,0 +1,22 @@
+- if logined?
+  - content_for :head do
+    = javascript_include_tag 'editor'
+    = stylesheet_link_tag 'editor'
+
+#main
+  .container
+    .row
+      #mainbar.span12
+        %ul.breadcrumb
+          %li
+            = link_to 'Topics', topics_path
+            %span.divider /
+          %li.active Create Topic
+        #editor.box.section
+          = form_for @topic do |f|
+            .clearfix= f.text_field :title
+            .clearfix
+              #editor-preview
+              #editor-button-bar
+              = f.text_area :content, :id => 'editor-input'
+            .clearfix= f.submit 'Create', :class => 'btn primary'

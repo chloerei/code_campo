@@ -1,0 +1,7 @@
+/*
+ *= require 'wmd'
+*/
+
+#editor input[type=text],
+#editor textarea {width: 670px;}
+#editor-preview {border: 2px dotted #CCC; margin-top: 10px; padding: 3px;}

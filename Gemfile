@@ -13,6 +13,7 @@ gem 'css-bootstrap-rails'
 gem 'client_side_validations'
 gem 'kaminari'
 gem 'gravtastic'
+gem 'wmd-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

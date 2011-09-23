@@ -9,7 +9,7 @@
         %li
           %a{:href => '#'} Resources
         %li
-          %a{:href => '#'} Topics
+          = link_to 'Topics', topics_path
       %ul.nav.secondary-nav
         - if logined?
           %li.notifications

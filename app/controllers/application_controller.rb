@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def require_logined
-    redirect_to login_url unless logined?
+    unless logined?
+      store_location
+      redirect_to login_url
+    end
   end
 
   def current_user
@@ -36,5 +39,14 @@ class ApplicationController < ActionController::Base
         session[:user_id] = nil
       end
     end
+  end
+
+  def store_location(path = nil)
+    session[:return_to] ||= path || request.fullpath
+  end
+
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
   end
 end
