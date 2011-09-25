@@ -10,4 +10,10 @@ class Topic
   belongs_to :user
 
   validates :title, :content, :user, :presence => true
+
+  before_create :set_actived_at
+
+  def set_actived_at
+    self.actived_at = Time.now
+  end
 end

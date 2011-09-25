@@ -6,16 +6,18 @@
 #main
   .container
     .row
-      #mainbar.span12
+      .span16
         %ul.breadcrumb
           %li
             = link_to 'Topics', topics_path
             %span.divider /
           %li.active Create Topic
+    .row
+      #mainbar.span12
         #editor.box.section
           = form_for @topic do |f|
-            .clearfix= f.text_field :title
             .clearfix
+              = f.text_field :title
               #editor-preview
               #editor-button-bar
               = f.text_area :content, :id => 'editor-input'

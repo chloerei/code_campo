@@ -1,0 +1,37 @@
+#main
+  .container
+    .row
+      .span16
+        %ul.breadcrumb
+          %li
+            = link_to 'Topics', topics_path
+            %span.divider /
+          %li.active= @topic.title
+    .row
+      #mainbar.span12
+        #topic.box.section
+          %article
+            %header
+              %table.clear-table
+                %tbody
+                  %tr
+                    %td
+                      %h1= @topic.title
+                      %p
+                        - if @topic.tags && @topic.tags.any?
+                          %span.tags
+                            - @topic.tags.each do |tag|
+                              %a{:href => '#'}= tag
+                        %span.author
+                          by
+                          = link_to @topic.user.name, '#'
+                        %span.time
+                          at
+                          = time_ago_in_words @topic.created_at
+                          ago.
+                    %td.avatar
+                      = image_tag @topic.user.gravatar_url(:size => 72)
+            = format_text @topic.content
+            %footer
+              = link_to 'Mark', '#', :class => 'btn'
+      #sidebar.span4

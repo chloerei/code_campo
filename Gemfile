@@ -14,6 +14,7 @@ gem 'client_side_validations'
 gem 'kaminari'
 gem 'gravtastic'
 gem 'wmd-rails'
+gem 'redcarpet', "~> 2.0.0b5"
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -25,9 +25,18 @@ table.item-list th + th, table.item-list td + td {border-left: none;}
 .tags a {color: white; font-weight: bold; font-size: 11px; padding: 1px 4px; background-color: #BFBFBF; border-radius: 3px; -moz-border-radius: 3px;}
 .tags a:hover {text-decoration: none; background-color: #AAA;}
 
-.section {padding: 10px; overflow: hidden;}
+.section {overflow: hidden;}
+#mainbar .section {padding: 14px;}
+#sidebar .section {padding: 10px;}
 
 #sidebar .section .content {overflow: hidden;}
 #sidebar .section.profile .avatar {float: left; width: 64px;}
 #sidebar .section.profile .avatar img {height: 64px; width: 64px;}
 #sidebar .section.profile .info {float: left; margin-left: 10px;}
+
+table.clear-table {padding: 0; margin: 0; border: none;}
+table.clear-table td {padding: 0; margin: 0; border: none;}
+#topic header td.avatar {width: 72px;}
+#topic header td.avatar img {width: 72px; height: 72px;}
+
+article header {margin-bottom: 17px; padding-bottom: 17px; border-bottom: 1px solid #EEE;}
