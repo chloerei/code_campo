@@ -26,6 +26,7 @@
                         ago.
                   %td.reply-count
                     %a{:href => '#'} 0
+        = paginate @topics
       #sidebar.span4
         - if logined?
           .section.profile.box

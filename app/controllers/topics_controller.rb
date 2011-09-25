@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_filter :require_logined, :except => [:index, :show]
 
   def index
-    @topics = Topic.order_by([[:actived_at, :desc]]).page(params[:page]).per(15)
+    @topics = Topic.order_by([[:actived_at, :desc]]).page(params[:page])
   end
 
   def new
