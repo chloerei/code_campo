@@ -1,7 +1,6 @@
-- if logined?
-  - content_for :head do
-    = javascript_include_tag 'editor'
-    = stylesheet_link_tag 'editor'
+- content_for :head do
+  = javascript_include_tag 'editor'
+  = stylesheet_link_tag 'editor'
 
 #main
   .container
@@ -11,10 +10,12 @@
           %li
             = link_to 'Topics', topics_path
             %span.divider /
-          %li.active Create Topic
+          %li.active
+            Edit :
+            = link_to @topic.title, @topic
     .row
       #mainbar.span12
         #editor.box.section
           = form_for @topic do |f|
             = render :partial => 'form', :object => f
-            .clearfix= f.submit 'Create', :class => 'btn primary'
+            .clearfix= f.submit 'Update', :class => 'btn primary'

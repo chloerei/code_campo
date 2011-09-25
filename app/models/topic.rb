@@ -9,6 +9,7 @@ class Topic
 
   field :number_id,  :type => Integer
   index :number_id,  :unique => true
+  scope :number, lambda{|id| where(:number_id => id)}
 
   belongs_to :user
 
@@ -33,9 +34,7 @@ class Topic
     self.number_id.to_s
   end
 
-  def self.find_by_number_id(id)
-    result = where(:number_id => id).first
-    raise Mongoid::Errors::DocumentNotFound.new(self, id) if result.nil?
-    result
+  def edited?
+    updated_at > created_at
   end
 end

@@ -26,12 +26,18 @@
                           by
                           = link_to @topic.user.name, '#'
                         %span.time
-                          at
+                          create at
                           = time_ago_in_words @topic.created_at
+                          - if @topic.edited?
+                            , edited at
+                            = time_ago_in_words @topic.updated_at
                           ago.
+                        - if logined? && current_user == @topic.user
+                          = link_to 'Edit', edit_topic_path(@topic)
                     %td.avatar
                       = image_tag @topic.user.gravatar_url(:size => 72)
             = format_text @topic.content
             %footer
-              = link_to 'Mark', '#', :class => 'btn'
+              - if logined?
+                = link_to 'Mark', '#', :class => 'btn'
       #sidebar.span4

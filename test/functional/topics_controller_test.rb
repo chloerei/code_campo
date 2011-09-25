@@ -34,4 +34,35 @@ class TopicsControllerTest < ActionController::TestCase
     get :show, :id => topic
     assert_response :success, @response.body
   end
+
+  test "should get edit page" do
+    topic = Factory :topic
+    get :edit, :id => topic
+    assert_redirected_to login_url
+
+    login_as Factory(:user)
+    assert_raise Mongoid::Errors::DocumentNotFound do
+      get :edit, :id => topic
+    end
+
+    login_as topic.user
+    get :edit, :id => topic
+    assert_response :success, @response.body
+  end
+
+  test "should update topic" do
+    topic = Factory :topic
+    post :update, :id => topic, :topic => {:title => 'new title'}
+    assert_redirected_to login_url
+
+    login_as Factory(:user)
+    assert_raise Mongoid::Errors::DocumentNotFound do
+      post :update, :id => topic, :topic => {:title => 'new title'}
+    end
+
+    login_as topic.user
+    post :update, :id => topic, :topic => {:title => 'new title'}
+    assert_redirected_to topic
+    assert_equal 'new title', topic.reload.title
+  end
 end
