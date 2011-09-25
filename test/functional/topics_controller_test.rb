@@ -31,7 +31,7 @@ class TopicsControllerTest < ActionController::TestCase
 
   test "should show topic" do
     topic = Factory :topic
-    get :show, :id => topic.id
+    get :show, :id => topic
     assert_response :success, @response.body
   end
 end
