@@ -38,11 +38,11 @@ class TopicsController < ApplicationController
   protected
   
   def find_topic
-    @topic = Topic.number(params[:id]).first
+    @topic = Topic.number(params[:id])
   end
 
   def find_user_topic
-    @topic = current_user.topics.number(params[:id]).first
+    @topic = current_user.topics.number(params[:id])
   end
 
   def raise_if_no_found

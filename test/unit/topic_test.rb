@@ -12,6 +12,6 @@ class TopicTest < ActiveSupport::TestCase
     assert_equal 1, topic.number_id
     assert_equal 2, Factory(:topic).number_id
 
-    assert_equal topic, Topic.number(topic.number_id).first
+    assert_equal topic, Topic.number(topic.number_id)
   end
 end

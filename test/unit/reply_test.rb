@@ -8,6 +8,6 @@ class ReplyTest < ActiveSupport::TestCase
     assert_equal 1, reply.number_id
     assert_equal 2, Factory(:reply).number_id
 
-    assert_equal reply, Reply.number(reply.number_id).first
+    assert_equal reply, Reply.number(reply.number_id)
   end
 end
