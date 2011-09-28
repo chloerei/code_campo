@@ -1,8 +1,6 @@
 FactoryGirl.define do
-  factory :topic do
-    title 'title'
+  factory :reply do
     content 'content'
-    tags %w(ruby programing)
     association :user
   end
 end

@@ -1,33 +1,22 @@
 class Topic
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::NumberId
 
   field :title
   field :content
   field :tags,       :type => Array
   field :actived_at, :type => DateTime
 
-  field :number_id,  :type => Integer
-  index :number_id,  :unique => true
-  scope :number, lambda{|id| where(:number_id => id)}
-
   belongs_to :user
+  has_many   :replies
 
   validates :title, :content, :user, :presence => true
 
-  before_create :set_actived_at, :set_number_id
+  before_create :set_actived_at
 
   def set_actived_at
     self.actived_at = Time.now
-  end
-
-  def set_number_id
-    self.number_id = Mongoid.master.collection("counters").find_and_modify({
-      :query  => {:_id   => self.class.name},
-      :update => {'$inc' => {:next => 1}},
-      :new    => true,
-      :upsert => true
-    })["next"]
   end
 
   def to_param
