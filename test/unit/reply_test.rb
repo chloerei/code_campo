@@ -10,4 +10,12 @@ class ReplyTest < ActiveSupport::TestCase
 
     assert_equal reply, Reply.number(reply.number_id)
   end
+
+  test "should update topic's actived_at column" do
+    topic = Factory :topic
+    topic.update_attribute :actived_at, 1.hour.ago
+    old_time = topic.actived_at
+    Factory :reply, :topic => topic
+    assert_not_equal old_time.to_i, topic.actived_at.to_i
+  end
 end
