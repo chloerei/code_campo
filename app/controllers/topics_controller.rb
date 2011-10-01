@@ -2,7 +2,6 @@ class TopicsController < ApplicationController
   before_filter :require_logined, :except => [:index, :show]
   before_filter :find_topic, :only => [:show]
   before_filter :find_user_topic, :only => [:edit, :update]
-  before_filter :raise_if_no_found, :only => [:show, :edit, :update]
 
   def index
     @topics = Topic.order_by([[:actived_at, :desc]]).page(params[:page])
@@ -43,9 +42,5 @@ class TopicsController < ApplicationController
 
   def find_user_topic
     @topic = current_user.topics.number(params[:id])
-  end
-
-  def raise_if_no_found
-    raise Mongoid::Errors::DocumentNotFound.new(Topic, params[:id]) if @topic.nil?
   end
 end

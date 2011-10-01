@@ -21,10 +21,6 @@ class Topic
     self.actived_at = Time.now
   end
 
-  def to_param
-    self.number_id.to_s
-  end
-
   def edited?
     updated_at > created_at
   end

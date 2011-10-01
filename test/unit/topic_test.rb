@@ -13,5 +13,18 @@ class TopicTest < ActiveSupport::TestCase
     assert_equal 2, Factory(:topic).number_id
 
     assert_equal topic, Topic.number(topic.number_id)
+
+    assert_equal topic.number_id.to_s, topic.to_param
+  end
+
+  test "should raise if number(number_id) could no found" do
+    topic = Factory :topic
+    assert_equal topic, Topic.number(topic.number_id)
+    assert_equal topic, Topic.find_by_number_id(topic.number_id)
+
+    assert_raise Mongoid::Errors::DocumentNotFound do
+      Topic.number -1
+    end
+    assert_nil Topic.find_by_number_id(-1)
   end
 end

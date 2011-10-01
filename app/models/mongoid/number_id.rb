@@ -11,6 +11,12 @@ module Mongoid
 
     module ClassMethods
       def number(id)
+        result = find_by_number_id(id)
+        raise Mongoid::Errors::DocumentNotFound.new(self, id) if result.nil?
+        result
+      end
+
+      def find_by_number_id(id)
         first :conditions => {:number_id => id}
       end
     end
@@ -23,6 +29,10 @@ module Mongoid
           :new    => true,
           :upsert => true
         })["next"]
+      end
+
+      def to_param
+        self.number_id.to_s
       end
     end
   end
