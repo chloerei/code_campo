@@ -16,6 +16,6 @@
     .row
       #mainbar.span12
         #editor.box.section
-          = form_for @topic do |f|
+          = form_for @topic, :validate => true do |f|
             = render :partial => 'form', :object => f
             .clearfix= f.submit 'Update', :class => 'btn primary'

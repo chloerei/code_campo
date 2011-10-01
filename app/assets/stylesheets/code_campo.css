@@ -42,3 +42,5 @@ table.clear-table td {padding: 0; margin: 0; border: none;}
 article header {margin-bottom: 17px; padding-bottom: 17px; border-bottom: 1px solid #EEE;}
 
 .pagination ul {background: white;}
+
+#editor label.message {float: none; text-align: left;}
