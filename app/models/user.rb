@@ -17,4 +17,5 @@ class User
   validates :password, :length => {:minimum => 6}
 
   has_many :topics
+  has_many :replies
 end

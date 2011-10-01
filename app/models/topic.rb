@@ -15,6 +15,8 @@ class Topic
 
   before_create :set_actived_at
 
+  attr_accessible :title, :content
+
   def set_actived_at
     self.actived_at = Time.now
   end

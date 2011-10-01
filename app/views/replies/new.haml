@@ -1,0 +1,22 @@
+- content_for :head do
+  = javascript_include_tag 'editor'
+  = stylesheet_link_tag 'editor'
+
+#main
+  .container
+    .row
+      .span16
+        %ul.breadcrumb
+          %li
+            = link_to 'Topics', topics_path
+            %span.divider /
+          %li
+            = link_to @topic.title, @topic
+            %span.divider /
+          %li.active New Reply
+    .row
+      #mainbar.span12
+        #editor.box.section
+          = form_for @reply, :url => replies_path(:topic_id => @topic) do |f|
+            = render :partial => 'form', :object => f
+            .clearfix= f.submit 'Create', :class => 'btn primary'
