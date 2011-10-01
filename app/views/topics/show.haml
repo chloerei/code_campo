@@ -14,7 +14,7 @@
           %li.active= @topic.title
     .row
       #mainbar.span12
-        #topic.box.section
+        %section#topic.box
           %article
             %header
               %table.clear-table
@@ -46,7 +46,7 @@
               - if logined?
                 = link_to 'Mark', '#', :class => 'btn'
         - if @replies.any?
-          #replies.box
+          %section#replies.box
             %table.item-list
               %tbody
                 - @replies.each do |reply|
@@ -67,7 +67,7 @@
                         = format_text reply.content
           = paginate @replies
         - if logined?
-          #editor.box.section
+          %section#editor.box
             %h4 Post Reply
             = form_for @reply, :url => replies_path(:topic_id => @topic) do |f|
               = render :partial => 'replies/form', :object => f

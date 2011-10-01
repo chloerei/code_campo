@@ -15,7 +15,7 @@
             = link_to @topic.title, @topic
     .row
       #mainbar.span12
-        #editor.box.section
+        %section#editor.box
           = form_for @topic, :validate => true do |f|
             = render :partial => 'form', :object => f
             .clearfix= f.submit 'Update', :class => 'btn primary'

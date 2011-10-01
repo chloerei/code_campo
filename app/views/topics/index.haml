@@ -2,7 +2,7 @@
   .container
     .row
       #mainbar.span12
-        #topics.box
+        %section#topics.box
           %table.item-list
             %tbody
               - @topics.each do |topic|
@@ -29,21 +29,18 @@
         = paginate @topics
       #sidebar.span4
         - if logined?
-          .section.profile.box
-            .content
-              .avatar
-                = image_tag current_user.gravatar_url
-              .info
-                Signed as
-                %h3 Rei
-          .section.box
-            .content
-              = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
+          %section.profile.box
+            .avatar
+              = image_tag current_user.gravatar_url
+            .info
+              Signed as
+              %h3 Rei
+          %section.box
+            = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
         - else
-          .section.box
-            .title
+          %section.box
+            %header
               %h4 Join discuss?
-            .content
-              = link_to 'Signup', signup_path, :class => 'btn'
-              or
-              = link_to 'Login', login_path
+            = link_to 'Signup', signup_path, :class => 'btn'
+            or
+            = link_to 'Login', login_path
