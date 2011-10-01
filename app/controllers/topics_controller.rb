@@ -21,6 +21,8 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @reply = current_user.replies.new :topic => @topic if logined?
+    @replies = @topic.replies.page(params[:page])
   end
 
   def edit

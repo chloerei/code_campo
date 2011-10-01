@@ -17,4 +17,12 @@ class Reply
   def update_topic
     topic.update_attribute :actived_at, self.created_at
   end
+
+  def edited?
+    updated_at > created_at
+  end
+
+  def anchor
+    "reply-#{number_id}"
+  end
 end

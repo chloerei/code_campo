@@ -23,6 +23,6 @@ class RepliesControllerTest < ActionController::TestCase
     assert_difference "@topic.replies.count" do
       post :create, :topic_id => @topic, :reply => {:content => 'reply body'}
     end
-    assert_redirected_to @topic
+    assert_redirected_to topic_url(@topic, :anchor => @topic.replies.last.anchor)
   end
 end

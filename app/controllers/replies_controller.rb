@@ -10,7 +10,8 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.new params[:reply]
     @reply.topic = @topic
     if @reply.save
-      redirect_to @topic
+      page = @topic.replies.page.num_pages
+      redirect_to topic_url(@topic, :page => (page > 1 ? page : nil), :anchor => @reply.anchor)
     else
       render :new
     end

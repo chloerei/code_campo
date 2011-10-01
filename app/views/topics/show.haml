@@ -1,3 +1,8 @@
+- if logined?
+  - content_for :head do
+    = javascript_include_tag 'editor'
+    = stylesheet_link_tag 'editor'
+
 #main
   .container
     .row
@@ -40,4 +45,32 @@
             %footer
               - if logined?
                 = link_to 'Mark', '#', :class => 'btn'
+        - if @replies.any?
+          #replies.box
+            %table.item-list
+              %tbody
+                - @replies.each do |reply|
+                  %tr
+                    %td.avatar= image_tag reply.user.gravatar_url(:size => 48)
+                    %td
+                      %a{:name => reply.anchor}
+                      %article
+                        %header
+                          %span.author= reply.user.name
+                          %span.time
+                            at
+                            = time_ago_in_words reply.created_at
+                            - if reply.edited?
+                              , edited at
+                              = time_ago_in_words reply.updated_at
+                            ago.
+                        = format_text reply.content
+          = paginate @replies
+        - if logined?
+          #editor.box.section
+            %h4 Post Reply
+            = form_for @reply, :url => replies_path(:topic_id => @topic) do |f|
+              = render :partial => 'replies/form', :object => f
+              .clearfix= f.submit 'Post', :class => 'btn primary'
+
       #sidebar.span4
