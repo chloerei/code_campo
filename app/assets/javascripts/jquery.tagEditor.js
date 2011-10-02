@@ -8,7 +8,7 @@
     this.tag_editor.insertBefore(this._input);
     this._input.hide();
 
-    this.tags = $.unique(this._input.val().split(/[,\s]+/).filter(function(tag){return tag !== ""}));
+    this.tags = this._input.val().split(/[,\s]+/).filter(function(tag){return tag !== ""});
     this.draw_preview();
 
     var that = this;
@@ -25,8 +25,13 @@
       that.keydown_handle(event);
     });
 
+    this.tag_input.focus(function(event){
+      that.tag_editor.addClass('focus');
+    });
+
     this.tag_input.focusout(function(event){
       that.extract_tags();
+      that.tag_editor.removeClass('focus');
     });
   }
 
@@ -77,7 +82,7 @@
     },
 
     update_input: function() {
-      this._input.val(this.tags.join(', '));
+      this._input.val(this.tags.join(', ')).change();
     },
 
     delete_tag: function(delete_tag) {

@@ -1,44 +1,175 @@
-body {padding-top: 40px;}
-html, body{background-color: #EEE;}
-.secondary-nav .notifications a {font-weight: bold; padding: 11px 8px 10px; }
-.secondary-nav .notifications a .count {background-color: #666; padding: 2px 6px; border-radius: 2px; color: #999; -moz-border-radius: 2px;}
+body {
+  padding-top: 40px;
+}
 
-footer div > p {text-align: center;}
+html, body {
+  background-color: #EEE;
+}
 
-.box {background-color: white; -moz-border-radius: 3px; border-radius: 3px; margin-bottom: 10px; -moz-box-shadow: 0 0 0 1px #DDD; -webkit-box-shadow: 0 0 0 1px #DDD; box-shadow: 0 0 0 1px #DDD;}
-#login-form, #signup-form {margin: 90px auto 70px; width: 380px; padding: 20px;}
+.secondary-nav .notifications a {
+  font-weight: bold;
+  padding: 11px 8px 10px;
+}
 
-.field_with_errors label.message {color: red; font-weight: normal; display: inline-block;}
+.secondary-nav .notifications a .count {
+  background-color: #666;
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: #999;
+  -moz-border-radius: 2px;
+}
 
-#main {margin-top: 20px;}
-table.item-list {border: none; margin-bottom: 0;}
-table.item-list th, table.item-list td {padding: 12px 12px 11px;}
-table.item-list td.avatar {padding-right: 0; width: 48px; line-height: 0;}
-table.item-list td.avatar img {height: 48px; width: 48px;}
-table.item-list td span.domain {font-weight: bold;}
-table.item-list td h3 {font-size: 14px; padding-bottom: 11px; line-height: 18px;}
-table.item-list td.reply-count a {float: right; color: #FFF; background-color: #BFBFBF; padding: 2px 9px; -moz-border-radius: 10px; border-radius: 10px; font-size: 11px; font-weight: bold; text-decoration: none;}
-table.item-list td.reply-count a:visited {background-color: #EEE;}
-table.item-list td.reply-count a:hover {background-color: #AAA;}
-table.item-list th + th, table.item-list td + td {border-left: none;}
+footer div > p {
+  text-align: center;
+}
 
-.tags a {color: white; font-weight: bold; font-size: 11px; padding: 1px 4px; background-color: #BFBFBF; border-radius: 3px; -moz-border-radius: 3px;}
-.tags a:hover {text-decoration: none; background-color: #AAA;}
+.box {
+  background-color: white;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0 0 0 1px #DDD;
+  -webkit-box-shadow: 0 0 0 1px #DDD;
+  box-shadow: 0 0 0 1px #DDD;
+}
 
-section {overflow: hidden;}
-#mainbar section {padding: 14px;}
-#sidebar section {padding: 10px;}
-section#topics, section#replies {padding: 0;}
+#login-form, #signup-form {
+  margin: 90px auto 70px;
+  width: 380px;
+  padding: 20px;
+}
 
-#sidebar section.profile .avatar {float: left; width: 64px;}
-#sidebar section.profile .avatar img {height: 64px; width: 64px;}
-#sidebar section.profile .info {float: left; margin-left: 10px;}
+.field_with_errors label.message {
+  color: red;
+  font-weight: normal;
+  display: inline-block;
+}
 
-table.clear-table {padding: 0; margin: 0; border: none;}
-table.clear-table td {padding: 0; margin: 0; border: none;}
-#topic header {margin-bottom: 17px; padding-bottom: 17px; border-bottom: 1px solid #EEE;}
-#topic header td.avatar {width: 72px;}
-#topic header td.avatar img {width: 72px; height: 72px;}
-#replies header {margin-bottom: 5px;}
+#main {
+  margin-top: 20px;
+}
 
-.pagination ul {background: white;}
+table.item-list {
+  border: none;
+  margin-bottom: 0;
+}
+table.item-list th, table.item-list td {
+  padding: 12px 12px 11px;
+}
+table.item-list td.avatar {
+  padding-right: 0;
+  width: 48px;
+  line-height: 0;
+}
+table.item-list td.avatar img {
+  height: 48px;
+  width: 48px;
+}
+table.item-list td span.domain {
+  font-weight: bold;
+}
+table.item-list td h3 {
+  font-size: 14px;
+  padding-bottom: 11px;
+  line-height: 18px;
+}
+table.item-list td.reply-count a {
+  float: right;
+  color: #FFF;
+  background-color: #BFBFBF;
+  padding: 2px 9px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+table.item-list td.reply-count a:visited {
+  background-color: #EEE;
+}
+
+table.item-list td.reply-count a:hover {
+  background-color: #AAA;
+}
+
+table.item-list th + th, table.item-list td + td {
+  border-left: none;
+}
+
+.tags a {
+  line-height: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 1px 4px;
+  background-color: #BFBFBF;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.tags a:hover {
+  text-decoration: none;
+  background-color: #AAA;
+}
+
+section {
+  overflow: hidden;
+}
+#mainbar section {
+  padding: 14px;
+}
+#sidebar section {
+  padding: 10px;
+}
+section#topics, section#replies {
+  padding: 0;
+}
+
+#sidebar section.profile .avatar {
+  float: left;
+  width: 64px;
+}
+#sidebar section.profile .avatar img {
+  height: 64px;
+  width: 64px;
+}
+#sidebar section.profile .info {
+  float: left;
+  margin-left: 10px;
+}
+
+table.clear-table {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+table.clear-table td {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#topic header {
+  margin-bottom: 17px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #EEE;
+}
+
+#topic header td.avatar {
+  width: 72px;
+}
+
+#topic header td.avatar img {
+  width: 72px;
+  height: 72px;
+}
+
+#replies header {
+  margin-bottom: 5px;
+}
+
+.pagination ul {
+  background: white;
+}
