@@ -18,4 +18,12 @@ class ReplyTest < ActiveSupport::TestCase
     Factory :reply, :topic => topic
     assert_not_equal old_time.to_i, topic.actived_at.to_i
   end
+
+  test "should inc topic's replies_count column" do
+    topic = Factory :topic
+    assert_equal 0, topic.replies_count
+    assert_difference "topic.reload.replies_count" do
+      Factory :reply, :topic => topic
+    end
+  end
 end

@@ -7,6 +7,7 @@ class Topic
   field :content
   field :tags,       :type => Array
   field :actived_at, :type => DateTime
+  field :replies_count, :type => Integer, :default => 0
 
   belongs_to :user
   has_many   :replies
@@ -23,5 +24,14 @@ class Topic
 
   def edited?
     updated_at > created_at
+  end
+
+  def last_page
+    page = (replies_count.to_f / self.class.default_per_page).ceil
+    page > 1 ? page : nil
+  end
+
+  def last_anchor
+    replies_count > 0 ? "replies-#{replies_count}" : nil
   end
 end
