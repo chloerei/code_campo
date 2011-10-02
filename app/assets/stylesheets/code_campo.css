@@ -130,13 +130,26 @@ section#topics, section#replies {
   float: left;
   width: 64px;
 }
+
 #sidebar section.profile .avatar img {
   height: 64px;
   width: 64px;
 }
+
 #sidebar section.profile .info {
   float: left;
   margin-left: 10px;
+}
+
+#sidebar section ul.nice-list {
+  list-style: none;
+  margin: 0;
+}
+
+#sidebar section ul.nice-list li {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #EEE;
+  margin-bottom: 5px;
 }
 
 table.clear-table {

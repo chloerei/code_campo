@@ -19,6 +19,8 @@ class Topic
 
   attr_accessible :title, :content, :tag_string
 
+  scope :active, order_by([[:actived_at, :desc]])
+
   def tag_string=(string)
     self.tags = string.split(/[,\s]+/).uniq
   end
@@ -42,5 +44,9 @@ class Topic
 
   def last_anchor
     replies_count > 0 ? "replies-#{replies_count}" : nil
+  end
+
+  def relate_topics(count)
+    Topic.active.any_in(:tags => tags.to_a).limit(count).where(:_id.ne => id)
   end
 end

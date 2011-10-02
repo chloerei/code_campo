@@ -74,3 +74,14 @@
               .clearfix= f.submit 'Post', :class => 'btn primary'
 
       #sidebar.span4
+        %section.box
+          %header
+            %h4 Relate Topics
+          .content
+            - relate_topics = @topic.relate_topics(5)
+            - if relate_topics.any?
+              %ul.nice-list
+                - relate_topics.each do |topic|
+                  %li= link_to topic.title, topic
+            - else
+              no relate topics.

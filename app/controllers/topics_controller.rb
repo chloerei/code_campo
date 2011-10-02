@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   before_filter :find_user_topic, :only => [:edit, :update]
 
   def index
-    @topics = Topic.order_by([[:actived_at, :desc]]).page(params[:page])
+    @topics = Topic.active.page(params[:page])
   end
 
   def new
