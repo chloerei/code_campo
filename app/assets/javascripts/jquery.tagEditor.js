@@ -42,7 +42,9 @@
 
     keyup_handle: function(event) {
       if (event.which === 188 || event.which === 32) {
-        this.extract_tags();
+        if (/[,\s]$/.test(this.tag_input.val())) {
+          this.extract_tags();
+        }
       }
     },
 
