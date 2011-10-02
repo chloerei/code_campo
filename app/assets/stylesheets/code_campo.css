@@ -42,5 +42,3 @@ table.clear-table td {padding: 0; margin: 0; border: none;}
 #replies header {margin-bottom: 5px;}
 
 .pagination ul {background: white;}
-
-#editor label.message {float: none; text-align: left; width: auto;}

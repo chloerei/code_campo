@@ -5,3 +5,11 @@
 #editor input[type=text],
 #editor textarea {width: 662px;}
 #editor-preview {border: 2px dotted #CCC; margin-top: 10px; padding: 3px;}
+#editor label.message {float: none; text-align: left; width: auto;}
+
+
+#editor .tag-editor {width: 662px; line-height: 18px; border: 1px solid #CCC; padding: 0 4px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;}
+#editor .tag-editor input {width: auto; border: none; border-radius: none; box-shadow: none; padding: 0; margin: 4px 0;}
+#editor .tag-editor input:focus {border-color: none; box-shadow: none;}
+
+.tag-editor .tag-preview span {color: white; font-weight: bold; font-size: 11px; padding: 1px 4px; background-color: #BFBFBF; border-radius: 3px; -moz-border-radius: 3px; margin: 4px 4px 4px 0; display: inline-block; line-height: 16px;}
