@@ -16,13 +16,13 @@ class Topic
 
   before_create :set_actived_at
 
-  attr_accessible :title, :content, :tags_string
+  attr_accessible :title, :content, :tag_string
 
-  def tags_string=(string)
+  def tag_string=(string)
     self.tags = string.split(/[,\s]+/)
   end
 
-  def tags_string
+  def tag_string
     self.tags.to_a.join(', ')
   end
 
