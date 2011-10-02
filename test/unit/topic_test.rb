@@ -27,4 +27,12 @@ class TopicTest < ActiveSupport::TestCase
     end
     assert_nil Topic.find_by_number_id(-1)
   end
+
+  test "should maintain tags_string" do
+    topic = Factory :topic, :tags => nil
+    topic.tags_string = "ruby programing"
+    assert_equal ["ruby", "programing"].sort, topic.tags.sort
+    topic.tags_string = "ruby,programing"
+    assert_equal ["ruby", "programing"].sort, topic.tags.sort
+  end
 end

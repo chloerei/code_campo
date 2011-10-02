@@ -16,7 +16,15 @@ class Topic
 
   before_create :set_actived_at
 
-  attr_accessible :title, :content
+  attr_accessible :title, :content, :tags_string
+
+  def tags_string=(string)
+    self.tags = string.split(/[,\s]+/)
+  end
+
+  def tags_string
+    self.tags.to_a.join(', ')
+  end
 
   def set_actived_at
     self.actived_at = Time.now
