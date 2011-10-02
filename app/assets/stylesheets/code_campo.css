@@ -43,4 +43,4 @@ table.clear-table td {padding: 0; margin: 0; border: none;}
 
 .pagination ul {background: white;}
 
-#editor label.message {float: none; text-align: left;}
+#editor label.message {float: none; text-align: left; width: auto;}

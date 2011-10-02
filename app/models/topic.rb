@@ -13,13 +13,14 @@ class Topic
   has_many   :replies
 
   validates :title, :content, :user, :presence => true
+  validates :tag_string, :tag_string => true
 
   before_create :set_actived_at
 
   attr_accessible :title, :content, :tag_string
 
   def tag_string=(string)
-    self.tags = string.split(/[,\s]+/)
+    self.tags = string.split(/[,\s]+/).uniq
   end
 
   def tag_string

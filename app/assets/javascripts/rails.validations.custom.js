@@ -5,6 +5,12 @@ clientSideValidations.validators.local['confirmation'] = function (element, opti
   }
 }
 
+clientSideValidations.validators.local['tag_string'] = function(element, options) {
+  if ($.unique(element.val().split(/[,\s]+/).filter(function(tag){return tag !== "";})).length > options.limit) {
+    return options.message;
+  }
+}
+
 $(function(){
   $('form[data-validate]').each(function(){
     $(this).find('[id*=_confirmation]').each(function(){

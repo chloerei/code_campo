@@ -34,5 +34,7 @@ class TopicTest < ActiveSupport::TestCase
     assert_equal ["ruby", "programing"].sort, topic.tags.sort
     topic.tag_string = "ruby,programing"
     assert_equal ["ruby", "programing"].sort, topic.tags.sort
+    topic.tag_string = "ruby, programing, ruby"
+    assert_equal ["ruby", "programing"].sort, topic.tags.sort
   end
 end
