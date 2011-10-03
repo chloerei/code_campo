@@ -2,13 +2,13 @@
   .topbar-inner
     .container
       %h3{:id => 'logo'}
-        %a{:href => '#'} Code Campo
+        = link_to 'CodeCampo', root_path
       %ul.nav
-        %li
-          %a{:href => '#'} Home
+        %li{:class => (controller_name == 'homepage' ? 'active' : nil)}
+          = link_to 'Home', root_path
         %li
           %a{:href => '#'} Resources
-        %li
+        %li{:class => (controller_name == 'topics' ? 'active' : nil)}
           = link_to 'Topics', topics_path
       %ul.nav.secondary-nav
         - if logined?

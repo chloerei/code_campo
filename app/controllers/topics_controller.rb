@@ -7,6 +7,11 @@ class TopicsController < ApplicationController
     @topics = Topic.active.page(params[:page])
   end
 
+  def my
+    @topics = current_user.topics.active.page(params[:page])
+    render :index
+  end
+
   def new
     @topic = Topic.new
   end

@@ -1,5 +1,13 @@
 #main
   .container
+    - if action_name != 'index'
+      .row
+        .span16
+          %ul.breadcrumb
+            %li
+              = link_to 'Topics', topics_path
+              %span.divider /
+            %li.active= action_name
     .row
       #mainbar.span12
         %section#topics.box
@@ -36,6 +44,11 @@
             .info
               Signed as
               %h3 Rei
+          %section.box
+            %ul.nice-list
+              %li= link_to 'Collection', '#'
+              %li= link_to 'My', my_topics_path
+              %li= link_to 'Replied', '#'
           %section.box
             = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
         - else

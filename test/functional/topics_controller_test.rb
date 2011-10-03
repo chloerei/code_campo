@@ -10,6 +10,17 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
   end
 
+  test "should get my topics" do
+    topic = Factory :topic, :user => @user
+    get :my
+    assert_redirected_to login_url
+    
+    login_as @user
+    get :my
+    assert_response :success, @response.body
+    assert assigns(:topics).include?(topic)
+  end
+
   test "should get new topic page" do
     get :new
     assert_redirected_to login_url

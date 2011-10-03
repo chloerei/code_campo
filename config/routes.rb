@@ -7,6 +7,10 @@ CodeCampo::Application.routes.draw do
   resources :users, :only => [:create]
   resources :user_sessions, :only => [:create]
 
-  resources :topics, :only => [:index, :show, :new, :create, :edit, :update]
+  resources :topics, :only => [:index, :show, :new, :create, :edit, :update] do
+    collection do
+      get :my
+    end
+  end
   resources :replies, :only => [:new, :create, :edit, :update]
 end
