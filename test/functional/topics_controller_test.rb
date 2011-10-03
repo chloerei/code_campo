@@ -76,4 +76,44 @@ class TopicsControllerTest < ActionController::TestCase
     assert_redirected_to topic
     assert_equal 'new title', topic.reload.title
   end
+
+  test "should mark topic" do
+    topic = Factory :topic
+    post :mark, :id => topic
+    assert_redirected_to login_url
+
+    user = Factory :user
+    login_as user
+    assert_difference "Topic.mark_by(user).count" do
+      post :mark, :id => topic
+    end
+    assert_redirected_to topic
+  end
+
+  test "should cancel mark topic" do
+    topic = Factory :topic
+    user = Factory :user
+    topic.mark_by user
+    delete :unmark, :id => topic
+    assert_redirected_to login_url
+
+    login_as user
+    assert_difference "Topic.mark_by(user).count", -1 do
+      delete :unmark, :id => topic
+    end
+    assert_redirected_to topic
+  end
+
+  test "should get marked topics" do
+    topic = Factory :topic
+    user = Factory :user
+    topic.mark_by user
+    get :marked
+    assert_redirected_to login_url
+    
+    login_as user
+    get :marked
+    assert_response :success, @response.body
+    assert assigns(:topics).include?(topic)
+  end
 end

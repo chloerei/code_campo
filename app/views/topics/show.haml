@@ -44,7 +44,10 @@
             = format_text @topic.content
             %footer
               - if logined?
-                = link_to 'Mark', '#', :class => 'btn'
+                - if @topic.marked_by?(current_user)
+                  = link_to 'Unmark', mark_topic_path(@topic), :method => :delete
+                - else
+                  = link_to 'Mark', mark_topic_path(@topic), :method => :post
         - if @replies.any?
           %section#replies.box
             %table.item-list

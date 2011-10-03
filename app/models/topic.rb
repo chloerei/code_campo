@@ -8,6 +8,7 @@ class Topic
   field :tags,       :type => Array
   field :actived_at, :type => DateTime
   field :replies_count, :type => Integer, :default => 0
+  field :marker_ids, :type => Array
 
   belongs_to :user
   has_many   :replies
@@ -20,6 +21,7 @@ class Topic
   attr_accessible :title, :content, :tag_string
 
   scope :active, order_by([[:actived_at, :desc]])
+  scope :mark_by, lambda {|user| where(:marker_ids => user.id)}
 
   def tag_string=(string)
     self.tags = string.split(/[,\s]+/).uniq
@@ -48,5 +50,23 @@ class Topic
 
   def relate_topics(count)
     Topic.active.any_in(:tags => tags.to_a).limit(count).where(:_id.ne => id)
+  end
+
+  def mark_by(user)
+    unless marked_by? user
+      collection.update({:_id => self.id},
+                        {"$addToSet" => {:marker_ids => user.id}})
+    end
+  end
+
+  def unmark_by(user)
+    if marked_by? user
+      collection.update({:_id => self.id},
+                        {"$pull" => {:marker_ids => user.id}})
+    end
+  end
+
+  def marked_by?(user)
+    marker_ids.to_a.include? user.id
   end
 end

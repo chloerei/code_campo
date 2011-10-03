@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_filter :require_logined, :except => [:index, :show]
-  before_filter :find_topic, :only => [:show]
+  before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
 
   def index
@@ -9,6 +9,11 @@ class TopicsController < ApplicationController
 
   def my
     @topics = current_user.topics.active.page(params[:page])
+    render :index
+  end
+
+  def marked
+    @topics = Topic.mark_by(current_user).active.page(params[:page])
     render :index
   end
 
@@ -39,6 +44,16 @@ class TopicsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def mark
+    @topic.mark_by current_user
+    redirect_to @topic
+  end
+
+  def unmark
+    @topic.unmark_by current_user
+    redirect_to @topic
   end
 
   protected

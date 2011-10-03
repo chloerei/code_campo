@@ -10,6 +10,11 @@ CodeCampo::Application.routes.draw do
   resources :topics, :only => [:index, :show, :new, :create, :edit, :update] do
     collection do
       get :my
+      get :marked
+    end
+    member do
+      post :mark
+      delete :mark, :action => 'unmark'
     end
   end
   resources :replies, :only => [:new, :create, :edit, :update]

@@ -37,4 +37,16 @@ class TopicTest < ActiveSupport::TestCase
     topic.tag_string = "ruby, programing, ruby"
     assert_equal ["ruby", "programing"].sort, topic.tags.sort
   end
+
+  test "should add marker and scope mark_by" do
+    topic = Factory :topic
+    user = Factory :user
+    topic.mark_by user
+    assert_equal [user.id], topic.reload.marker_ids
+    assert topic.marked_by? user
+    assert Topic.mark_by(user).include?(topic)
+
+    topic.unmark_by user
+    assert_equal [], topic.reload.marker_ids
+  end
 end
