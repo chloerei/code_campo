@@ -11,6 +11,7 @@ CodeCampo::Application.routes.draw do
     collection do
       get :my
       get :marked
+      get :replied
     end
     member do
       post :mark

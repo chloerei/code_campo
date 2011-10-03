@@ -49,4 +49,14 @@ class TopicTest < ActiveSupport::TestCase
     topic.unmark_by user
     assert_equal [], topic.reload.marker_ids
   end
+
+  test "should add replier and scope reply_by" do
+    topic = Factory :topic
+    user = Factory :user
+    topic.reply_by user
+    
+    assert_equal [user.id], topic.reload.replier_ids
+    assert topic.replied_by? user
+    assert Topic.reply_by(user).include?(topic)
+  end
 end

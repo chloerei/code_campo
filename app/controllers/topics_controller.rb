@@ -17,6 +17,11 @@ class TopicsController < ApplicationController
     render :index
   end
 
+  def replied
+    @topics = Topic.reply_by(current_user).active.page(params[:page])
+    render :index
+  end
+
   def new
     @topic = Topic.new
   end

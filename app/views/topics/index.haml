@@ -48,7 +48,7 @@
             %ul.nice-list
               %li= link_to_unless (action_name == 'marked'), 'Marked', marked_topics_path
               %li= link_to_unless (action_name == 'my'), 'My', my_topics_path
-              %li= link_to 'Replied', '#'
+              %li= link_to_unless (action_name == 'replied'), 'Replied', replied_topics_path
           %section.box
             = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
         - else

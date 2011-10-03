@@ -116,4 +116,17 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
     assert assigns(:topics).include?(topic)
   end
+
+  test "should get replied topics" do
+    topic = Factory :topic
+    user = Factory :user
+    Factory :reply, :topic => topic, :user => user
+    get :replied
+    assert_redirected_to login_url
+
+    login_as user
+    get :replied
+    assert_response :success, @response.body
+    assert assigns(:topics).include?(topic)
+  end
 end

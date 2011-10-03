@@ -26,4 +26,12 @@ class ReplyTest < ActiveSupport::TestCase
       Factory :reply, :topic => topic
     end
   end
+
+  test "should mark replier to topic" do
+    topic = Factory :topic
+    user = Factory :user
+    Factory :reply, :topic => topic, :user => user
+    
+    assert topic.reload.replied_by?(user)
+  end
 end
