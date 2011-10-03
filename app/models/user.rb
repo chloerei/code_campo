@@ -18,4 +18,13 @@ class User
 
   has_many :topics
   has_many :replies
+
+  def remember_token
+    [id, Digest::SHA512.hexdigest(password_digest)].join('$')
+  end
+
+  def self.find_by_remember_token(token)
+    user = first :conditions => {:_id => token.split('$').first}
+    (user && user.remember_token == token) ? user : nil
+  end
 end

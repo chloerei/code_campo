@@ -8,6 +8,7 @@ class UserSessionsController < ApplicationController
     user = User.any_of({:name => login}, {:email => login}).first
     if user and user.authenticate(params[:password])
       login_as user
+      remember_me if params[:remember_me]
       redirect_back_or_default root_url
     else
       flash[:error] = 'Wrong login name or password'

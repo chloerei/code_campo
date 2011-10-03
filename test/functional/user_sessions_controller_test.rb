@@ -20,6 +20,12 @@ class UserSessionsControllerTest < ActionController::TestCase
     assert_equal @user, current_user
   end
 
+  test "should remember me" do
+    post :create, :login => @user.email, :password => 'password', :remember_me => 'yes'
+    assert_equal @user, current_user
+    assert_equal @user.remember_token, cookies[:remember_token]
+  end
+
   test "should no login with name or email with wrong password" do
     post :create, :login => @user.name, :password => 'wrong password'
     assert_nil current_user
