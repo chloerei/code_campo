@@ -15,7 +15,7 @@ class Topic
   has_many   :replies
 
   validates :title, :content, :user, :presence => true
-  validates :tag_string, :tag_string => true
+  validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
 
   before_create :set_actived_at
 

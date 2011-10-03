@@ -12,6 +12,7 @@ CodeCampo::Application.routes.draw do
       get :my
       get :marked
       get :replied
+      get 'tagged/:tag', :action => 'tagged', :as => :tagged, :constraints  => { :tag => /[^\/]+/ }, :format => false
     end
     member do
       post :mark

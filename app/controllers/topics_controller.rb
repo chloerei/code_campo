@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_filter :require_logined, :except => [:index, :show]
+  before_filter :require_logined, :except => [:index, :show, :tagged]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
 
@@ -19,6 +19,11 @@ class TopicsController < ApplicationController
 
   def replied
     @topics = Topic.reply_by(current_user).active.page(params[:page])
+    render :index
+  end
+
+  def tagged
+    @topics = Topic.where(:tags => params[:tag]).active.page(params[:page])
     render :index
   end
 

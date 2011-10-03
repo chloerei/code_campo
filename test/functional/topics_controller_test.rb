@@ -129,4 +129,11 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
     assert assigns(:topics).include?(topic)
   end
+
+  test "should get tagged topics" do
+    topic = Factory :topic
+    get :tagged, :tag => topic.tags.first
+    assert_response :success, @response.body
+    assert assigns(:topics).include?(topic)
+  end
 end

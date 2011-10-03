@@ -24,7 +24,7 @@
                       - if topic.tags.to_a.any?
                         %span.tags
                           - topic.tags.each do |tag|
-                            %a{:href => '#'}= tag
+                            = link_to tag, tagged_topics_path(:tag => tag)
                       %span.author
                         by
                         %a{:href => '#'}= topic.user.name
