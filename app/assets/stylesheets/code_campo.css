@@ -55,6 +55,7 @@ table.item-list {
 }
 table.item-list th, table.item-list td {
   padding: 12px 12px 11px;
+  line-height: 20px;
 }
 table.item-list td.avatar {
   padding-right: 0;
@@ -70,7 +71,7 @@ table.item-list td span.domain {
 }
 table.item-list td h3 {
   font-size: 14px;
-  padding-bottom: 11px;
+  padding-bottom: 10px;
   line-height: 18px;
 }
 table.item-list td.reply-count a {
@@ -97,6 +98,7 @@ table.item-list th + th, table.item-list td + td {
   border-left: none;
 }
 
+a.lbtn,
 .tags a {
   line-height: 16px;
   color: white;
@@ -108,9 +110,31 @@ table.item-list th + th, table.item-list td + td {
   -moz-border-radius: 3px;
 }
 
+a.lbtn.notice {
+  background-color: #62CFFC;
+}
+
+a.lbtn.important {
+  background-color: #C43C35;
+}
+
+a.lbtn.success {
+  background-color: #46A546;
+}
+
+a.lbtn:hover,
 .tags a:hover {
   text-decoration: none;
   background-color: #AAA;
+}
+
+a.lbtn.mark:hover,
+a.lbtn.marked {
+  background-color: #F89406;
+}
+
+a.lbtn.marked:hover {
+  background-color: #BFBFBF;
 }
 
 section {
@@ -162,6 +186,7 @@ table.clear-table td {
   padding: 0;
   margin: 0;
   border: none;
+  line-height: 20px;
 }
 
 #topic header {

@@ -48,12 +48,12 @@ class TopicsController < ApplicationController
 
   def mark
     @topic.mark_by current_user
-    redirect_to @topic
+    redirect_referrer_or_default @topic
   end
 
   def unmark
     @topic.unmark_by current_user
-    redirect_to @topic
+    redirect_referrer_or_default @topic
   end
 
   protected

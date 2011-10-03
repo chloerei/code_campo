@@ -69,4 +69,8 @@ class Topic
   def marked_by?(user)
     marker_ids.to_a.include? user.id
   end
+
+  def marker_count
+    marker_ids.to_a.count
+  end
 end
