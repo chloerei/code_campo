@@ -19,7 +19,7 @@ class CurrentPasswordValidator < ActiveModel::EachValidator
     hash = {:message => record.errors.generate_message(attribute, :blank)}
     hash[:fields] = {}
     options[:fields].each do |field|
-      hash[:fields][field] = record.read_attribute(field) if field !~ /password/
+      hash[:fields][field] = ((field !~ /password/) ? record.read_attribute(field) : "")
     end
     hash
   end

@@ -16,7 +16,7 @@ clientSideValidations.validators.local['current_password'] = function(element, o
   if (element.val() === '') {
     var need_current_password = false;
     $.each(options.fields, function(key, value) {
-      var field_input = $form.find('[id*=_' + key + ']');
+      var field_input = $form.find('[name*="[' + key + ']"]');
       if (field_input.length !== 0 && field_input.val() !== value) {
         need_current_password = true;
       }

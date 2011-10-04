@@ -1,4 +1,4 @@
-class Settings::AccountsController < ApplicationController
+class Settings::PasswordsController < ApplicationController
   before_filter :require_logined
   layout 'settings'
 

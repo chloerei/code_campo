@@ -1,0 +1,16 @@
+= form_for current_user, :url => settings_password_path, :validate => true do |f|
+  %fieldset
+    .clearfix
+      = f.label :current_password
+      .input
+        = f.password_field :current_password
+    .clearfix
+      = f.label :password
+      .input
+        = f.password_field :password
+    .clearfix
+      = f.label :password_confirmation
+      .input
+        = f.password_field :password_confirmation
+    .actions
+      = f.submit :save, :class => 'btn primary'
