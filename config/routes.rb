@@ -20,4 +20,7 @@ CodeCampo::Application.routes.draw do
     end
   end
   resources :replies, :only => [:new, :create, :edit, :update]
+  namespace :settings do
+    resource :account, :only => [:show, :update]
+  end
 end

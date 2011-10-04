@@ -43,6 +43,11 @@ footer div > p {
   color: red;
   font-weight: normal;
   display: inline-block;
+  float: none;
+  text-align: left;
+  width: auto;
+  margin-left: 5px;
+  padding-top: 4px;;
 }
 
 #main {
@@ -140,6 +145,8 @@ a.lbtn.marked:hover {
 section {
   overflow: hidden;
 }
+
+section,
 #mainbar section {
   padding: 14px;
 }
@@ -211,3 +218,7 @@ table.clear-table td {
 .pagination ul {
   background: white;
 }
+
+.settings header {margin-bottom: 20px;}
+.settings header table.clear-table td.avatar {width: 36px; padding-right: 10px;}
+.settings header table.clear-table td.avatar img {width: 36px; height: 36px;}

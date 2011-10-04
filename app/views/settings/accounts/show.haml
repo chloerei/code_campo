@@ -1,0 +1,34 @@
+#main
+  .container
+    .row
+      %section.settings.span16.box
+        %header
+          %table.clear-table
+            %tbody
+              %tr
+                %td.avatar= image_tag current_user.gravatar_url(:size => 36)
+                %td
+                  %h3= "#{current_user.name}'s Settings"
+        .row
+          .span16
+            %ul.tabs
+              %li.active= link_to 'Account', settings_account_path
+        .row
+          .span12
+            = form_for current_user, :url => settings_account_path, :validate => true do |f|
+              %fieldset
+                .clearfix
+                  = f.label :name
+                  .input
+                    = f.text_field :name
+                .clearfix
+                  = f.label :email
+                  .input
+                    = f.text_field :email
+                .clearfix
+                  = f.label :current_password
+                  .input
+                    = f.password_field :current_password
+                .actions
+                  = f.submit :save, :class => 'btn primary'
+          .span4

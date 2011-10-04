@@ -14,7 +14,11 @@ class User
   validates :name, :format => {:with => /\A\w+\z/, :message => 'only A-Z, a-z, _ allowed'}, :length => {:in => 3..20}
   validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, :message => 'Invalid Email address'}
   validates :password, :password_confirmation, :presence => true, :on => :create
-  validates :password, :length => {:minimum => 6}
+  validates :password, :length => {:minimum => 6, :allow_nil => true}
+  validates :current_password, :current_password => {:fields => [:name, :email, :password]}, :on => :update
+  
+  attr_accessor :current_password
+  attr_accessible :name, :email, :password, :password_confirmation, :current_password
 
   has_many :topics
   has_many :replies

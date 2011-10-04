@@ -19,4 +19,17 @@ class UserTest < ActiveSupport::TestCase
     assert_not_equal token, user.remember_token
     assert_nil User.find_by_remember_token(token)
   end
+
+  test "change email, password need current_password" do
+    password = '123456'
+    user = Factory :user, :password => password, :password_confirmation => password
+    user.name = 'change_name'
+    assert !user.save
+    assert user.errors[:current_password].any?
+    user.current_password = 'wrong password'
+    assert !user.save
+    assert user.errors[:current_password].any?
+    user.current_password = password
+    assert user.save
+  end
 end

@@ -14,9 +14,6 @@
 }
 
 #editor label.message {
-  float: none;
-  text-align: left;
-  width: auto;
 }
 
 #editor .tag-editor {
