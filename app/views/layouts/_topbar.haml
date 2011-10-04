@@ -22,7 +22,7 @@
               %li
                 %a{:href => '#'} Profile
               %li
-                %a{:href => '#'} Settings
+                = link_to 'Settings', settings_account_path
               %li.divider
               %li
                 = link_to 'Logout', logout_path, :method => :delete

@@ -222,3 +222,5 @@ table.clear-table td {
 .settings header {margin-bottom: 20px;}
 .settings header table.clear-table td.avatar {width: 36px; padding-right: 10px;}
 .settings header table.clear-table td.avatar img {width: 36px; height: 36px;}
+
+.settings .edit_profile td.avatar {width: 80px; height: 80px; padding-right: 10px;}

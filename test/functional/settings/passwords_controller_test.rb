@@ -3,7 +3,7 @@ require 'test_helper'
 class Settings::PasswordsControllerTest < ActionController::TestCase
   def setup
     @password = 'password'
-    @user = Factory :user, :password => @password
+    @user = Factory :user, :password => @password, :password_confirmation => @password
   end
 
   test "should get password page" do

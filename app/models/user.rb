@@ -22,6 +22,9 @@ class User
 
   has_many :topics
   has_many :replies
+  embeds_one :profile
+
+  before_create :build_profile
 
   def remember_token
     [id, Digest::SHA512.hexdigest(password_digest)].join('$')
