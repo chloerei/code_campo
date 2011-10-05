@@ -33,6 +33,21 @@ footer div > p {
   box-shadow: 0 0 0 1px #DDD;
 }
 
+section.box.span16 {
+  width: 910px;
+}
+
+section.box .span4 {
+  width: 205px;
+}
+
+section.box .span12 {
+  width: 685px;
+}
+section.box .span16 {
+  width: 910px;
+}
+
 #login-form, #signup-form {
   margin: 90px auto 70px;
   width: 380px;
@@ -224,3 +239,8 @@ table.clear-table td {
 .settings header table.clear-table td.avatar img {width: 36px; height: 36px;}
 
 .settings .edit_profile td.avatar {width: 80px; height: 80px; padding-right: 10px;}
+
+#profile {overflow: hidden;}
+#profile .left-side {width: 160px; float: left;}
+#profile .left-side .avatar img {width: 160px; height: 160px;}
+#profile .right-side {float: right; width: 720px;}

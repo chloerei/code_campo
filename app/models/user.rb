@@ -26,6 +26,10 @@ class User
 
   before_create :build_profile
 
+  def to_param
+    name
+  end
+
   def remember_token
     [id, Digest::SHA512.hexdigest(password_digest)].join('$')
   end

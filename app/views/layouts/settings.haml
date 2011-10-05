@@ -12,24 +12,25 @@
     = render :partial => 'layouts/topbar'
     #main
       .container
-        .row
-          %section.settings.span16.box
-            %header
-              %table.clear-table
-                %tbody
-                  %tr
-                    %td.avatar= image_tag current_user.gravatar_url(:size => 36)
-                    %td
-                      %h3= "#{current_user.name}'s Settings"
-            .row
-              .span16
-                %ul.tabs
-                  %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to 'Account', settings_account_path
-                  %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to 'Password', settings_password_path
-                  %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to 'Profile', settings_profile_path
-            .row
-              .span12
-                = yield
-              .span4
-                = yield :sidebar
+        %section.box
+          .row
+            .settings.span16
+              %header
+                %table.clear-table
+                  %tbody
+                    %tr
+                      %td.avatar= image_tag current_user.gravatar_url(:size => 36)
+                      %td
+                        %h3= "#{current_user.name}'s Settings"
+              .row
+                .span16
+                  %ul.tabs
+                    %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to 'Account', settings_account_path
+                    %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to 'Password', settings_password_path
+                    %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to 'Profile', settings_profile_path
+              .row
+                .span12
+                  = yield
+                .span4
+                  = yield :sidebar
     = render :partial => 'layouts/footer'

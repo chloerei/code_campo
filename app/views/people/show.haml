@@ -1,0 +1,38 @@
+#main
+  .container
+    %section.box
+      #profile
+        .left-side
+          .avatar= image_tag @person.gravatar_url(:size => 160)
+        .right-side
+          %h1= "#{@person.name}'s Profile"
+          %dl
+            - if @person.name.present?
+              %dt Name
+              %dd= @person.name
+            - if @person.profile.url.present?
+              %dt Url
+              %dd= link_to @person.profile.url, @person.profile.url
+            - if @person.profile.description.present?
+              %dt Description
+              %dd= simple_format @person.profile.description
+          %h2
+            Topics
+            %small
+              = @topics.total_count
+              total
+          - if @topics.any?
+            %ul.nice-list
+              - @topics.each do |topic|
+                %li
+                  = link_to topic.title, topic
+                  = '/'
+                  - if topic.tags.to_a.any?
+                    tags
+                    %span.tags
+                      - topic.tags.each do |tag|
+                        = link_to tag, tagged_topics_path(:tag => tag)
+                    ,
+                  %span.time
+                    = time_ago_in_words topic.created_at
+                    ago.

@@ -10,6 +10,9 @@
           %a{:href => '#'} Resources
         %li{:class => (controller_name == 'topics' ? 'active' : nil)}
           = link_to 'Topics', topics_path
+        - if logined?
+          %li{:class => (controller_name == 'people' && @person == current_user ? 'active' : nil)}
+            = link_to 'Profile', person_path(:name => current_user)
       %ul.nav.secondary-nav
         - if logined?
           %li.notifications
@@ -19,8 +22,6 @@
             %a{:href => '#', :class => 'dropdown-toggle'}
               = current_user.name
             %ul.dropdown-menu
-              %li
-                %a{:href => '#'} Profile
               %li
                 = link_to 'Settings', settings_account_path
               %li.divider
