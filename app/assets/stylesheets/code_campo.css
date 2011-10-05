@@ -244,3 +244,5 @@ table.clear-table td {
 #profile .left-side {width: 160px; float: left;}
 #profile .left-side .avatar img {width: 160px; height: 160px;}
 #profile .right-side {float: right; width: 720px;}
+#profile ul.nice-list {list-style: none; margin-left: 9px;}
+#profile ul.nice-list li {line-height: 22px;}

@@ -5,11 +5,18 @@
         .left-side
           .avatar= image_tag @person.gravatar_url(:size => 160)
         .right-side
-          %h1= "#{@person.name}'s Profile"
+          %h1
+            = "#{@person.name}'s Profile"
+            %small
+              - if @person == current_user
+                It's you !
+                = link_to 'Edit', settings_profile_path, :class => 'lbtn notice'
           %dl
-            - if @person.name.present?
+            - if @person.profile.name.present?
               %dt Name
-              %dd= @person.name
+              %dd= @person.profile.name
+            %dt Member Since
+            %dd= l @person.created_at.to_date, :format => :long
             - if @person.profile.url.present?
               %dt Url
               %dd= link_to @person.profile.url, @person.profile.url
@@ -36,3 +43,5 @@
                   %span.time
                     = time_ago_in_words topic.created_at
                     ago.
+          - else
+            have no topic yet.

@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
   include ActiveModel::SecurePassword
   include Gravtastic
   gravtastic :rating => 'G', :size => 48
