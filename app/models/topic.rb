@@ -77,7 +77,7 @@ class Topic
   end
 
   def reply_by(user)
-    unless replied_by? user
+    unless replied_by?(user) || self.user == user
       collection.update({:_id => self.id},
                         {"$addToSet" => {:replier_ids => user.id}})
     end

@@ -58,5 +58,8 @@ class TopicTest < ActiveSupport::TestCase
     assert_equal [user.id], topic.reload.replier_ids
     assert topic.replied_by? user
     assert Topic.reply_by(user).include?(topic)
+
+    topic.reply_by topic.user
+    assert !topic.reload.replied_by?(topic.user)
   end
 end
