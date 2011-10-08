@@ -28,6 +28,7 @@
                     %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to 'Account', settings_account_path
                     %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to 'Password', settings_password_path
                     %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to 'Profile', settings_profile_path
+                    %li{:class => (controller_name == 'favorite_tags' ? 'active' : nil)}= link_to 'Favorite Tags', settings_favorite_tags_path
               .row
                 .span12
                   = yield

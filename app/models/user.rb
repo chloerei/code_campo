@@ -22,7 +22,7 @@ class User
   
   attr_accessor :current_password
   attr_reader :extra_favorite_tag_string
-  attr_accessible :name, :email, :password, :password_confirmation, :current_password
+  attr_accessible :name, :email, :password, :password_confirmation, :current_password, :extra_favorite_tag_string
 
   has_many :topics
   has_many :replies
