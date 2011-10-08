@@ -6,7 +6,7 @@ class TagStringValidator < ActiveModel::EachValidator
   end
 
   def validate_each(record, attribute, value)
-    if value.split(/[,\s]+/).uniq.count > options[:limit]
+    if value.to_s.split(/[,\s]+/).uniq.count > options[:limit]
       record.errors.add(attribute, :tag_string, options)
     end
   end

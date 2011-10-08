@@ -8,6 +8,7 @@ class User
   field :name
   field :email
   field :password_digest
+  field :favorite_tags, :type => Array, :default => []
 
   has_secure_password
 
@@ -17,8 +18,10 @@ class User
   validates :password, :password_confirmation, :presence => true, :on => :create
   validates :password, :length => {:minimum => 6, :allow_nil => true}
   validates :current_password, :current_password => {:fields => [:name, :email, :password]}, :on => :update
+  validates :extra_favorite_tag_string, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
   
   attr_accessor :current_password
+  attr_reader :extra_favorite_tag_string
   attr_accessible :name, :email, :password, :password_confirmation, :current_password
 
   has_many :topics
@@ -26,6 +29,17 @@ class User
   embeds_one :profile
 
   before_create :build_profile
+  after_save :clear_extra_favorite_tag_string
+
+  def extra_favorite_tag_string=(string)
+    self.favorite_tags += string.split(/[,\s]/).uniq
+    self.favorite_tags.uniq!
+    @extra_favorite_tag_string = string
+  end
+
+  def clear_extra_favorite_tag_string
+    @extra_favorite_tag_string = nil
+  end
 
   def to_param
     name

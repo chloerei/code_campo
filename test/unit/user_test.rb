@@ -32,4 +32,17 @@ class UserTest < ActiveSupport::TestCase
     user.current_password = password
     assert user.save
   end
+
+  test "should add favorite tags throw added_favorite_tag_string attribute" do
+    user = Factory :user
+    assert_equal [], user.favorite_tags
+    user.extra_favorite_tag_string = "ruby programing"
+    user.save
+    assert_equal %w(ruby programing), user.favorite_tags
+    assert_nil user.extra_favorite_tag_string
+
+    user.extra_favorite_tag_string = "ruby ruby-on-rails"
+    user.save
+    assert_equal %w(ruby programing ruby-on-rails), user.favorite_tags
+  end
 end
