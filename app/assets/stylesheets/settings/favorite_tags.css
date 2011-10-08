@@ -1,0 +1,11 @@
+/*
+ *= require 'tag_editor'
+ */
+
+.tag-editor {
+  width: 390px;
+}
+
+.tag-editor input {
+  width: 150px;
+}
