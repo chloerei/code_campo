@@ -25,6 +25,6 @@ CodeCampo::Application.routes.draw do
     resource :account, :only => [:show, :update]
     resource :password, :only => [:show, :update]
     resource :profile, :only => [:show, :update]
-    resource :favorite_tags, :only => [:show, :update]
+    resources :favorite_tags, :only => [:index, :create, :destroy]
   end
 end

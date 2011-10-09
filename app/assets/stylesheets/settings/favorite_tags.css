@@ -9,3 +9,27 @@
 .tag-editor input {
   width: 150px;
 }
+
+span.tag {
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 1px 4px;
+  background-color: #AAA;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  margin: 4px 4px 4px 0;
+  display: inline-block;
+  line-height: 16px;
+}
+
+span.delete {
+  margin-left: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #CCC;
+}
+
+span.delete:hover {
+  color: #FFF;
+}

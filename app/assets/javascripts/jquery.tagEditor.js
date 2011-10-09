@@ -33,6 +33,10 @@
       that.extract_tags();
       that.tag_editor.removeClass('focus');
     });
+
+    this._input.parents('form').submit(function(event){
+      that.extract_tags();
+    });
   }
 
   Editor.prototype = {

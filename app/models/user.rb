@@ -31,8 +31,13 @@ class User
   before_create :build_profile
   after_save :clear_extra_favorite_tag_string
 
+  def remove_favorite_tag(tag)
+    collection.update({:_id => self.id},
+                      {"$pull" => {:favorite_tags => tag}})
+  end
+
   def extra_favorite_tag_string=(string)
-    self.favorite_tags += string.split(/[,\s]/).uniq
+    self.favorite_tags += string.split(/[,\s]+/).uniq
     self.favorite_tags.uniq!
     @extra_favorite_tag_string = string
   end
