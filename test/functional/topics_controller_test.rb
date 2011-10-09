@@ -136,4 +136,16 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
     assert assigns(:topics).include?(topic)
   end
+
+  test "shoud get interesting topics" do
+    topic = Factory :topic, :tags => ['ruby']
+    user = Factory :user, :favorite_tags => ['ruby']
+    get :interesting
+    assert_redirected_to login_url
+    
+    login_as user
+    get :interesting
+    assert_response :success, @response.body
+    assert assigns(:topics).include?(topic)
+  end
 end

@@ -42,6 +42,8 @@
             No Topics
       #sidebar.span4
         - if logined?
+          %section.box
+            = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
           %section.profile.box
             .avatar
               = link_avatar_to_person current_user, :size => 64
@@ -50,11 +52,20 @@
               %h3 Rei
           %section.box
             %ul.nice-list
+              %li= link_to_unless (action_name == 'interesting'), 'Interesting', interesting_topics_path
               %li= link_to_unless (action_name == 'marked'), 'Marked', marked_topics_path
               %li= link_to_unless (action_name == 'my'), 'My', my_topics_path
               %li= link_to_unless (action_name == 'replied'), 'Replied', replied_topics_path
           %section.box
-            = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
+            %header
+              %h4
+                Favorite Tags
+                %small= link_to 'settings', settings_favorite_tags_path
+            - if current_user.favorite_tags.any?
+              .tags
+                - current_user.favorite_tags.each do |tag|
+                  = link_to tag, tagged_topics_path(:tag => tag)
+
         - else
           %section.box
             %header

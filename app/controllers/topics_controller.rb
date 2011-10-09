@@ -27,6 +27,11 @@ class TopicsController < ApplicationController
     render :index
   end
 
+  def interesting
+    @topics = Topic.where(:tags.in => current_user.favorite_tags).active.page(params[:page])
+    render :index
+  end
+
   def new
     @topic = Topic.new
   end

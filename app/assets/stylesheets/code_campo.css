@@ -165,9 +165,11 @@ section,
 #mainbar section {
   padding: 14px;
 }
+
 #sidebar section {
   padding: 10px;
 }
+
 section#topics, section#replies {
   padding: 0;
 }
