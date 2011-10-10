@@ -54,7 +54,7 @@ section.box .span16 {
   padding: 20px;
 }
 
-.field_with_errors label.message {
+label.message{
   color: red;
   font-weight: normal;
   display: inline-block;

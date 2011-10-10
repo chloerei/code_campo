@@ -26,6 +26,21 @@ clientSideValidations.validators.local['current_password'] = function(element, o
   }
 }
 
+clientSideValidations.formBuilders['ActionView::Helpers::FormBuilder'] = {
+  add: function(element, settings, message) {
+    if (element.data('valid') !== false && jQuery('label.message[for="' + element.attr('id') + '"]')[0] == undefined) {
+      var error_label = jQuery('<label class="message"></label>').attr('for', element.attr('id'));
+
+      if (element.attr('autofocus')) { element.attr('autofocus', false) };
+      element.after(error_label);
+    }
+    jQuery('label.message[for="' + element.attr('id') + '"]').text(message);
+  },
+  remove: function(element, settings) {
+    jQuery('label[for="' + element.attr('id') + '"].message').remove();
+  }
+}
+
 $(function(){
   $('form[data-validate]').each(function(){
     $(this).find('[id*=_confirmation]').each(function(){
