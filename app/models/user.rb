@@ -37,7 +37,7 @@ class User
   end
 
   def extra_favorite_tag_string=(string)
-    self.favorite_tags += string.to_s.split(/[,\s]+/).uniq
+    self.favorite_tags += string.to_s.downcase.split(/[,\s]+/).uniq
     self.favorite_tags.uniq!
     @extra_favorite_tag_string = string
   end
