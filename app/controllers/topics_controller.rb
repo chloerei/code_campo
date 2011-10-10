@@ -33,7 +33,7 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
+    @topic = Topic.new :tag_string => params[:tag]
   end
 
   def create

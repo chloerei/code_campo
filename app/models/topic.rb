@@ -26,7 +26,7 @@ class Topic
   scope :reply_by, lambda {|user| where(:replier_ids => user.id)}
 
   def tag_string=(string)
-    self.tags = string.split(/[,\s]+/).uniq
+    self.tags = string.to_s.split(/[,\s]+/).uniq
   end
 
   def tag_string

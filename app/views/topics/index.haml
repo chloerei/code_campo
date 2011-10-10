@@ -43,7 +43,10 @@
       #sidebar.span4
         - if logined?
           %section.box
-            = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
+            - if action_name == 'tagged'
+              = link_to 'Create Topic', new_topic_path(:tag => params[:tag]), :class => 'btn primary'
+            - else
+              = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
           %section.profile.box
             .avatar
               = link_avatar_to_person current_user, :size => 64
