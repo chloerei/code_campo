@@ -56,6 +56,16 @@
               %li= link_to_unless (action_name == 'marked'), 'Marked', marked_topics_path
               %li= link_to_unless (action_name == 'my'), 'My', my_topics_path
               %li= link_to_unless (action_name == 'replied'), 'Replied', replied_topics_path
+          - if action_name == 'tagged'
+            %section.box
+              %header
+                %h4
+                  Tagged
+                  = params[:tag]
+              - if current_user.favorite_tags.include? params[:tag]
+                = button_to 'Remove Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :delete, :class => 'btn error'
+              - else
+                = button_to 'Add Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :put, :class => 'btn success'
           %section.box
             %header
               %h4

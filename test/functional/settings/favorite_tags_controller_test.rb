@@ -32,4 +32,14 @@ class Settings::FavoriteTagsControllerTest < ActionController::TestCase
     assert_redirected_to :action => :index
     assert_equal [], current_user.favorite_tags
   end
+
+  test "should add favorite tag" do
+    put :update, :id => 'ruby'
+    assert_redirected_to login_url
+    
+    login_as Factory(:user, :favorite_tags => [])
+    put :update, :id => 'ruby'
+    assert_redirected_to :action => :index
+    assert_equal ['ruby'], current_user.favorite_tags
+  end
 end

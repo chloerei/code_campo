@@ -65,6 +65,10 @@ label.message{
   padding-top: 4px;;
 }
 
+form.button_to {
+  margin: 0;
+}
+
 #main {
   margin-top: 20px;
 }
@@ -120,7 +124,7 @@ table.item-list th + th, table.item-list td + td {
 
 a.lbtn,
 .tags a {
-  line-height: 16px;
+  line-height: 22px;
   color: white;
   font-weight: bold;
   font-size: 11px;
