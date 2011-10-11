@@ -6,8 +6,8 @@
       %ul.nav
         %li{:class => (controller_name == 'homepage' ? 'active' : nil)}
           = link_to 'Home', root_path
-        %li
-          %a{:href => '#'} Resources
+        %li{:class => (controller_name == 'resources' ? 'active' : nil)}
+          = link_to 'Resources', resources_path
         %li{:class => (controller_name == 'topics' ? 'active' : nil)}
           = link_to 'Topics', topics_path
         - if logined?

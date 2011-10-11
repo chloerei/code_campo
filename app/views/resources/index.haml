@@ -1,0 +1,20 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        - if @resources.any?
+          %section#resources.box
+        - else
+          %section.box
+            No Resources
+      #sidebar.span4
+        - if logined?
+          %section.box
+            = link_to 'Submit Resource', new_resource_path, :class => 'btn primary'
+        - else
+          %section.box
+            %header
+              %h4 Join discuss?
+            = link_to 'Signup', signup_path, :class => 'btn'
+            or
+            = link_to 'Login', login_path
