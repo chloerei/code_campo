@@ -113,6 +113,7 @@ GEM
     uglifier (1.0.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    voteable_mongo (0.9.3)
     wmd-rails (0.0.1)
       rails (~> 3.1)
 
@@ -135,4 +136,5 @@ DEPENDENCIES
   therubyracer
   turn
   uglifier
+  voteable_mongo
   wmd-rails

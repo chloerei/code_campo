@@ -7,6 +7,7 @@ gem 'rails', '3.1.1.rc2'
 
 gem 'bcrypt-ruby'
 gem 'mongoid', "~> 2.2"
+gem 'voteable_mongo'
 gem 'bson_ext', "~> 1.3"
 gem 'haml'
 gem 'css-bootstrap-rails'

@@ -2,6 +2,9 @@ class Resource
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::NumberId
+  include Mongo::Voteable
+
+  voteable self, :up => 1, :index => true
 
   field :title
   field :url

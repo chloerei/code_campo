@@ -18,4 +18,16 @@ class ResourcesController < ApplicationController
       render :new
     end
   end
+
+  def vote_up
+    @resource = Resource.number params[:id]
+    current_user.vote(@resource, :up)
+    redirect_referrer_or_default @resource
+  end
+
+  def unvote_up
+    @resource = Resource.number params[:id]
+    current_user.unvote(@resource)
+    redirect_referrer_or_default @resource
+  end
 end

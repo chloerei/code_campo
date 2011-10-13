@@ -25,7 +25,11 @@
                         by
                         = link_to_person resource.user
                     %td
-                      = link_to 'vote', '#', :class => 'lbtn vote'
+                      - if logined? && resource.voted_by?(current_user)
+                        = link_to "vote #{resource.up_votes_count}", vote_up_resource_path(resource), :class => 'lbtn voted', :method => :delete
+                      - else
+                        = link_to_if logined?, "vote #{resource.up_votes_count}", vote_up_resource_path(resource), :class => 'lbtn vote', :method => :put
+          = paginate @resources
         - else
           %section.box
             No Resources
@@ -36,7 +40,7 @@
         - else
           %section.box
             %header
-              %h4 Join discuss?
+              Join to Submit or Vote Resource?
             = link_to 'Signup', signup_path, :class => 'btn'
             or
             = link_to 'Login', login_path

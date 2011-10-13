@@ -182,6 +182,11 @@ section,
   padding: 10px;
 }
 
+#sidebar section header {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
 section#resources,
 section#topics,
 section#replies {
