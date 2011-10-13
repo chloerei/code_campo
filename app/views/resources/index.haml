@@ -4,6 +4,28 @@
       #mainbar.span12
         - if @resources.any?
           %section#resources.box
+            %table.item-list
+              %tbody
+                - @resources.each do |resource|
+                  %tr
+                    %td
+                      %h3
+                        = link_to resource.title, resource.url
+                      .info
+                        %span.domain= resource.host
+                        - if resource.tags.any?
+                          %span.tags
+                            - resource.tags.each do |tag|
+                              = link_to tag, '#'
+                    %td
+                      .time
+                        = time_ago_in_words resource.created_at
+                        ago
+                      .user
+                        by
+                        = link_to_person resource.user
+                    %td
+                      = link_to 'vote', '#', :class => 'lbtn vote'
         - else
           %section.box
             No Resources

@@ -13,6 +13,7 @@ class Resource
 
   validates :title, :url, :presence => true
   validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
+  validates :url, :format => {:with => URI::Parser.new.regexp[:ABS_URI]}
 
   def tag_string=(string)
     self.tags = string.to_s.downcase.split(/[,\s]+/).uniq
@@ -20,5 +21,9 @@ class Resource
 
   def tag_string
     self.tags.to_a.join(', ')
+  end
+
+  def host
+    URI.parse(url).try(:host)
   end
 end

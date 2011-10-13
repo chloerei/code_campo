@@ -99,7 +99,6 @@ table.item-list td h3 {
   line-height: 18px;
 }
 table.item-list td.reply-count a {
-  float: right;
   color: #FFF;
   background-color: #BFBFBF;
   padding: 2px 9px;
@@ -161,6 +160,15 @@ a.lbtn.marked:hover {
   background-color: #BFBFBF;
 }
 
+a.lbtn.vote:hover,
+a.lbtn.voted {
+  background-color: #46A546;
+}
+
+a.lbtn.voted:hover {
+  background-color: #BFBFBF;
+}
+
 section {
   overflow: hidden;
 }
@@ -174,8 +182,19 @@ section,
   padding: 10px;
 }
 
-section#topics, section#replies {
+section#resources,
+section#topics,
+section#replies {
   padding: 0;
+}
+
+section#topics table.item-list td,
+section#resources table.item-list td {
+  vertical-align: middle;
+}
+
+table.item-list td:last-child {
+  text-align: right;
 }
 
 #sidebar section.profile .avatar {
