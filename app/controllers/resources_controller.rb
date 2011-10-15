@@ -1,12 +1,17 @@
 class ResourcesController < ApplicationController
-  before_filter :require_logined, :except => [:index]
+  before_filter :require_logined, :except => [:index, :tagged]
 
   def index
     @resources = Resource.order_by([[:created_at, :desc]]).page(params[:page])
   end
 
+  def tagged
+    @resources = Resource.where(:tags => params[:tag]).order_by([[:created_at, :desc]]).page(params[:page])
+    render :index
+  end
+
   def new
-    @resource = Resource.new
+    @resource = Resource.new :tag_string => params[:tag]
   end
 
   def create

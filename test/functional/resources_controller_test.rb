@@ -6,6 +6,13 @@ class ResourcesControllerTest < ActionController::TestCase
     assert_response :success, @response.body
   end
 
+  test "should get tagged" do
+    resource = Factory :resource, :tags => ['ruby']
+    get :tagged, :tag => 'ruby'
+    assert_response :success, @response.body
+    assert assigns(:resources).include?(resource)
+  end
+
   test "should get new page" do
     get :new
     assert_redirected_to login_url

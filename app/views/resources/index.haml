@@ -1,5 +1,13 @@
 #main
   .container
+    - if action_name != 'index'
+      .row
+        .span16
+          %ul.breadcrumb
+            %li
+              = link_to 'Resources', resources_path
+              %span.divider /
+            %li.active= action_name
     .row
       #mainbar.span12
         - if @resources.any?
@@ -16,7 +24,7 @@
                         - if resource.tags.any?
                           %span.tags
                             - resource.tags.each do |tag|
-                              = link_to tag, '#'
+                              = link_to tag, tagged_resources_path(:tag => tag)
                     %td
                       .time
                         = time_ago_in_words resource.created_at
@@ -36,7 +44,35 @@
       #sidebar.span4
         - if logined?
           %section.box
-            = link_to 'Submit Resource', new_resource_path, :class => 'btn primary'
+            - if action_name == 'tagged'
+              = link_to 'Submit Resource', new_resource_path(:tag => params[:tag]), :class => 'btn primary'
+            - else
+              = link_to 'Submit Resource', new_resource_path, :class => 'btn primary'
+          %section.profile.box
+            .avatar
+              = link_avatar_to_person current_user, :size => 64
+            .info
+              Signed as
+              %h3 Rei
+          - if action_name == 'tagged'
+            %section.box
+              %header
+                %h4
+                  Tagged
+                  = params[:tag]
+              - if current_user.favorite_tags.include? params[:tag]
+                = button_to 'Remove Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :delete, :class => 'btn error'
+              - else
+                = button_to 'Add Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :put, :class => 'btn success'
+          %section.box
+            %header
+              %h4
+                Favorite Tags
+                %small= link_to 'settings', settings_favorite_tags_path
+            - if current_user.favorite_tags.any?
+              .tags
+                - current_user.favorite_tags.each do |tag|
+                  = link_to tag, tagged_resources_path(:tag => tag)
         - else
           %section.box
             %header

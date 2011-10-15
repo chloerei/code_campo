@@ -9,6 +9,9 @@ CodeCampo::Application.routes.draw do
 
   get '~:name', :controller => 'people', :action => 'show', :as => :person
   resources :resources, :only => [:index, :show, :new, :create] do
+    collection do
+      get 'tagged/:tag', :action => 'tagged', :as => :tagged, :constraints  => { :tag => /[^\/]+/ }, :format => false
+    end
     member do
       put :vote_up
       delete :vote_up, :action => :unvote_up
