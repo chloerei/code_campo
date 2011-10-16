@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
 
   def show
     @topics = @person.topics.order_by([[:created_at, :desc]]).page(1).per(5)
+    @resources = @person.resources.order_by([[:created_at, :desc]]).page(1).per(5)
   end
 
   protected

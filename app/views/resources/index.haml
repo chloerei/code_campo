@@ -57,18 +57,16 @@
           - if action_name == 'tagged'
             %section.box
               %header
-                %h4
-                  Tagged
-                  = params[:tag]
+                Tagged
+                = params[:tag]
               - if current_user.favorite_tags.include? params[:tag]
                 = button_to 'Remove Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :delete, :class => 'btn error'
               - else
                 = button_to 'Add Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :put, :class => 'btn success'
           %section.box
             %header
-              %h4
-                Favorite Tags
-                %small= link_to 'settings', settings_favorite_tags_path
+              Favorite Tags
+              %small= link_to 'settings', settings_favorite_tags_path
             - if current_user.favorite_tags.any?
               .tags
                 - current_user.favorite_tags.each do |tag|
