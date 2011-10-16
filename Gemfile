@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1.rc2'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -10,7 +10,7 @@ gem 'mongoid', "~> 2.2"
 gem 'voteable_mongo'
 gem 'bson_ext', "~> 1.3"
 gem 'haml'
-gem 'css-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
 gem 'client_side_validations'
 gem 'kaminari'
 gem 'gravtastic'
@@ -39,7 +39,7 @@ gem 'jquery-rails'
 
 group :test do
   # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'turn', '< 0.8.3'
 end
 
 group :test, :development do
