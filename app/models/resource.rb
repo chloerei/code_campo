@@ -29,4 +29,8 @@ class Resource
   def host
     URI.parse(url).try(:host)
   end
+
+  def relate_resources(count)
+    Resource.any_in(:tags => tags.to_a).limit(count).where(:_id.ne => id)
+  end
 end

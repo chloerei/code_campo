@@ -25,6 +25,8 @@
                           %span.tags
                             - resource.tags.each do |tag|
                               = link_to tag, tagged_resources_path(:tag => tag)
+                          %span.comments
+                            = link_to "comments", resource
                     %td
                       .time
                         = time_ago_in_words resource.created_at

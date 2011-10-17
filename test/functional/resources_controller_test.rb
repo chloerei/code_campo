@@ -13,6 +13,12 @@ class ResourcesControllerTest < ActionController::TestCase
     assert assigns(:resources).include?(resource)
   end
 
+  test "should show resource" do
+    resource = Factory :resource
+    get :show, :id => resource
+    assert_response :success, @response.body
+  end
+
   test "should get new page" do
     get :new
     assert_redirected_to login_url

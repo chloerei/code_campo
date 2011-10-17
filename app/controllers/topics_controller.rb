@@ -48,6 +48,7 @@ class TopicsController < ApplicationController
   def show
     @reply = current_user.replies.new :topic => @topic if logined?
     @replies = @topic.replies.page(params[:page])
+    @relate_topics = @topic.relate_topics(5)
   end
 
   def edit

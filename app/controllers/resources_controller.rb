@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_filter :require_logined, :except => [:index, :tagged]
+  before_filter :require_logined, :except => [:index, :tagged, :show]
 
   def index
     @resources = Resource.order_by([[:created_at, :desc]]).page(params[:page])
@@ -8,6 +8,11 @@ class ResourcesController < ApplicationController
   def tagged
     @resources = Resource.where(:tags => params[:tag]).order_by([[:created_at, :desc]]).page(params[:page])
     render :index
+  end
+
+  def show
+    @resource = Resource.number params[:id]
+    @relate_resources = @resource.relate_resources(5)
   end
 
   def new
