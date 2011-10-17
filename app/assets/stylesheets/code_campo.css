@@ -198,7 +198,7 @@ section#resources table.item-list td {
   vertical-align: middle;
 }
 
-table.item-list td:last-child {
+table.item-list td.last {
   text-align: right;
 }
 
