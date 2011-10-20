@@ -13,6 +13,7 @@ class ResourcesController < ApplicationController
   def show
     @resource = Resource.number params[:id]
     @relate_resources = @resource.relate_resources(5)
+    @comments = @resource.comments
   end
 
   def new

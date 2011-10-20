@@ -19,6 +19,21 @@
                 = link_to "vote #{@resource.up_votes_count}", vote_up_resource_path(@resource), :class => 'lbtn voted', :method => :delete
               - else
                 = link_to_if logined?, "vote #{@resource.up_votes_count}", vote_up_resource_path(@resource), :class => 'lbtn vote', :method => :put
+        - if logined?
+          %section.box
+            %h4 Post Comment
+            = form_for Comment.new, :url => comments_path(:resource_id => @resource) do |f|
+              .clearfix
+                = f.text_area :content, :rows => 5, :class => 'span10'
+              .clearfix
+                = f.submit 'Post', :class => 'btn primary'
+        %section#comments.box
+          - if @comments.any?
+            %ul
+              - @comments.find_all{|comment| comment.parent.nil?}.each do |comment|
+                = render :partial => 'comment', :object => comment
+          - else
+            No comments.
       #sidebar.span4
         %section.box
           %header

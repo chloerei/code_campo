@@ -276,3 +276,54 @@ table.clear-table td {
 #profile .right-side {float: right; width: 720px;}
 #profile ul.nice-list {list-style: none; margin-left: 9px;}
 #profile ul.nice-list li {line-height: 22px;}
+
+#comments ul {
+  list-style: none;
+  margin: 0 0 0 34px;
+}
+
+#comments > ul {
+  margin: 0 0 15px 0;
+}
+
+#comments li {
+  color: #404040;
+}
+
+#comments .avatar {
+  display: table-cell;
+  width: 24px;
+  padding-right: 10px;
+  vertical-align: top;
+}
+
+#comments .avatar img {
+  width: 24px;
+  height: 24px;
+}
+
+#comments .comment {
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+}
+
+#comments .comment .info {
+  margin-bottom: 10px;
+}
+
+#comments .comment .content {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #CCC;
+}
+
+#comments .info {
+  color: gray;
+  font-weight: bold;
+}
+
+#comments .info a {
+  color: gray;
+  font-weight: bold;
+}
