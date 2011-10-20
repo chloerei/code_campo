@@ -9,8 +9,10 @@ class Resource
   field :title
   field :url
   field :tags, :type => Array
+  field :comments_count, :default => 0
 
   belongs_to :user
+  has_many :comments, :dependent => :delete
 
   attr_accessible :title, :url, :tag_string
 
