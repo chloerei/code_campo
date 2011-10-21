@@ -1,3 +1,6 @@
+- content_for :head do
+  = javascript_include_tag 'resources/show'
+
 #main
   .container
     .row
@@ -24,7 +27,7 @@
             %h4 Post Comment
             = form_for Comment.new, :url => comments_path(:resource_id => @resource) do |f|
               .clearfix
-                = f.text_area :content, :rows => 5, :class => 'span10'
+                = f.text_area :content, :rows => 5
               .clearfix
                 = f.submit 'Post', :class => 'btn primary'
         %section#comments.box

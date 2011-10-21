@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment.parent = @parent = Comment.number(params[:parent_id]) if params[:parent_id]
     if @comment.save
       flash[:success] = 'Success Post Comment.'
-      redirect_to @comment.resource
+      redirect_to resource_url(@comment.resource, :anchor => @comment.anchor)
     else
       render :new
     end

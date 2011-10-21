@@ -327,3 +327,11 @@ table.clear-table td {
   color: gray;
   font-weight: bold;
 }
+
+.new_comment textarea {
+  width: 80%;
+}
+
+#comments form .btn {
+  margin-right: 10px;
+}

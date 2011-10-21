@@ -19,4 +19,8 @@ class Comment
   def update_resource
     resource.inc :comments_count, 1
   end
+
+  def anchor
+    "comment-#{number_id}"
+  end
 end
