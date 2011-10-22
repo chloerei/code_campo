@@ -47,4 +47,18 @@ class CommentsControllerTest < ActionController::TestCase
     end
     assert_redirected_to resource_path(comment.resource, :anchor => comment.anchor)
   end
+
+  test "should unvote_up comment" do
+    comment = Factory :comment
+    @user.vote comment, :up
+
+    delete :unvote_up, :id => comment
+    assert_redirected_to login_url
+
+    login_as @user
+    assert_difference "comment.reload.up_votes_count", -1 do
+      delete :unvote_up, :id => comment
+    end
+    assert_redirected_to resource_path(comment.resource, :anchor => comment.anchor)
+  end
 end

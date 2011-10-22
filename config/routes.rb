@@ -20,6 +20,7 @@ CodeCampo::Application.routes.draw do
   resources :comments, :only => [:new, :create] do
     member do
       put :vote_up
+      delete :vote_up, :action => :unvote_up
     end
   end
   resources :topics, :only => [:index, :show, :new, :create, :edit, :update] do

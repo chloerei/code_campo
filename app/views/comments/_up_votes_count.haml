@@ -1,0 +1,8 @@
+%span.up_votes_count
+  - if logined?
+    - if comment.voted_by?(current_user)
+      %span.vote_up= link_to 'Voted', vote_up_comment_path(comment), :method => :delete, :class => 'lbtn success voted', :remote => true
+    - else
+      %span.vote_up= link_to 'Vote up', vote_up_comment_path(comment), :method => :put, :class => 'lbtn vote', :remote => true
+  %span.count= comment.up_votes_count
+  points.

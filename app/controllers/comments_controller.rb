@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :require_logined
-  respond_to :html, :js, :only => :create
+  respond_to :html, :js, :only => [:create, :vote_up]
 
   def new
     @resource = Resource.number params[:resource_id]
@@ -29,6 +29,18 @@ class CommentsController < ApplicationController
   def vote_up
     @comment = Comment.number params[:id]
     current_user.vote(@comment, :up)
-    redirect_to resource_path(@comment.resource, :anchor => @comment.anchor)
+    respond_with(@comment) do |format|
+      format.html { redirect_to resource_path(@comment.resource, :anchor => @comment.anchor) }
+      format.js { render :vote_up, :layout => false }
+    end
+  end
+
+  def unvote_up
+    @comment = Comment.number params[:id]
+    current_user.unvote(@comment)
+    respond_with(@comment) do |format|
+      format.html { redirect_to resource_path(@comment.resource, :anchor => @comment.anchor) }
+      format.js { render :vote_up, :layout => false }
+    end
   end
 end

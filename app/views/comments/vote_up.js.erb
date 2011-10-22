@@ -1,0 +1,4 @@
+(function(){
+  var $comment = $('#' + '<%= @comment.anchor %>');
+  $comment.find('.up_votes_count').replaceWith('<%= escape_javascript(render :partial => 'up_votes_count', :locals => {:comment => @comment}) %>');
+})();
