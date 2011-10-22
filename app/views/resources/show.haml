@@ -31,12 +31,9 @@
               .clearfix
                 = f.submit 'Post', :class => 'btn primary'
         %section#comments.box
-          - if @comments.any?
-            %ul
-              - @comments.find_all{|comment| comment.parent.nil?}.each do |comment|
-                = render :partial => 'comments/comment', :object => comment
-          - else
-            No comments.
+          %ul
+            - @comments.find_all{|comment| comment.parent.nil?}.each do |comment|
+              = render :partial => 'comments/comment', :object => comment
       #sidebar.span4
         %section.box
           %header
