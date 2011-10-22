@@ -9,8 +9,9 @@
       %span.reply= link_to 'reply', new_comment_path(:resource_id => comment.resource, :parent_id => comment)
     .content
       = comment.content
-  - children = @comments.find_all{|c| c.parent == comment}
-  - if children.any?
-    %ul
-      - children.each do |child|
-        = render :partial => 'comment', :object => child
+  - if @comments
+    - children = @comments.find_all{|c| c.parent == comment}
+    - if children.any?
+      %ul
+        - children.each do |child|
+          = render :partial => 'comments/comment', :object => child
