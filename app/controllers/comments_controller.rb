@@ -25,4 +25,10 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def vote_up
+    @comment = Comment.number params[:id]
+    current_user.vote(@comment, :up)
+    redirect_to resource_path(@comment.resource, :anchor => @comment.anchor)
+  end
 end

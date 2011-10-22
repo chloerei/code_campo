@@ -2,6 +2,9 @@ class Comment
   include Mongoid::Document
   include Mongoid::Timestamps::Created
   include Mongoid::NumberId
+  include Mongo::Voteable
+
+  voteable self, :up => 1
 
   field :content
 

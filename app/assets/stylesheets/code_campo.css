@@ -323,11 +323,6 @@ table.clear-table td {
   font-weight: bold;
 }
 
-#comments .info a {
-  color: gray;
-  font-weight: bold;
-}
-
 .new_comment textarea {
   width: 80%;
 }

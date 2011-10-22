@@ -34,4 +34,17 @@ class CommentsControllerTest < ActionController::TestCase
       end
     end
   end
+
+  test "should vote_up comment" do
+    comment = Factory :comment
+
+    put :vote_up, :id => comment
+    assert_redirected_to login_url
+    
+    login_as @user
+    assert_difference "comment.reload.up_votes_count" do
+      put :vote_up, :id => comment
+    end
+    assert_redirected_to resource_path(comment.resource, :anchor => comment.anchor)
+  end
 end

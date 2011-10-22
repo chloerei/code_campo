@@ -13,7 +13,7 @@ class ResourcesController < ApplicationController
   def show
     @resource = Resource.number params[:id]
     @relate_resources = @resource.relate_resources(5)
-    @comments = @resource.comments
+    @comments = @resource.comments.order_by([["votes.point", :desc], [:created_at, :asc]]).to_a
   end
 
   def new
