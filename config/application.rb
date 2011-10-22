@@ -52,7 +52,9 @@ module CodeCampo
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.precompile += %w(wmd-buttons.png editor.js editor.css)
+    config.assets.precompile += %w(wmd-buttons.png)
+    config.assets.precompile += %w(editor.js setttings/favorite_tags.js resources/new.js resources/show.js)
+    config.assets.precompile += %w(editor.css settings/favorite_tags.css)
 
     config.generators do |g|  
       g.test_framework :test_unit, :fixture_replacement => :factory_girl

@@ -1,20 +1,15 @@
 development:
   host: localhost
   database: code_campo_development
+  identity_map_enabled: true
 
 test:
   host: localhost
   database: code_campo_test
+  identity_map_enabled: true
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
-  # slaves:
-  #   - host: slave1.local
-  #     port: 27018
-  #   - host: slave2.local
-  #     port: 27019
+  host: localhost
+  database: code_campo_production
+  identity_map_enabled: true
