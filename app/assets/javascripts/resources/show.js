@@ -5,8 +5,9 @@ $(function(){
     var $comment = $(this).parents('.comment');
     var parent_id = $comment.data('comment-id');
     var form_id = 'new_comment_' + parent_id;
-    if (!$('#' + form_id).length) {
-      var form = $new_comment_form.clone();
+    var form = $('#' + form_id);
+    if (!form.length) {
+      form = $new_comment_form.clone();
       form.find('.alert-message').remove();
       form.attr('id', form_id).attr('action', $new_comment_form.attr('action') + '&parent_id=' + parent_id);
       var cancel_link = $('<a href="#" class="btn">Cancel</a>');
@@ -16,6 +17,8 @@ $(function(){
       });
       form.find(':submit').after(cancel_link);
       form.hide().appendTo($comment).fadeIn('fast', function(){form.find('textarea').focus();});
+    } else {
+      form.find('textarea').focus();
     }
     event.preventDefault();
   });
