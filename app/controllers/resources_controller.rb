@@ -16,6 +16,16 @@ class ResourcesController < ApplicationController
     render :index
   end
 
+  def interesting
+    @resources = Resource.where(:tags.in => current_user.favorite_tags).order_by([[:created_at, :desc]]).page(params[:page])
+    render :index
+  end
+
+  def my
+    @resources = current_user.resources.order_by([[:created_at, :desc]]).page(params[:page])
+    render :index
+  end
+
   def show
     @resource = Resource.number params[:id]
     @relate_resources = @resource.relate_resources(5)

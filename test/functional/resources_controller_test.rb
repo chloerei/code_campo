@@ -26,6 +26,29 @@ class ResourcesControllerTest < ActionController::TestCase
     assert assigns(:resources).include?(resource)
   end
 
+  test "should get my resources" do
+    resource = Factory :resource
+    get :my
+    assert_redirected_to login_url
+
+    login_as resource.user
+    get :my
+    assert_response :success, @response.body
+    assert assigns(:resources).include?(resource)
+  end
+
+  test "should get interesting resources" do
+    resource = Factory :resource, :tags => ['ruby']
+    user = Factory :user, :favorite_tags => ['ruby']
+    get :interesting
+    assert_redirected_to login_url
+
+    login_as user
+    get :interesting
+    assert_response :success, @response.body
+    assert assigns(:resources).include?(resource)
+  end
+
   test "should show resource" do
     resource = Factory :resource
     get :show, :id => resource

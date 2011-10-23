@@ -12,6 +12,8 @@ CodeCampo::Application.routes.draw do
     collection do
       get 'tagged/:tag', :action => 'tagged', :as => :tagged, :constraints  => { :tag => /[^\/]+/ }, :format => false
       get :voted
+      get :my
+      get :interesting
     end
     member do
       put :vote_up

@@ -34,7 +34,9 @@
               %h3 Rei
           %section.box
             %ul.nice-list
+              %li= link_to_unless (action_name == 'interesting'), 'Interesting', interesting_resources_path
               %li= link_to_unless (action_name == 'voted'), 'Voted', voted_resources_path
+              %li= link_to_unless (action_name == 'my'), 'My', my_resources_path
           - if action_name == 'tagged'
             %section.box
               %header
