@@ -15,6 +15,10 @@ html, body {
   text-align: center;
 }
 
+#remote-loader .label.important {
+  cursor: pointer;
+}
+
 .secondary-nav .notifications a {
   font-weight: bold;
   padding: 11px 8px 10px;

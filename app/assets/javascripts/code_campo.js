@@ -9,9 +9,19 @@ $(function(){
   }).live('ajax:success', function() {
     var $loader = $('#remote-loader');
     $loader.html('<span class="label success">Done</span>');
-    setTimeout(function(){$loader.fadeOut()}, 1000);
+    setTimeout(function() {
+      $loader.fadeOut(function(){
+        $(this).remove();
+      });
+    }, 1000);
   }).live('ajax:error', function() {
     var $loader = $('#remote-loader');
-    $loader.html('<span class="label important">Error</span>');
+    var $error = $('<span class="label important">Error</span>');
+    $loader.html($error);
+    $error.click(function() {
+      $loader.fadeOut(function(){
+        $(this).remove();
+      });
+    });
   });
 })
