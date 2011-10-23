@@ -55,7 +55,7 @@
             %h4 Post Reply
             = form_for @reply, :url => replies_path(:topic_id => @topic), :remote => true do |f|
               = render :partial => 'replies/form', :object => f
-              .clearfix= f.submit 'Post', :class => 'btn primary'
+              .clearfix= f.submit 'Post', :class => 'btn primary', :disable_with => 'Posting...'
 
       #sidebar.span4
         %section.box

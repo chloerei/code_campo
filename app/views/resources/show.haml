@@ -26,7 +26,7 @@
               .clearfix
                 = f.text_area :content, :rows => 5
               .clearfix
-                = f.submit 'Post', :class => 'btn primary'
+                = f.submit 'Post', :class => 'btn primary', :disable_with => 'Posting...'
         %section#comments.box
           %ul
             - @comments.find_all{|comment| comment.parent.nil?}.each do |comment|
