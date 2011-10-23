@@ -13,6 +13,19 @@ class ResourcesControllerTest < ActionController::TestCase
     assert assigns(:resources).include?(resource)
   end
 
+  test "should get voted" do
+    resource = Factory :resource
+    get :voted
+    assert_redirected_to login_url
+
+    user = Factory :user
+    user.vote resource, :up
+    login_as user
+    get :voted
+    assert_response :success, @response.body
+    assert assigns(:resources).include?(resource)
+  end
+
   test "should show resource" do
     resource = Factory :resource
     get :show, :id => resource

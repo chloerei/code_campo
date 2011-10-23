@@ -32,6 +32,9 @@
             .info
               Signed as
               %h3 Rei
+          %section.box
+            %ul.nice-list
+              %li= link_to_unless (action_name == 'voted'), 'Voted', voted_resources_path
           - if action_name == 'tagged'
             %section.box
               %header

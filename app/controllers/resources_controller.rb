@@ -11,6 +11,11 @@ class ResourcesController < ApplicationController
     render :index
   end
 
+  def voted
+    @resources = Resource.up_voted_by(current_user).order_by([[:created_at, :desc]]).page(params[:page])
+    render :index
+  end
+
   def show
     @resource = Resource.number params[:id]
     @relate_resources = @resource.relate_resources(5)
