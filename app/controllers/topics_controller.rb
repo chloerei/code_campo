@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
   before_filter :require_logined, :except => [:index, :show, :tagged]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
+  respond_to :html, :js, :only => [:mark]
 
   def index
     @topics = Topic.active.page(params[:page])
@@ -64,12 +65,18 @@ class TopicsController < ApplicationController
 
   def mark
     @topic.mark_by current_user
-    redirect_referrer_or_default @topic
+    respond_with(@topic) do |format|
+      format.html { redirect_referrer_or_default @topic }
+      format.js { render :mark, :layout => false }
+    end
   end
 
   def unmark
     @topic.unmark_by current_user
-    redirect_referrer_or_default @topic
+    respond_with(@topic) do |format|
+      format.html { redirect_referrer_or_default @topic }
+      format.js { render :mark, :layout => false }
+    end
   end
 
   protected

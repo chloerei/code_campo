@@ -8,7 +8,7 @@ class Resource
 
   field :title
   field :url
-  field :tags, :type => Array
+  field :tags, :type => Array, :default => []
   field :comments_count, :default => 0
 
   belongs_to :user
@@ -25,7 +25,7 @@ class Resource
   end
 
   def tag_string
-    self.tags.to_a.join(', ')
+    self.tags.join(', ')
   end
 
   def host
@@ -33,7 +33,7 @@ class Resource
   end
 
   def relate_resources(count)
-    Resource.any_in(:tags => tags.to_a).limit(count).where(:_id.ne => id)
+    Resource.any_in(:tags => tags).limit(count).where(:_id.ne => id)
   end
 
   def anchor

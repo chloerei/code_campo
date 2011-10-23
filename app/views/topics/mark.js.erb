@@ -1,0 +1,4 @@
+(function(){
+  var $topic = $('#' + '<%= @topic.anchor %>');
+  $topic.find('.marks_count').replaceWith('<%= escape_javascript(render :partial => 'marks_count', :locals => {:topic => @topic}) %>');
+})();

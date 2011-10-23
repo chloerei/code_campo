@@ -1,0 +1,21 @@
+%tr{:id => topic.anchor}
+  %td.avatar
+    = link_avatar_to_person(topic.user)
+  %td
+    %h3
+      = link_to topic.title, topic_path(topic, :page => topic.last_page, :anchor => topic.last_anchor)
+    .info
+      - if topic.tags.to_a.any?
+        %span.tags
+          - topic.tags.each do |tag|
+            = link_to tag, tagged_topics_path(:tag => tag)
+      %span.author
+        by
+        = link_to_person(topic.user)
+      %span.time
+        at
+        = time_ago_in_words topic.created_at
+        ago.
+  %td.reply-count.last
+    - if topic.replies_count > 0
+      = link_to topic.replies_count, topic_path(topic, :page => topic.last_page, :anchor => topic.last_anchor)
