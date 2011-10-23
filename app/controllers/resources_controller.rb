@@ -1,5 +1,6 @@
 class ResourcesController < ApplicationController
   before_filter :require_logined, :except => [:index, :tagged, :show]
+  respond_to :html, :js, :only => [:vote_up, :unvote_up]
 
   def index
     @resources = Resource.order_by([[:created_at, :desc]]).page(params[:page])
@@ -33,12 +34,18 @@ class ResourcesController < ApplicationController
   def vote_up
     @resource = Resource.number params[:id]
     current_user.vote(@resource, :up)
-    redirect_referrer_or_default @resource
+    respond_with(@resource) do |format|
+      format.html { redirect_referrer_or_default @resource }
+      format.js { render :vote_up, :layout => false }
+    end
   end
 
   def unvote_up
     @resource = Resource.number params[:id]
     current_user.unvote(@resource)
-    redirect_referrer_or_default @resource
+    respond_with(@resource) do |format|
+      format.html { redirect_referrer_or_default @resource }
+      format.js { render :vote_up, :layout => false }
+    end
   end
 end

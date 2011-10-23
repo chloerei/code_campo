@@ -1,0 +1,21 @@
+%tr{'data-resource-id' => resource.number_id, :id => resource.anchor}
+  %td
+    %h3
+      = link_to resource.title, resource.url
+    .info
+      %span.domain= resource.host
+      - if resource.tags.any?
+        %span.tags
+          - resource.tags.each do |tag|
+            = link_to tag, tagged_resources_path(:tag => tag)
+        %span.comments
+          = link_to "#{resource.comments_count} comments", resource
+  %td
+    .time
+      = time_ago_in_words resource.created_at
+      ago
+    .user
+      by
+      = link_to_person resource.user
+  %td.last
+    = render :partial => 'votes_count', :locals => {:resource => resource}

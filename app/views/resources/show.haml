@@ -13,15 +13,12 @@
     .row
       #mainbar.span12
         %section#resource.box
-          %article
+          %article{:id => @resource.anchor}
             %header
               %h1= @resource.title
               %h2= link_to @resource.url, @resource.url
             %footer
-              - if logined? && @resource.voted_by?(current_user)
-                = link_to "Voted #{@resource.up_votes_count}", vote_up_resource_path(@resource), :class => 'lbtn voted', :method => :delete
-              - else
-                = link_to_if logined?, "Vote #{@resource.up_votes_count}", vote_up_resource_path(@resource), :class => 'lbtn vote', :method => :put
+              = render :partial => 'votes_count', :locals => {:resource => @resource}
         - if logined?
           %section.box
             %h4 Post Comment

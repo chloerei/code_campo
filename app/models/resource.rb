@@ -35,4 +35,8 @@ class Resource
   def relate_resources(count)
     Resource.any_in(:tags => tags.to_a).limit(count).where(:_id.ne => id)
   end
+
+  def anchor
+    "resource-#{number_id}"
+  end
 end
