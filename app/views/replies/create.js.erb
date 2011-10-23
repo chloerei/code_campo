@@ -1,0 +1,8 @@
+(function(){
+  $('<%= escape_javascript(render :partial => 'reply', :object => @reply) %>').hide().appendTo($('#replies table > tbody')).fadeIn('fast');
+  if (history && history.pushState) {
+    history.pushState(null, document.title, "<%= escape_javascript(topic_url @topic, :page => @topic.last_page, :anchor => @topic.last_anchor) %>" );
+  } else {
+    location.hash = "<%= escape_javascript( @topic.last_anchor ) %>"
+  }
+})();

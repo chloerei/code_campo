@@ -2,6 +2,8 @@
   - content_for :head do
     = javascript_include_tag 'editor'
     = stylesheet_link_tag 'editor'
+    = javascript_include_tag 'topics/show'
+
 
 #main
   .container
@@ -43,32 +45,15 @@
             = format_text @topic.content
             %footer
               = render :partial => 'marks_count', :locals => {:topic => @topic}
-        - if @replies.any?
-          %section#replies.box
-            %table.item-list
-              %tbody
-                - @replies.each do |reply|
-                  %tr
-                    %td.avatar= image_tag reply.user.gravatar_url(:size => 48)
-                    %td
-                      %a{:name => reply.anchor}
-                      %article
-                        %header
-                          %span.author
-                            = link_to_person reply.user
-                          %span.time
-                            at
-                            = time_ago_in_words reply.created_at
-                            - if reply.edited?
-                              , edited at
-                              = time_ago_in_words reply.updated_at
-                            ago.
-                        = format_text reply.content
-          = paginate @replies
+        %section#replies.box
+          %table.item-list
+            %tbody
+              = render :partial => 'replies/reply', :collection => @replies
+        = paginate @replies
         - if logined?
           %section#editor.box
             %h4 Post Reply
-            = form_for @reply, :url => replies_path(:topic_id => @topic) do |f|
+            = form_for @reply, :url => replies_path(:topic_id => @topic), :remote => true do |f|
               = render :partial => 'replies/form', :object => f
               .clearfix= f.submit 'Post', :class => 'btn primary'
 

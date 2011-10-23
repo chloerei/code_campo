@@ -1,0 +1,15 @@
+%tr{:id => reply.anchor}
+  %td.avatar= image_tag reply.user.gravatar_url(:size => 48)
+  %td
+    %article
+      %header
+        %span.author
+          = link_to_person reply.user
+        %span.time
+          at
+          = time_ago_in_words reply.created_at
+          - if reply.edited?
+            , edited at
+            = time_ago_in_words reply.updated_at
+          ago.
+      = format_text reply.content
