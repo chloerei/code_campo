@@ -6,6 +6,15 @@ html, body {
   background-color: #EEE;
 }
 
+#remote-loader {
+  position: fixed;
+  left: 50%;
+  top: 45px;
+  margin-left: -40px;
+  width: 80px;
+  text-align: center;
+}
+
 .secondary-nav .notifications a {
   font-weight: bold;
   padding: 11px 8px 10px;
