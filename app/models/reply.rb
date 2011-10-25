@@ -7,10 +7,12 @@ class Reply
 
   belongs_to :user
   belongs_to :topic
+  has_and_belongs_to_many :mentioned_users, :class_name => 'User'
 
   validates :content, :user, :topic, :presence => true
 
-  after_create :update_topic
+  before_save :extract_mentioned_users
+  after_create :update_topic, :send_mention_notification
 
   attr_accessible :content
 
@@ -26,5 +28,18 @@ class Reply
 
   def anchor
     "reply-#{number_id}"
+  end
+
+  def extract_mentioned_users
+    names = content.scan(/@(\w{3,20})(?![.\w])/).flatten
+    if names.any?
+      self.mentioned_users = User.where(:name => /^(#{names.join('|')})$/i).limit(5).to_a
+    end
+  end
+
+  def send_mention_notification
+    mentioned_users.each do |user|
+      Notification::Mention.create :user => user, :reply => self
+    end
   end
 end
