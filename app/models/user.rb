@@ -25,6 +25,11 @@ class User
   attr_reader :extra_favorite_tag_string
   attr_accessible :name, :email, :password, :password_confirmation, :current_password, :extra_favorite_tag_string
 
+  has_many :notifications, :class_name => 'Notification::Base' do
+    def has_unread?
+      unread.count > 0
+    end
+  end
   has_many :resources
   has_many :comments
   has_many :topics

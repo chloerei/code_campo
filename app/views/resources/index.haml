@@ -26,12 +26,7 @@
               = link_to 'Submit Resource', new_resource_path(:tag => params[:tag]), :class => 'btn primary'
             - else
               = link_to 'Submit Resource', new_resource_path, :class => 'btn primary'
-          %section.profile.box
-            .avatar
-              = link_avatar_to_person current_user, :size => 64
-            .info
-              Signed as
-              %h3 Rei
+          = render :partial => 'shared/sidebar_profile'
           %section.box
             %ul.nice-list
               %li= link_to_unless (action_name == 'interesting'), 'Interesting', interesting_resources_path

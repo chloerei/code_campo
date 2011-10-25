@@ -1,0 +1,13 @@
+%tr
+  %td.avatar
+    = link_avatar_to_person notification.reply.user
+  %td
+    %h3
+      = link_to_person notification.reply.user
+      mention you in
+      = link_to notification.reply.topic.title, notification.reply.topic
+      = time_ago_in_words notification.created_at
+      ago.
+    = format_text notification.reply.content[0..100]
+  %td.last
+    = link_to 'delete', '#', :class => 'lbtn delete'

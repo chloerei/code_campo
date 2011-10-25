@@ -4,5 +4,9 @@ class Notification::Base
 
   store_in :notifications
 
+  field :read, :default => false
+
+  scope :unread, where(:read => false)
+
   belongs_to :user
 end

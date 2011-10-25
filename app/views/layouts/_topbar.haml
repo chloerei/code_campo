@@ -15,9 +15,12 @@
             = link_to 'Profile', person_path(:name => current_user)
       %ul.nav.secondary-nav
         - if logined?
-          %li.notifications
-            %a{:href => '#'}
-              %span.count 0
+          - notification_class = []
+          - notification_class << 'unread' if current_user.notifications.has_unread?
+          - notification_class << 'active' if controller_name == 'notifications'
+          %li.notifications{:class => notification_class}
+            = content_tag 'a', :href => notifications_path do
+              %span.count= current_user.notifications.unread.count
           %li.dropdown{'data-dropdown' => 'dropdown'}
             %a{:href => '#', :class => 'dropdown-toggle'}
               = current_user.name

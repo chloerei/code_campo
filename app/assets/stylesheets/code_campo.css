@@ -24,12 +24,22 @@ html, body {
   padding: 11px 8px 10px;
 }
 
+.secondary-nav .notifications a:hover {
+  background: #444;
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .secondary-nav .notifications a .count {
   background-color: #666;
   padding: 2px 6px;
   border-radius: 2px;
   color: #999;
   -moz-border-radius: 2px;
+}
+
+.secondary-nav .notifications.unread a .count {
+  background-color: #C43C35;
+  color: white;
 }
 
 footer div > p {
@@ -182,6 +192,10 @@ a.lbtn.voted:hover {
   background-color: #BFBFBF;
 }
 
+a.lbtn.delete:hover {
+  background-color: #C43C35;
+}
+
 section {
   overflow: hidden;
 }
@@ -200,6 +214,7 @@ section,
   font-weight: bold;
 }
 
+section#notifications,
 section#resources,
 section#topics,
 section#replies {

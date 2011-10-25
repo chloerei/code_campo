@@ -1,0 +1,15 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        - if @notifications.any?
+          %section.box#notifications
+            %table.item-list
+              %tbody
+                - @notifications.each do |notification|
+                  = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
+        - else
+          %section.box
+            No Notifications
+      #sidebar.span4
+        = render :partial => 'shared/sidebar_profile'
