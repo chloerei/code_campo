@@ -8,7 +8,11 @@ CodeCampo::Application.routes.draw do
   resources :user_sessions, :only => [:create]
 
   get '~:name', :controller => 'people', :action => 'show', :as => :person
-  resources :notifications, :only => [:index, :destroy]
+  resources :notifications, :only => [:index, :destroy] do
+    collection do
+      put :mark_all_as_read
+    end
+  end
   resources :resources, :only => [:index, :show, :new, :create] do
     collection do
       get 'tagged/:tag', :action => 'tagged', :as => :tagged, :constraints  => { :tag => /[^\/]+/ }, :format => false

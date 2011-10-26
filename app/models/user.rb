@@ -58,6 +58,24 @@ class User
     name
   end
 
+  def read_notifications(notifications)
+    unread_ids = notifications.find_all{|notification| !notification.read?}.map(&:_id)
+    if unread_ids.any?
+      Notification::Base.where({
+        :user_id => id,
+        :_id.in  => unread_ids,
+        :read    => false
+      }).update_all(:read => true)
+    end
+  end
+
+  def mark_all_notifications_as_read
+    Notification::Base.where({
+      :user_id => id,
+      :read    => false
+    }).update_all(:read => true)
+  end
+
   def remember_token
     [id, Digest::SHA512.hexdigest(password_digest)].join('$')
   end
