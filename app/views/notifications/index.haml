@@ -7,7 +7,10 @@
             %table.item-list
               %tbody
                 - @notifications.each do |notification|
-                  = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
+                  %tr{:id => notification.anchor}
+                    = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
+                    %td.last
+                      = link_to 'delete', notification_path(notification), :class => 'lbtn delete', :method => :delete, :remote => true
         - else
           %section.box
             No Notifications

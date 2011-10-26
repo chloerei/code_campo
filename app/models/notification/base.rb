@@ -9,4 +9,8 @@ class Notification::Base
   scope :unread, where(:read => false)
 
   belongs_to :user
+
+  def anchor
+    "notification-#{id}"
+  end
 end

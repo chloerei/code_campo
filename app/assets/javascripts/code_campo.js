@@ -8,12 +8,12 @@ $(function(){
     $loader.fadeIn();
   }).live('ajax:success', function() {
     var $loader = $('#remote-loader');
-    $loader.html('<span class="label success">Done</span>');
+    $loader.html('<span class="label warning">Done</span>');
     setTimeout(function() {
       $loader.fadeOut(function(){
         $(this).remove();
       });
-    }, 1000);
+    }, 500);
   }).live('ajax:error', function() {
     var $loader = $('#remote-loader');
     var $error = $('<span class="label important">Error</span>');
