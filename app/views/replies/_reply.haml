@@ -1,4 +1,4 @@
-%tr{:id => reply.anchor}
+%tr.reply{:id => reply.anchor}
   %td.avatar= image_tag reply.user.gravatar_url(:size => 48)
   %td
     %article
@@ -12,4 +12,4 @@
             , edited at
             = time_ago_in_words reply.updated_at
           ago.
-      = format_text reply.content
+      = format_text reply.content, :mention_names => reply.mentioned_user_names

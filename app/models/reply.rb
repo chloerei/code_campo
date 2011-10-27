@@ -37,6 +37,10 @@ class Reply
     end
   end
 
+  def mentioned_user_names
+    mentioned_users.map(&:name)
+  end
+
   def send_mention_notification
     mentioned_users.each do |user|
       Notification::Mention.create :user => user, :reply => self
