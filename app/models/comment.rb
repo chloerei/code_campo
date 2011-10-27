@@ -10,7 +10,7 @@ class Comment
 
   belongs_to :user
   belongs_to :resource
-  has_many :children, :class_name => 'Comment', :as => :parent
+  has_many :children, :class_name => 'Comment', :as => :parent, :dependent => :destroy
   belongs_to :parent, :class_name => 'Comment'
 
   validates :content, :user, :resource, :presence => true

@@ -25,15 +25,15 @@ class User
   attr_reader :extra_favorite_tag_string
   attr_accessible :name, :email, :password, :password_confirmation, :current_password, :extra_favorite_tag_string
 
-  has_many :notifications, :class_name => 'Notification::Base' do
+  has_many :notifications, :class_name => 'Notification::Base', :dependent => :delete do
     def has_unread?
       unread.count > 0
     end
   end
-  has_many :resources
-  has_many :comments
-  has_many :topics
-  has_many :replies
+  has_many :resources, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :topics, :dependent => :destroy
+  has_many :replies, :dependent => :delete
   embeds_one :profile
 
   before_create :build_profile

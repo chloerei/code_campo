@@ -12,7 +12,7 @@ class Topic
   field :replier_ids,   :type => Array,   :default => []
 
   belongs_to :user
-  has_many   :replies
+  has_many   :replies, :dependent => :delete
 
   validates :title, :content, :user, :presence => true
   validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
