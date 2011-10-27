@@ -33,7 +33,7 @@ class Reply
   def extract_mentioned_users
     names = content.scan(/@(\w{3,20})(?![.\w])/).flatten
     if names.any?
-      self.mentioned_users = User.where(:name => /^(#{names.join('|')})$/i).limit(5).to_a
+      self.mentioned_users = User.where(:name => /^(#{names.join('|')})$/i, :_id.ne => user.id).limit(5).to_a
     end
   end
 

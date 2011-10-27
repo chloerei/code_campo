@@ -47,5 +47,9 @@ class ReplyTest < ActiveSupport::TestCase
     end
     reply = Factory :reply, :content => names
     assert_equal 5, reply.mentioned_users.count
+
+    # except self
+    reply = Factory :reply, :content => "@#{user.name}", :user => user
+    assert_equal [], reply.mentioned_users
   end
 end
