@@ -50,9 +50,4 @@
                 - current_user.favorite_tags.each do |tag|
                   = link_to tag, tagged_resources_path(:tag => tag)
         - else
-          %section.box
-            %header
-              Join to Submit or Vote Resource?
-            = link_to 'Signup', signup_path, :class => 'btn'
-            or
-            = link_to 'Login', login_path
+          = render :partial => 'shared/sidebar_login'

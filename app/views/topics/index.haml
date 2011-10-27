@@ -52,9 +52,4 @@
                   = link_to tag, tagged_topics_path(:tag => tag)
 
         - else
-          %section.box
-            %header
-              Join discuss?
-            = link_to 'Signup', signup_path, :class => 'btn'
-            or
-            = link_to 'Login', login_path
+          = render :partial => 'shared/sidebar_login'
