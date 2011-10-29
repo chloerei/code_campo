@@ -12,4 +12,6 @@
             , edited at
             = time_ago_in_words reply.updated_at
           ago.
+          - if logined? && reply.user == current_user
+            = link_to 'edit', edit_reply_path(reply), :class => 'lbtn notice'
       = format_text reply.content, :mention_names => reply.mentioned_user_names

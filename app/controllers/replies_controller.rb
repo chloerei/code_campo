@@ -21,6 +21,21 @@ class RepliesController < ApplicationController
     end
   end
 
+  def edit
+    @reply = current_user.replies.number params[:id]
+    @return_to = request.referrer
+  end
+
+  def update
+    @reply = current_user.replies.number params[:id]
+    @return_to = params[:return_to]
+    if @reply.update_attributes params[:reply]
+      redirect_to "#{@return_to}##{@reply.anchor}" || topic_path(@reply.topic, :anchor => @reply.anchor)
+    else
+      render :edit
+    end
+  end
+
   protected
 
   def find_topic
