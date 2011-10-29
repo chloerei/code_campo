@@ -19,7 +19,7 @@
             %dd= l @person.created_at.to_date, :format => :long
             - if @person.profile.url.present?
               %dt Url
-              %dd= link_to @person.profile.url, @person.profile.url
+              %dd= link_to @person.profile.url, @person.profile.url, :rel => 'external nofollow'
             - if @person.profile.description.present?
               %dt Description
               %dd= simple_format @person.profile.description

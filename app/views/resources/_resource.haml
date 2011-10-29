@@ -1,7 +1,7 @@
 %tr{'data-resource-id' => resource.number_id, :id => resource.anchor}
   %td
     %h3
-      = link_to resource.title, resource.url
+      = link_to resource.title, resource.url, :rel => 'external'
     .info
       %span.domain= resource.host
       - if resource.tags.any?
