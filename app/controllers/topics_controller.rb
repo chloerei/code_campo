@@ -1,11 +1,16 @@
 class TopicsController < ApplicationController
-  before_filter :require_logined, :except => [:index, :show, :tagged]
+  before_filter :require_logined, :except => [:index, :show, :tagged, :newest]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
   respond_to :html, :js, :only => [:mark]
 
   def index
     @topics = Topic.active.page(params[:page])
+  end
+
+  def newest
+    @topics = Topic.order_by([[:created_at, :desc]]).page(params[:page])
+    render :index
   end
 
   def my

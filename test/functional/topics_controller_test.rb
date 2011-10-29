@@ -10,6 +10,12 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
   end
 
+  test "should get newest topics" do
+    3.times { Factory :topic }
+    get :newest
+    assert_response :success, @response.body
+  end
+
   test "should get my topics" do
     topic = Factory :topic, :user => @user
     get :my

@@ -6,6 +6,22 @@ html, body {
   background-color: #EEE;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
 #remote-loader {
   position: fixed;
   left: 50%;
@@ -286,6 +302,7 @@ table.clear-table td {
 
 #replies header {
   margin-bottom: 5px;
+  color: gray;
 }
 
 .pagination ul {

@@ -2,16 +2,20 @@
   %td.avatar= image_tag reply.user.gravatar_url(:size => 48)
   %td
     %article
-      %header
-        %span.author
+      %header.clearfix
+        .left
           = link_to_person reply.user
-        %span.time
+          - if reply.user.name != reply.user.profile.name
+            %span= reply.user.profile.name
+        .right
           at
           = time_ago_in_words reply.created_at
           - if reply.edited?
             , edited at
             = time_ago_in_words reply.updated_at
           ago.
-          - if logined? && reply.user == current_user
-            = link_to 'edit', edit_reply_path(reply), :class => 'lbtn notice'
+          - if logined?
+            - if reply.user == current_user
+              = link_to 'edit', edit_reply_path(reply)
+            = link_to '@', '#new_reply', :class => 'at', 'data-user-name' => reply.user.screen_name
       = format_text reply.content, :mention_names => reply.mentioned_user_names

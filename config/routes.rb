@@ -33,6 +33,7 @@ CodeCampo::Application.routes.draw do
   end
   resources :topics, :only => [:index, :show, :new, :create, :edit, :update] do
     collection do
+      get :newest
       get :my
       get :marked
       get :replied

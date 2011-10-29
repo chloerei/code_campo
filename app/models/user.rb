@@ -84,4 +84,8 @@ class User
     user = first :conditions => {:_id => token.split('$').first}
     (user && user.remember_token == token) ? user : nil
   end
+
+  def screen_name
+    profile.name == name ? name : "#{name}(#{profile.name})"
+  end
 end

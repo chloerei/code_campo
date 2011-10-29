@@ -29,6 +29,7 @@
           = render :partial => 'shared/sidebar_profile'
           %section.box
             %ul.nice-list
+              %li= link_to_unless (action_name == 'newest'), 'Newest', newest_topics_path
               %li= link_to_unless (action_name == 'interesting'), 'Interesting', interesting_topics_path
               %li= link_to_unless (action_name == 'marked'), 'Marked', marked_topics_path
               %li= link_to_unless (action_name == 'my'), 'My', my_topics_path
