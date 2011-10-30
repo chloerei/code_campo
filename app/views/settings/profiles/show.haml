@@ -1,18 +1,18 @@
 = form_for current_user.profile, :url => settings_profile_path, :validate => true do |f|
   %fieldset
     .clearfix
-      %label Avatar
+      = f.label :avatar
       .input
         %table.clear-table
           %tbody
             %tr
               %td.avatar= image_tag current_user.gravatar_url(:size => 80)
               %td
-                %p Using Gravatar
+                %p= t '.using_gravatar'
                 %p
-                  = link_to 'Change Email', settings_account_path
+                  = link_to t('.change_email'), settings_account_path
                   = '/'
-                  = link_to 'Go to Gavatar', 'http://www.gravatar.com'
+                  = link_to t('.go_to_gravatar'), 'http://www.gravatar.com', :rel => 'external'
     .clearfix
       = f.label :name
       .input
@@ -26,4 +26,4 @@
       .input
         = f.text_area :description, :rows => 5, :class => 'span8'
     .actions
-      = f.submit :save, :class => 'btn primary'
+      = f.submit t('save'), :class => 'btn primary'

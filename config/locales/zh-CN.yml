@@ -3,15 +3,25 @@ zh-CN:
   login: "登录"
   logout: "退出"
   time_ago: "%{duration}前"
-  edit: '编辑'
+  edit: "编辑"
   submit: "提交"
   update: "更新"
+  save: "保存"
+  add: "添加"
   form_disable_with: "提交中..."
   created_at: "创建于"
   updated_at: "更新于"
-  or: '或者'
+  or: "或者"
+  zh-CN: "中文（简体）"
+  en: "英文"
 
   layouts:
+    settings:
+      settings_title: "%{name} 的设置"
+      account: "账户"
+      password: "密码"
+      profile: "个人资料"
+      favorite_tags: "喜好标签"
     topbar:
       home: "首页"
       resources: "资源"
@@ -29,10 +39,16 @@ zh-CN:
       already_have_account: "已经注册过？"
   user_sessions:
     new:
-      name_or_email: '用户名或邮箱'
-      not_signup_yet: '还未注册？'
-      remember_me: '记住我'
-      password: '密码'
+      name_or_email: "用户名或邮箱"
+      not_signup_yet: "还未注册？"
+      remember_me: "记住我"
+      password: "密码"
+  settings:
+    profiles:
+      show:
+        using_gravatar: "使用 Gravatar"
+        change_email: "修改邮箱"
+        go_to_gravatar: "到 Gravatar"
   resources:
     resource:
       comments_count: "%{count} 评论"
@@ -64,7 +80,7 @@ zh-CN:
     up_votes_count:
       voted: "已投票"
       vote_up: "投票"
-      point: '票'
+      point: "票"
     new:
       resources: "资源"
       submit_comment: "提交评论"
@@ -108,10 +124,18 @@ zh-CN:
   mongoid:
     attributes:
       user:
-        name: '用户名'
-        email: '邮箱'
-        password: '密码'
-        password_confirmation: '密码确认'
+        name: "用户名"
+        email: "邮箱"
+        password: "密码"
+        password_confirmation: "密码确认"
+        locale: "语言"
+        current_password: "当前密码"
+        extra_favorite_tag_string: "添加喜好标签"
+      profile:
+        name: "名称"
+        avatar: "头像"
+        url: "网站"
+        description: "描述"
       resource:
         title: "标题"
         url: "URL"

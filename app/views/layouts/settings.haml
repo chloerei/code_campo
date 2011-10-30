@@ -21,14 +21,15 @@
                     %tr
                       %td.avatar= image_tag current_user.gravatar_url(:size => 36)
                       %td
-                        %h3= "#{current_user.name}'s Settings"
+                        %h3
+                          = t '.settings_title', :name => current_user.name
               .row
                 .span16
                   %ul.tabs
-                    %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to 'Account', settings_account_path
-                    %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to 'Password', settings_password_path
-                    %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to 'Profile', settings_profile_path
-                    %li{:class => (controller_name == 'favorite_tags' ? 'active' : nil)}= link_to 'Favorite Tags', settings_favorite_tags_path
+                    %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to t('.account'), settings_account_path
+                    %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to t('.password'), settings_password_path
+                    %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to t('.profile'), settings_profile_path
+                    %li{:class => (controller_name == 'favorite_tags' ? 'active' : nil)}= link_to t('.favorite_tags'), settings_favorite_tags_path
               .row
                 .span12
                   = yield
