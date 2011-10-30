@@ -4,14 +4,14 @@ class TopicsController < ApplicationController
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
   respond_to :html, :js, :only => [:mark]
-  respond_to :html, :rss, :only => [:newest, :interesting]
+  respond_to :html, :rss, :only => [:newest, :interesting, :tagged]
 
   def index
     @topics = Topic.active.page(params[:page])
   end
 
   def newest
-    respond_with(@topics) do |format|
+    respond_with do |format|
       format.html do
         @topics = Topic.order_by([[:created_at, :desc]]).page(params[:page])
         render :index
@@ -41,12 +41,20 @@ class TopicsController < ApplicationController
   end
 
   def tagged
-    @topics = Topic.where(:tags => params[:tag]).active.page(params[:page])
-    render :index
+    respond_with do |format|
+      format.html do
+        @topics = Topic.where(:tags => params[:tag]).active.page(params[:page])
+        render :index
+      end
+      format.rss do
+        @topics = Topic.where(:tags => params[:tag]).order_by([[:created_at, :desc]]).limit(20)
+        render :index, :layout => false
+      end
+    end
   end
 
   def interesting
-    respond_with(@topics) do |format|
+    respond_with do |format|
       format.html do
         @topics = Topic.where(:tags.in => current_user.favorite_tags).active.page(params[:page])
         render :index

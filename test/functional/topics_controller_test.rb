@@ -144,6 +144,9 @@ class TopicsControllerTest < ActionController::TestCase
     get :tagged, :tag => topic.tags.first
     assert_response :success, @response.body
     assert assigns(:topics).include?(topic)
+
+    get :tagged, :tag => topic.tags.first, :format => :rss
+    assert_response :success, @response.body
   end
 
   test "shoud get interesting topics" do

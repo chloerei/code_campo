@@ -54,7 +54,7 @@
 
         - else
           = render :partial => 'shared/sidebar_login'
-        - if %w(newest interesting).include?(action_name)
+        - if %w(newest interesting tagged).include?(action_name)
           %section.box
             %header Subscribe
             - case action_name
@@ -62,3 +62,5 @@
               = link_to image_tag('rss.png'), newest_topics_path(:format => :rss)
             - when 'interesting'
               = link_to image_tag('rss.png'), interesting_topics_path(:format => :rss, :access_token => current_user.access_token)
+            - when 'tagged'
+              = link_to image_tag('rss.png'), tagged_topics_path(:format => :rss, :tag => params[:tag]) 
