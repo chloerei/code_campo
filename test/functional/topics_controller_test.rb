@@ -14,6 +14,9 @@ class TopicsControllerTest < ActionController::TestCase
     3.times { Factory :topic }
     get :newest
     assert_response :success, @response.body
+
+    get :newest, :format => :rss
+    assert_response :success, @response.body
   end
 
   test "should get my topics" do
@@ -153,5 +156,12 @@ class TopicsControllerTest < ActionController::TestCase
     get :interesting
     assert_response :success, @response.body
     assert assigns(:topics).include?(topic)
+
+    logout
+    get :interesting, :access_token => user.access_token
+    assert_response :success, @response.body
+
+    get :interesting, :access_token => user.access_token, :format => :rss
+    assert_response :success, @response.body
   end
 end

@@ -45,4 +45,17 @@ class UserTest < ActiveSupport::TestCase
     user.save
     assert_equal %w(ruby programing ruby-on-rails), user.favorite_tags
   end
+
+  test "should have access_token, and find user by access_token" do
+    user = Factory :user
+    assert_not_nil user.access_token
+    assert_equal user, User.find_by_access_token(user.access_token)
+    
+    old_token = user.access_token
+    user.reset_access_token
+    assert_not_equal old_token, user.access_token
+    assert_equal user, User.find_by_access_token(user.access_token)
+
+    assert_equal nil, User.find_by_access_token(nil)
+  end
 end

@@ -10,6 +10,7 @@ class User
   field :email
   field :password_digest
   field :favorite_tags, :type => Array, :default => []
+  field :access_token
 
   has_secure_password
 
@@ -36,7 +37,7 @@ class User
   has_many :replies, :dependent => :delete
   embeds_one :profile
 
-  before_create :build_profile
+  before_create :build_profile, :set_access_token
   after_save :clear_extra_favorite_tag_string
 
   def remove_favorite_tag(tag)
@@ -87,5 +88,21 @@ class User
 
   def screen_name
     profile.name == name ? name : "#{name}(#{profile.name})"
+  end
+
+  def set_access_token
+    self.access_token = generate_token
+  end
+
+  def generate_token
+    SecureRandom.hex(32)
+  end
+
+  def reset_access_token
+    update_attribute :access_token, generate_token
+  end
+
+  def self.find_by_access_token(token)
+    first :conditions => {:access_token => token} if token.present?
   end
 end

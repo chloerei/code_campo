@@ -50,6 +50,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def login_from_access_token
+    @current_user ||= User.find_by_access_token(params[:access_token]) if params[:access_token]
+  end
+
   def store_location(path = nil)
     session[:return_to] ||= path || request.fullpath
   end

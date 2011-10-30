@@ -1,19 +1,23 @@
 class TopicsController < ApplicationController
+  before_filter :login_from_access_token, :only => [:interesting]
   before_filter :require_logined, :except => [:index, :show, :tagged, :newest]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
   respond_to :html, :js, :only => [:mark]
-  respond_to :html, :rss, :only => [:newest]
+  respond_to :html, :rss, :only => [:newest, :interesting]
 
   def index
     @topics = Topic.active.page(params[:page])
   end
 
   def newest
-    @topics = Topic.order_by([[:created_at, :desc]]).page(params[:page])
     respond_with(@topics) do |format|
-      format.html { render :index }
+      format.html do
+        @topics = Topic.order_by([[:created_at, :desc]]).page(params[:page])
+        render :index
+      end
       format.rss do
+        @topics = Topic.order_by([[:created_at, :desc]]).limit(20)
         @page_title = 'Newest Topics'
         @channel_link = newest_topics_path
         render :index, :layout => false
@@ -42,8 +46,16 @@ class TopicsController < ApplicationController
   end
 
   def interesting
-    @topics = Topic.where(:tags.in => current_user.favorite_tags).active.page(params[:page])
-    render :index
+    respond_with(@topics) do |format|
+      format.html do
+        @topics = Topic.where(:tags.in => current_user.favorite_tags).active.page(params[:page])
+        render :index
+      end
+      format.rss do
+        @topics = Topic.where(:tags.in => current_user.favorite_tags).order_by([[:created_at, :desc]]).limit(20)
+        render :index, :layout => false
+      end
+    end
   end
 
   def new
