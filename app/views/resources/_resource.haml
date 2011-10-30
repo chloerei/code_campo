@@ -14,7 +14,6 @@
     .time
       = format_time resource.created_at
     .user
-      = t 'by'
       = link_to_person resource.user
   %td.last
     = render :partial => 'resources/votes_count', :locals => {:resource => resource}

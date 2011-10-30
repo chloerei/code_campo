@@ -5,9 +5,13 @@
         .span16
           %ul.breadcrumb
             %li
-              = link_to 'Topics', topics_path
+              = link_to t('.topics'), topics_path
               %span.divider /
-            %li.active= action_name
+            %li.active
+              - if action_name == 'tagged'
+                = t '.tagged', :tag => params[:tag]
+              - else
+                = t ".#{action_name}"
     .row
       #mainbar.span12
         - if @topics.any?
@@ -18,35 +22,34 @@
           = paginate @topics
         - else
           %section.box
-            No Topics
+            = t '.no_topics'
       #sidebar.span4
         - if logined?
           %section.box
             - if action_name == 'tagged'
-              = link_to 'Create Topic', new_topic_path(:tag => params[:tag]), :class => 'btn primary'
+              = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn primary'
             - else
-              = link_to 'Create Topic', new_topic_path, :class => 'btn primary'
+              = link_to t('.create_topic'), new_topic_path, :class => 'btn primary'
           = render :partial => 'shared/sidebar_profile'
           %section.box
             %ul.nice-list
-              %li= link_to_unless (action_name == 'newest'), 'Newest', newest_topics_path
-              %li= link_to_unless (action_name == 'interesting'), 'Interesting', interesting_topics_path
-              %li= link_to_unless (action_name == 'marked'), 'Marked', marked_topics_path
-              %li= link_to_unless (action_name == 'my'), 'My', my_topics_path
-              %li= link_to_unless (action_name == 'replied'), 'Replied', replied_topics_path
+              %li= link_to_unless (action_name == 'newest'), t('.newest'), newest_topics_path
+              %li= link_to_unless (action_name == 'interesting'), t('.interesting'), interesting_topics_path
+              %li= link_to_unless (action_name == 'marked'), t('.marked'), marked_topics_path
+              %li= link_to_unless (action_name == 'my'), t('.my'), my_topics_path
+              %li= link_to_unless (action_name == 'replied'), t('.replied'), replied_topics_path
           - if action_name == 'tagged'
             %section.box
               %header
-                Tagged
-                = params[:tag]
+                = t '.tagged', :tag => params[:tag]
               - if current_user.favorite_tags.include? params[:tag]
-                = button_to 'Remove Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :delete, :class => 'btn error'
+                = button_to t('.remove_favorite'), settings_favorite_tag_path(:id => params[:tag]), :method => :delete, :class => 'btn error'
               - else
-                = button_to 'Add Favorite', settings_favorite_tag_path(:id => params[:tag]), :method => :put, :class => 'btn success'
+                = button_to t('.add_favorite'), settings_favorite_tag_path(:id => params[:tag]), :method => :put, :class => 'btn success'
           %section.box
             %header
-              Favorite Tags
-              = link_to 'settings', settings_favorite_tags_path
+              = t('.favorite_tags')
+              = link_to t('.settings'), settings_favorite_tags_path
             - if current_user.favorite_tags.any?
               .tags
                 - current_user.favorite_tags.each do |tag|

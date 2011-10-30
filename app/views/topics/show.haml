@@ -11,7 +11,7 @@
       .span16
         %ul.breadcrumb
           %li
-            = link_to 'Topics', topics_path
+            = link_to t('.topics'), topics_path
             %span.divider /
           %li.active= @topic.title
     .row
@@ -29,17 +29,15 @@
                           - @topic.tags.each do |tag|
                             = link_to tag, tagged_topics_path(:tag => tag)
                       %span.author
-                        by
                         = link_to_person @topic.user
                       %span.time
-                        create at
-                        = time_ago_in_words @topic.created_at
+                        = t('created_at')
+                        = format_time @topic.created_at
                         - if @topic.edited?
-                          , edited at
-                          = time_ago_in_words @topic.updated_at
-                        ago.
+                          = t('updated_at')
+                          = format_time @topic.updated_at
                       - if logined? && current_user == @topic.user
-                        = link_to 'Edit', edit_topic_path(@topic), :class => 'lbtn notice'
+                        = link_to t('edit'), edit_topic_path(@topic), :class => 'lbtn notice'
                     %td.avatar
                       = image_tag @topic.user.gravatar_url(:size => 72)
             = format_text @topic.content
@@ -52,19 +50,19 @@
         = paginate @replies
         - if logined?
           %section#editor.box
-            %h4 Post Reply
+            %h4= t('.post_reply')
             = form_for @reply, :url => replies_path(:topic_id => @topic), :remote => true do |f|
               = render :partial => 'replies/form', :object => f
-              .clearfix= f.submit 'Post', :class => 'btn primary', :disable_with => 'Posting...'
+              .clearfix= f.submit t('submit'), :class => 'btn primary', :disable_with => t('form_disable_with')
 
       #sidebar.span4
         %section.box
           %header
-            Relate Topics
+            = t('.relate_topics')
           .content
             - if @relate_topics.any?
               %ul.nice-list
                 - @relate_topics.each do |topic|
                   %li= link_to topic.title, topic
             - else
-              no relate topics.
+              = t('.no_relate_topics')

@@ -1,8 +1,8 @@
 .clearfix
-  = form.text_field :title
+  = form.text_field :title, :validate => false
 .clearfix
   #editor-button-bar
-  = form.text_area :content, :id => 'editor-input', :rows => 20
+  = form.text_area :content, :id => 'editor-input', :rows => 20, :validate => false
   #editor-preview
 .clearfix
   = form.text_field :tag_string

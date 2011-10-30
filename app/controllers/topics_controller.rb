@@ -108,7 +108,7 @@ class TopicsController < ApplicationController
     @topic.unmark_by current_user
     respond_with(@topic) do |format|
       format.html { redirect_referrer_or_default @topic }
-      format.js { render :layout => false }
+      format.js { render :mark, :layout => false }
     end
   end
 

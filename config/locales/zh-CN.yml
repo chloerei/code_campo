@@ -3,9 +3,12 @@ zh-CN:
   login: "登录"
   logout: "退出"
   time_ago: "%{duration}前"
-  by: "由"
+  edit: '编辑'
   submit: "提交"
+  update: "更新"
   form_disable_with: "提交中..."
+  created_at: "创建于"
+  updated_at: "更新于"
 
   layouts:
     topbar:
@@ -57,6 +60,40 @@ zh-CN:
       submit_comment: "提交评论"
       reply_to: "回复"
       new_comment: "新评论"
+  topics:
+    marks_count:
+      marked: "已收藏"
+      mark: "收藏"
+      marker_count: "%{count}人收藏"
+    index:
+      topics: "话题"
+      newest: "最新"
+      interesting: "喜好"
+      marked: "收藏"
+      my: "我的话题"
+      tagged: "标记为：%{tag}"
+      replied: "回复过"
+      no_topics: "没有话题"
+      favorite_tags: "喜好标签"
+      settings: "设置"
+      create_topic: "创建话题"
+      add_favorite: "添加为喜好"
+      remove_favorite: "从喜好中移除"
+    show:
+      topics: "话题"
+      post_reply: "回复话题？"
+      relate_topics: "相关话题"
+      no_relate_topics: "没有相关话题"
+    new:
+      topics: "话题"
+      create_topic: "创建话题"
+  replies:
+    edit:
+      topics: "话题"
+      edit_reply: "编辑回复"
+    new:
+      topics: "话题"
+      new_reply: "新回复"
 
   mongoid:
     attributes:
@@ -64,6 +101,14 @@ zh-CN:
         title: "标题"
         url: "URL"
         tag_string: "标签"
+      comment:
+        content: "内容"
+      topic:
+        title: "标题"
+        content: "内容"
+        tag_string: "标签"
+      reply:
+        content: "内容"
   errors:
     messages:
       tag_string: "Tag 不能超过%{limit}个"

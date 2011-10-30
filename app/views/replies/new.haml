@@ -8,15 +8,17 @@
       .span16
         %ul.breadcrumb
           %li
-            = link_to 'Topics', topics_path
+            = link_to t('.topics'), topics_path
             %span.divider /
           %li
             = link_to @topic.title, @topic
             %span.divider /
-          %li.active Post Reply
+          %li.active= t('.new_reply')
     .row
       #mainbar.span12
         %section#editor.box
           = form_for @reply, :url => replies_path(:topic_id => @topic) do |f|
             = render :partial => 'form', :object => f
-            .clearfix= f.submit 'Post', :class => 'btn primary'
+            .clearfix= f.submit t('submit'), :class => 'btn primary'
+      #sidebar.span4
+        = render :partial => 'shared/sidebar_profile'

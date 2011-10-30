@@ -8,14 +8,12 @@
           - if reply.user.name != reply.user.profile.name
             %span= reply.user.profile.name
         .right
-          at
-          = time_ago_in_words reply.created_at
+          = format_time reply.created_at
           - if reply.edited?
-            , edited at
-            = time_ago_in_words reply.updated_at
-          ago.
+            = t('updated_at')
+            = format_time reply.updated_at
           - if logined?
             - if reply.user == current_user
-              = link_to 'edit', edit_reply_path(reply)
+              = link_to t('edit'), edit_reply_path(reply)
             = link_to '@', '#new_reply', :class => 'at', 'data-user-name' => reply.user.screen_name
       = format_text reply.content, :mention_names => reply.mentioned_user_names

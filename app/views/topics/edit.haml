@@ -8,14 +8,19 @@
       .span16
         %ul.breadcrumb
           %li
-            = link_to 'Topics', topics_path
+            = link_to t('.topics'), topics_path
+            %span.divider /
+          %li
+            = link_to @topic.title, @topic
             %span.divider /
           %li.active
-            Edit :
-            = link_to @topic.title, @topic
+            = t('edit')
+
     .row
       #mainbar.span12
         %section#editor.box
           = form_for @topic, :validate => true do |f|
             = render :partial => 'form', :object => f
-            .clearfix= f.submit 'Update', :class => 'btn primary'
+            .clearfix= f.submit t('update'), :class => 'btn primary'
+      #sidebar.span4
+        = render :partial => 'shared/sidebar_profile'
