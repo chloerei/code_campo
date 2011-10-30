@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
   respond_to :html, :js, :only => [:mark]
+  respond_to :html, :rss, :only => [:newest]
 
   def index
     @topics = Topic.active.page(params[:page])
@@ -10,7 +11,14 @@ class TopicsController < ApplicationController
 
   def newest
     @topics = Topic.order_by([[:created_at, :desc]]).page(params[:page])
-    render :index
+    respond_with(@topics) do |format|
+      format.html { render :index }
+      format.rss do
+        @page_title = 'Newest Topics'
+        @channel_link = newest_topics_path
+        render :index, :layout => false
+      end
+    end
   end
 
   def my
@@ -72,7 +80,7 @@ class TopicsController < ApplicationController
     @topic.mark_by current_user
     respond_with(@topic) do |format|
       format.html { redirect_referrer_or_default @topic }
-      format.js { render :mark, :layout => false }
+      format.js { render :layout => false }
     end
   end
 
@@ -80,7 +88,7 @@ class TopicsController < ApplicationController
     @topic.unmark_by current_user
     respond_with(@topic) do |format|
       format.html { redirect_referrer_or_default @topic }
-      format.js { render :mark, :layout => false }
+      format.js { render :layout => false }
     end
   end
 
