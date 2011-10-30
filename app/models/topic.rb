@@ -15,7 +15,7 @@ class Topic
   has_many   :replies, :dependent => :delete
 
   validates :title, :content, :user, :presence => true
-  validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
+  validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => I18n.t("errors.no_allow_slash"), :allow_blank => true}
 
   before_create :set_actived_at
 

@@ -17,11 +17,11 @@ class User
 
   validates :name, :email, :presence => true, :uniqueness => {:case_sensitive => false}
   validates :name, :format => {:with => /\A\w+\z/, :message => 'only A-Z, a-z, _ allowed'}, :length => {:in => 3..20}
-  validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, :message => 'Invalid Email address'}
+  validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/}
   validates :password, :password_confirmation, :presence => true, :on => :create
   validates :password, :length => {:minimum => 6, :allow_nil => true}
   validates :current_password, :current_password => {:fields => [:name, :email, :password]}, :on => :update
-  validates :extra_favorite_tag_string, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
+  validates :extra_favorite_tag_string, :format => { :with => /\A[^\/]+\z/, :message => I18n.t("errors.no_allow_slash"), :allow_blank => true}
   validates :locale, :inclusion => {:in => AllowLocale}
   
   attr_accessor :current_password

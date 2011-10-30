@@ -17,7 +17,7 @@ class Resource
   attr_accessible :title, :url, :tag_string
 
   validates :title, :url, :presence => true
-  validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
+  validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => I18n.t("errors.no_allow_slash"), :allow_blank => true}
   validates :url, :format => {:with => URI::Parser.new.regexp[:ABS_URI]}
 
   def tag_string=(string)
