@@ -1,7 +1,159 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
+  signup: "Signup"
+  login: "Login"
+  logout: "Logout"
+  time_ago: "%{duration} ago"
+  edit: "Edit"
+  submit: "Submit"
+  update: "Update"
+  save: "Save"
+  add: "Add"
+  form_disable_with: "Posting..."
+  created_at: "Created at"
+  updated_at: "Updated at"
+  or: "or"
+  zh-CN: "Chinese(Simplified)"
+  en: "English"
+
+  layouts:
+    settings:
+      settings_title: "%{name}'s Settings"
+      account: "Account"
+      password: "Password"
+      profile: "Profile"
+      favorite_tags: "Favorite Tags"
+    topbar:
+      home: "Home"
+      resources: "Resources"
+      topics: "Topics"
+      profiles: "Profile"
+      settings: "Settings"
+  shared:
+    sidebar_login:
+      header: "Submit Resource?"
+      or: "or"
+    sidebar_profile:
+      signed_as: "Signed As"
+  pagination:
+    truncate: "..."
+    next: "Next"
+    previous: "Prev"
+    
+  users:
+    new:
+      already_have_account: "Already Signup?"
+  user_sessions:
+    new:
+      name_or_email: "Name or Email"
+      not_signup_yet: "Not Signup yet?"
+      remember_me: "Remember Me"
+      password: "Password"
+  settings:
+    profiles:
+      show:
+        using_gravatar: "Using Gravatar"
+        change_email: "Change Email"
+        go_to_gravatar: "Go to Gravatar"
+  resources:
+    resource:
+      comments_count: "%{count} comments"
+    votes_count:
+      votes_count: "%{count} points"
+    index:
+      resources: "Resources"
+      interesting: "Interesting"
+      voted: "Voted"
+      my: "My Resources"
+      tagged: "Tagged: %{tag}"
+      no_resources: "No Resources"
+      favorite_tags: "Favorite Tags"
+      settings: "Settings"
+      submit_resource: "Submit Resource"
+      add_favorite: "Add Favorite"
+      remove_favorite: "Remove Favorite"
+    new:
+      resources: "Resources"
+      submit_resource: "Submit Resource"
+    show:
+      resources: "Resources"
+      submit_comment: "Submit Comment?"
+      relate_resources: "Relate Resources"
+      no_relate_resources: "No Relate Resources"
+  comments:
+    comment:
+      reply: "Reply"
+    up_votes_count:
+      voted: "Voted"
+      vote_up: "Vote UP"
+      point: "Point"
+    new:
+      resources: "Resources"
+      submit_comment: "Submit Comment"
+      reply_to: "Reply to"
+      new_comment: "New Comment"
+  topics:
+    marks_count:
+      marked: "Marked"
+      mark: "Mark"
+      marker_count: "%{count} people marked"
+    index:
+      topics: "Topics"
+      newest: "Newest"
+      interesting: "Interesting"
+      marked: "Marked"
+      my: "My Topics"
+      tagged: "Tagged: %{tag}"
+      replied: "Replied"
+      no_topics: "No Topics"
+      favorite_tags: "Favorite Tags"
+      settings: "Settings"
+      create_topic: "Create Topic"
+      add_favorite: "Add Favorite"
+      remove_favorite: "Remove Favorite"
+    show:
+      topics: "Topics"
+      post_reply: "Post Reply?"
+      relate_topics: "Relate Topics"
+      no_relate_topics: "No Relate Topics"
+    new:
+      topics: "Topics"
+      create_topic: "Create Topic"
+  replies:
+    edit:
+      topics: "Topics"
+      edit_reply: "Edit Reply"
+    new:
+      topics: "Topics"
+      new_reply: "New Reply"
+
+  mongoid:
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        locale: "Locale"
+        current_password: "Current Password"
+        extra_favorite_tag_string: "Extra Tags"
+      profile:
+        name: "Name"
+        avatar: "Avatar"
+        url: "Url"
+        description: "Description"
+      resource:
+        title: "Title"
+        url: "URL"
+        tag_string: "Tags"
+      comment:
+        content: "Content"
+      topic:
+        title: "Title"
+        content: "Content"
+        tag_string: "Tags"
+      reply:
+        content: "Content"
   errors:
+    no_allow_slash: "No Allow Slash"
     messages:
-      tag_string: "can't more than %{limit} tags"
+      tag_string: "Limit %{limit} Tags"
