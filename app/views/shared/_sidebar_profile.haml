@@ -2,5 +2,5 @@
   .avatar
     = link_avatar_to_person current_user, :size => 64
   .info
-    Signed as
+    = t '.signed_as'
     %h3= current_user.name

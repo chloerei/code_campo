@@ -1,0 +1,69 @@
+zh-CN:
+  signup: "注册"
+  login: "登录"
+  logout: "退出"
+  time_ago: "%{duration}前"
+  by: "由"
+  submit: "提交"
+  form_disable_with: "提交中..."
+
+  layouts:
+    topbar:
+      home: "首页"
+      resources: "资源"
+      topics: "主题"
+      profiles: "个人资料"
+      settings: "设置"
+  shared:
+    sidebar_login:
+      header: "想要提交资源？"
+      or: "或者"
+    sidebar_profile:
+      signed_as: "登录为"
+  resources:
+    resource:
+      comments_count: "%{count} 评论"
+    votes_count:
+      votes_count: "%{count} 票"
+    index:
+      resources: "资源"
+      interesting: "喜好"
+      voted: "已投票"
+      my: "我的资源"
+      tagged: "标记为：%{tag}"
+      no_resources: "没有资源"
+      favorite_tags: "喜好标签"
+      settings: "设置"
+      submit_resource: "提交资源"
+      add_favorite: "添加为喜好"
+      remove_favorite: "从喜好中移除"
+    new:
+      resources: "资源"
+      submit_resource: "提交资源"
+    show:
+      resources: "资源"
+      submit_comment: "提交评论？"
+      relate_resources: "相关资源"
+      no_relate_resources: "没有相关资源"
+  comments:
+    comment:
+      reply: "回复"
+    up_votes_count:
+      voted: "已投票"
+      vote_up: "投票"
+      point: '票'
+    new:
+      resources: "资源"
+      submit_comment: "提交评论"
+      reply_to: "回复"
+      new_comment: "新评论"
+
+  mongoid:
+    attributes:
+      resource:
+        title: "标题"
+        url: "URL"
+        tag_string: "标签"
+  errors:
+    messages:
+      tag_string: "Tag 不能超过%{limit}个"

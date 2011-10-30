@@ -30,4 +30,8 @@ module ApplicationHelper
     options[:size] ||= 48
     link_to image_tag(user.gravatar_url(:size => options[:size])), person_path(:name => user)
   end
+
+  def format_time(time)
+    t 'time_ago', :duration => time_ago_in_words(time)
+  end
 end

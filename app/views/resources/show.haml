@@ -7,7 +7,7 @@
       .span16
         %ul.breadcrumb
           %li
-            = link_to 'Resources', resources_path
+            = link_to t('.resources'), resources_path
             %span.divider /
           %li.active= @resource.title
     .row
@@ -21,12 +21,12 @@
               = render :partial => 'votes_count', :locals => {:resource => @resource}
         - if logined?
           %section.box
-            %h4 Post Comment
+            %h4= t('.submit_comment')
             = form_for Comment.new, :url => comments_path(:resource_id => @resource), :remote => true do |f|
               .clearfix
                 = f.text_area :content, :rows => 5
               .clearfix
-                = f.submit 'Post', :class => 'btn primary', :disable_with => 'Posting...'
+                = f.submit t('submit'), :class => 'btn primary', :disable_with => t('form_disable_with')
         %section#comments.box
           %ul
             - @comments.find_all{|comment| comment.parent.nil?}.each do |comment|
@@ -34,11 +34,11 @@
       #sidebar.span4
         %section.box
           %header
-            Relate Resources
+            = t '.relate_resources'
           .content
             - if @relate_resources.any?
               %ul.nice-list
                 - @relate_resources.each do |resource|
                   %li= link_to resource.title, resource
             - else
-              no relate resources.
+              = t '.no_relate_resources'

@@ -4,23 +4,24 @@
       .span16
         %ul.breadcrumb
           %li
-            = link_to 'Resources', resources_path
+            = link_to t('.resources'), resources_path
             %span.divider /
           %li
             = link_to @resource.title, @resource
             %span.divider /
-          %li.active Post Comment
+          %li.active= t('.submit_comment')
     .row
       #mainbar.span12
         %section.box
           - if @parent.present?
-            %h4 Reply to
+            %h4= t('.reply_to')
             %blockquote= @parent.content
           - else
-            %h4 New Comment
+            %h4= t('.new_commnet')
           = form_for Comment.new, :url => comments_path(:resource_id => @resource, :parent_id => @parent) do |f|
             .clearfix
               = f.text_area :content, :rows => 5, :class => 'span10'
             .clearfix
-              = f.submit 'Post', :class => 'btn primary'
+              = f.submit t('submit'), :class => 'btn primary'
       #sidebar.span4
+        = render :partial => 'shared/sidebar_profile'

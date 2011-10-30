@@ -8,9 +8,9 @@
       .span16
         %ul.breadcrumb
           %li
-            = link_to 'Resource', resources_path
+            = link_to t('.resources'), resources_path
             %span.divider /
-          %li.active Submit Resource
+          %li.active= t('.submit_resource')
     .row
       #mainbar.span12
         %section.box
@@ -25,4 +25,4 @@
               = f.label :tag_string
               = f.text_field :tag_string, :class => 'span11'
             .actions
-              = f.submit 'Submit', :class => 'btn primary'
+              = f.submit t('submit'), :class => 'btn primary'

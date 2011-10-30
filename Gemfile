@@ -17,6 +17,7 @@ gem 'gravtastic'
 gem 'wmd-rails'
 gem 'redcarpet', "~> 2.0.0b5"
 gem 'http_accept_language'
+gem 'rails-i18n'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,5 @@
 .votes_count
   - if logined? && resource.voted_by?(current_user)
-    = link_to "vote #{resource.up_votes_count}", vote_up_resource_path(resource), :class => 'lbtn voted', :method => :delete, :remote => true
+    = link_to t('.votes_count', :count => resource.up_votes_count), vote_up_resource_path(resource), :class => 'lbtn voted', :method => :delete, :remote => true
   - else
-    = link_to_if logined?, "vote #{resource.up_votes_count}", vote_up_resource_path(resource), :class => 'lbtn vote', :method => :put, :remote => true
+    = link_to_if logined?, t('.votes_count', :count => resource.up_votes_count), vote_up_resource_path(resource), :class => 'lbtn vote', :method => :put, :remote => true

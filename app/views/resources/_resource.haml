@@ -9,13 +9,12 @@
           - resource.tags.each do |tag|
             = link_to tag, tagged_resources_path(:tag => tag)
         %span.comments
-          = link_to "#{resource.comments_count} comments", resource
+          = link_to t('.comments_count', :count => resource.comments_count), resource
   %td
     .time
-      = time_ago_in_words resource.created_at
-      ago
+      = format_time resource.created_at
     .user
-      by
+      = t 'by'
       = link_to_person resource.user
   %td.last
     = render :partial => 'resources/votes_count', :locals => {:resource => resource}

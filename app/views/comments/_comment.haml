@@ -4,11 +4,10 @@
     .info
       %span.author= link_to_person comment.user
       %span.time
-        = time_ago_in_words comment.created_at
-        ago.
+        = format_time comment.created_at
       = render :partial => 'comments/up_votes_count', :locals => {:comment => comment}
       - if logined?
-        %span.reply= link_to 'Reply', new_comment_path(:resource_id => comment.resource, :parent_id => comment)
+        %span.reply= link_to t('.reply'), new_comment_path(:resource_id => comment.resource, :parent_id => comment)
     .content
       = comment.content
   - if @comments

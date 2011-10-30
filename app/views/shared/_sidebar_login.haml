@@ -1,6 +1,6 @@
 %section.box
   %header
-    Join to Submit or Vote Resource?
-  = link_to 'Signup', signup_path, :class => 'btn'
-  or
-  = link_to 'Login', login_path
+    = t '.header'
+  = link_to t('signup'), signup_path, :class => 'btn success'
+  = t '.or'
+  = link_to t('login'), login_path, :class => 'btn'
