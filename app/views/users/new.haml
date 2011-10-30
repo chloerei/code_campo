@@ -3,7 +3,7 @@
     #signup-form.box
       = form_for @user, :url => users_path, :validate => true, :html => {:class => 'form-stacked'} do |f|
         %fieldset
-          %legend Signup
+          %legend= t('signup')
           .clearfix
             = f.label :name
             = f.text_field :name, :class => 'span6', :tabIndex => 1
@@ -17,6 +17,6 @@
             = f.label :password_confirmation
             = f.password_field :password_confirmation, :class => 'span6', :tabIndex => 4
           .actions
-            = f.submit 'Signup', :class => 'btn primary', :tabIndex => 5
-            or
-            = link_to 'already have account?', login_path
+            = f.submit t('signup'), :class => 'btn primary', :tabIndex => 5
+            = t 'or'
+            = link_to t('.already_have_account'), login_path

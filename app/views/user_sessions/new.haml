@@ -3,13 +3,13 @@
     #login-form.box
       = form_tag user_sessions_path, :class => 'form-stacked' do
         %fieldset
-          %legend Login
+          %legend= t 'login'
           .clearfix
-            = label_tag :login, 'Name or Email'
+            = label_tag :login, t('.name_or_email')
             .input
               = text_field_tag :login, nil, :class => 'span6', :tabIndex => 1
           .clearfix
-            = label_tag :password
+            = label_tag :password, t('.password')
             .input
               = password_field_tag :password, nil, :class => 'span6', :tabIndex => 2
           .clearfix
@@ -18,8 +18,8 @@
                 %li
                   %label
                     = check_box_tag :remember_me, 'yes', false, :tabIndex => 3
-                    %span Remember Me
+                    %span= t '.remember_me'
           .actions
-            = submit_tag 'Login', :class => 'btn primary', :tabIndex => 4
-            or
-            = link_to 'not signup yet?', signup_path
+            = submit_tag t('login'), :class => 'btn primary', :tabIndex => 4
+            = t 'or'
+            = link_to t('.not_signup_yet'), signup_path
