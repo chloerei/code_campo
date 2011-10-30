@@ -9,6 +9,10 @@
       .input
         = f.text_field :email
     .clearfix
+      = f.label :locale
+      .input
+        = f.select :locale, AllowLocale.map{|locale| [t(locale), locale]}
+    .clearfix
       = f.label :current_password
       .input
         = f.password_field :current_password

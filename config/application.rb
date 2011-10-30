@@ -63,3 +63,5 @@ module CodeCampo
     end
   end
 end
+
+AllowLocale = %w(zh-CN en)

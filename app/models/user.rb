@@ -11,6 +11,7 @@ class User
   field :password_digest
   field :favorite_tags, :type => Array, :default => []
   field :access_token
+  field :locale, :default => I18n.locale.to_s
 
   has_secure_password
 
@@ -21,10 +22,11 @@ class User
   validates :password, :length => {:minimum => 6, :allow_nil => true}
   validates :current_password, :current_password => {:fields => [:name, :email, :password]}, :on => :update
   validates :extra_favorite_tag_string, :format => { :with => /\A[^\/]+\z/, :message => "no allow slash", :allow_blank => true}
+  validates :locale, :inclusion => {:in => AllowLocale}
   
   attr_accessor :current_password
   attr_reader :extra_favorite_tag_string
-  attr_accessible :name, :email, :password, :password_confirmation, :current_password, :extra_favorite_tag_string
+  attr_accessible :name, :email, :password, :password_confirmation, :current_password, :extra_favorite_tag_string, :locale
 
   has_many :notifications, :class_name => 'Notification::Base', :dependent => :delete do
     def has_unread?

@@ -2,8 +2,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :logined?, :current_user
+  before_filter :set_locale
 
   protected
+
+  def set_locale
+    I18n.locale = set_locale_from_user || set_locale_from_accept_language_header || I18n.default_locale
+  end
+
+  def set_locale_from_user
+    current_user.try(:locale)
+  end
+
+  def set_locale_from_accept_language_header
+    request.compatible_language_from(AllowLocale)
+  end
 
   def require_logined
     unless logined?
