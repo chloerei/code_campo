@@ -68,13 +68,13 @@ Campo::User.order_by([[:created_at, :asc]]).where(:banned.ne => true).each do |o
   begin
     user = User.new :name => old_user.username,
                     :email => old_user.email,
-                    :locale => old_user.locale,
-                    :favorite_tags => old_user.favorite_tags
+                    :locale => old_user.locale
     user.id = old_user.id
     user.created_at = old_user.created_at
     user.crypted_password = old_user.crypted_password
     user.password_salt = old_user.password_salt
     user.access_token = old_user.access_token
+    user.favorite_tags = old_user.favorite_tags.to_a
     user.save!(:validate => false)
   rescue => e
     puts e
@@ -94,6 +94,7 @@ Campo::Topic.order_by([[:created_at, :asc]]).all.each do |old_topic|
     topic.user = User.find(old_topic.user_id)
     topic.created_at = old_topic.created_at
     topic.actived_at = old_topic.actived_at
+    topic.tags = old_topic.tags.to_a
     topic.save!
   rescue => e
     puts e
