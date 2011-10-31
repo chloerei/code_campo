@@ -93,7 +93,7 @@ class User
   end
 
   def set_access_token
-    self.access_token = generate_token
+    self.access_token ||= generate_token
   end
 
   def generate_token
@@ -107,4 +107,38 @@ class User
   def self.find_by_access_token(token)
     first :conditions => {:access_token => token} if token.present?
   end
+
+  # TODO old data migration begin
+  field :crypted_password
+  field :password_salt
+  def authenticate_with_old_data(password)
+    if password_digest.present?
+      authenticate_without_old_data(password)
+    else
+      if old_authenticate(password)
+        self.password = self.password_confirmation = password
+        self.crypted_password = self.password_salt = nil
+        save(:validate => false)
+        true
+      else
+        false
+      end
+    end
+  end
+  alias_method_chain :authenticate, :old_data
+
+  def old_authenticate(password)
+    self.crypted_password == encrypt_password(password)
+  end
+
+  def encrypt_password(password)
+    digest = [password, self.password_salt].flatten.join('')
+    20.times { digest = User.secure_digest(digest) }
+    digest
+  end
+  
+  def self.secure_digest(*args)
+    Digest::SHA512.hexdigest(args.flatten.join)
+  end
+  # TODO old data migration end
 end
