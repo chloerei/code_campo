@@ -54,7 +54,8 @@ module CodeCampo
 
     config.assets.precompile += %w(wmd-buttons.png)
     config.assets.precompile += %w(editor.js setttings/favorite_tags.js resources/new.js resources/show.js)
-    config.assets.precompile += %w(editor.css settings/favorite_tags.css)
+    config.assets.precompile += %w(settings/favorite_tags.js topics/show.js)
+    config.assets.precompile += %w(editor.css resources.css settings/favorite_tags.css)
 
     config.generators do |g|  
       g.test_framework :test_unit, :fixture_replacement => :factory_girl
