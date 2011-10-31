@@ -36,7 +36,7 @@
                         = format_time @topic.created_at
                         - if @topic.edited?
                           = t('updated_at')
-                          = format_time @topic.updated_at
+                          = format_time @topic.edited_at
                       - if logined? && current_user == @topic.user
                         = link_to t('edit'), edit_topic_path(@topic), :class => 'lbtn notice'
                     %td.avatar

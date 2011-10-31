@@ -1,6 +1,6 @@
 class Resource
   include Mongoid::Document
-  include Mongoid::Timestamps
+  include Mongoid::Timestamps::Created
   include Mongoid::NumberId
   include Mongo::Voteable
 

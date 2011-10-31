@@ -1,12 +1,13 @@
 class Topic
   include Mongoid::Document
-  include Mongoid::Timestamps
+  include Mongoid::Timestamps::Created
   include Mongoid::NumberId
 
   field :title
   field :content
   field :tags,          :type => Array,   :default => []
-  field :actived_at,    :type => DateTime
+  field :actived_at,    :type => Time
+  field :edited_at,     :type => Time
   field :replies_count, :type => Integer, :default => 0
   field :marker_ids,    :type => Array,   :default => []
   field :replier_ids,   :type => Array,   :default => []
@@ -34,11 +35,15 @@ class Topic
   end
 
   def set_actived_at
-    self.actived_at = Time.now
+    self.actived_at = Time.now.utc
+  end
+
+  def set_edited_at
+    self.edited_at = Time.now.utc
   end
 
   def edited?
-    updated_at > created_at
+    edited_at.present?
   end
 
   def last_page
