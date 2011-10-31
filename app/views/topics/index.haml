@@ -1,3 +1,10 @@
+- if action_name == 'index'
+  - @page_title = t('.topics')
+- elsif action_name == 'tagged'
+  - @page_title = "#{t('.tagged', :tag => params[:tag])} - #{t('.topics')}"
+- else
+  - @page_title = "#{t(".#{action_name}")} - #{t('.topics')}"
+
 #main
   .container
     - if action_name != 'index'

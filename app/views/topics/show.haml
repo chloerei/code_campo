@@ -1,9 +1,10 @@
+- @page_title = "#{@topic.title} - #{t('.topics')}"
+
 - if logined?
   - content_for :head do
     = javascript_include_tag 'editor'
     = stylesheet_link_tag 'editor'
     = javascript_include_tag 'topics/show'
-
 
 #main
   .container

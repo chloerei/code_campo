@@ -118,6 +118,8 @@ en:
     new:
       topics: "Topics"
       create_topic: "Create Topic"
+    edit:
+      topics: "Topics"
   replies:
     edit:
       topics: "Topics"

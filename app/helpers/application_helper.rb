@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def page_title
+    if @page_title
+      "#{@page_title} - CodeCampo"
+    else
+      "CodeCampo"
+    end
+  end
+
   def format_text(text, options = {})
     sanitize markdown(link_mentions(text, options[:mention_names]))
   end
