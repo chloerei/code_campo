@@ -167,4 +167,11 @@ class TopicsControllerTest < ActionController::TestCase
     get :interesting, :access_token => user.access_token, :format => :rss
     assert_response :success, @response.body
   end
+
+  # TODO remove
+  test "should redirect when using _id" do
+    topic = Factory :topic
+    get :show, :id => topic.id
+    assert_redirected_to topic_url(topic)
+  end
 end

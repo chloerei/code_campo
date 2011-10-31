@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_filter :old_id_redirect, :only => [:show]
   before_filter :login_from_access_token, :only => [:interesting]
   before_filter :require_logined, :except => [:index, :show, :tagged, :newest]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
@@ -120,5 +121,13 @@ class TopicsController < ApplicationController
 
   def find_user_topic
     @topic = current_user.topics.number(params[:id])
+  end
+
+  # TODO remove
+  def old_id_redirect
+    if params[:id] !~ /\A\d+\z/
+      topic = Topic.first :conditions => {:_id => params[:id]}
+      redirect_to(topic, :status => 301) if topic
+    end
   end
 end
