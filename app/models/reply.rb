@@ -4,10 +4,10 @@ class Reply
   include Mongoid::NumberId
 
   field :content
+  field :mentioned_user_ids, :type => Array, :default => []
 
   belongs_to :user
   belongs_to :topic
-  has_and_belongs_to_many :mentioned_users, :class_name => 'User'
 
   validates :content, :user, :topic, :presence => true
 
@@ -33,8 +33,12 @@ class Reply
   def extract_mentioned_users
     names = content.scan(/@(\w{3,20})(?![.\w])/).flatten
     if names.any?
-      self.mentioned_users = User.where(:name => /^(#{names.join('|')})$/i, :_id.ne => user.id).limit(5).to_a
+      self.mentioned_user_ids = User.where(:name => /^(#{names.join('|')})$/i, :_id.ne => user.id).limit(5).only(:_id).map(&:_id).to_a
     end
+  end
+
+  def mentioned_users
+    User.where(:_id.in => mentioned_user_ids)
   end
 
   def mentioned_user_names
