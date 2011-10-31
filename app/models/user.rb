@@ -89,7 +89,7 @@ class User
   end
 
   def screen_name
-    profile.name == name ? name : "#{name}(#{profile.name})"
+    (profile.name.blank? || profile.name == name) ? name : "#{name}(#{profile.name})"
   end
 
   def set_access_token
