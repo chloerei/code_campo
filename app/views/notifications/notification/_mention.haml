@@ -11,4 +11,4 @@
     ago.
     - if !notification.read?
       %span.new.label.warning New
-  = format_text notification.reply.content, :mention_names => notification.reply.mentioned_user_names
+  ~ format_text notification.reply.content, :mention_names => notification.reply.mentioned_user_names

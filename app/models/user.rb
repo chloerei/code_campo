@@ -4,7 +4,7 @@ class User
   include Mongo::Voter
   include ActiveModel::SecurePassword
   include Gravtastic
-  gravtastic :rating => 'G', :size => 48
+  gravtastic :rating => 'G', :size => 48, :secure => false
 
   field :name
   field :email

@@ -6,6 +6,10 @@ html, body {
   background-color: #EEE;
 }
 
+pre code {
+  background-color: transparent;
+}
+
 .left {
   float: left;
 }

@@ -16,4 +16,4 @@
             - if reply.user == current_user
               = link_to t('edit'), edit_reply_path(reply)
             = link_to '@', '#new_reply', :class => 'at', 'data-user-name' => reply.user.screen_name
-      = format_text reply.content, :mention_names => reply.mentioned_user_names
+      ~ format_text reply.content, :mention_names => reply.mentioned_user_names
