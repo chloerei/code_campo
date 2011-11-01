@@ -250,6 +250,14 @@ table.item-list td.last {
   text-align: right;
 }
 
+section#resources table.item-list td.thin {
+  width: 100px;
+}
+
+section#resources table.item-list td.last {
+  width: 60px;
+}
+
 #sidebar section.profile .avatar {
   float: left;
   width: 64px;

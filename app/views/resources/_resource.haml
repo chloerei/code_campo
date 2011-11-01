@@ -10,7 +10,7 @@
             = link_to tag, tagged_resources_path(:tag => tag)
         %span.comments
           = link_to t('.comments_count', :count => resource.comments_count), resource
-  %td
+  %td.thin
     .time
       = format_time resource.created_at
     .user
