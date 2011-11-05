@@ -11,6 +11,7 @@ zh-CN:
   form_disable_with: "提交中..."
   created_at: "创建于"
   updated_at: "更新于"
+  replied_at: "回复于"
   or: "或者"
   zh-CN: "中文（简体）"
   en: "英文"

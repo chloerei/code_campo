@@ -11,6 +11,7 @@ en:
   form_disable_with: "Posting..."
   created_at: "Created at"
   updated_at: "Updated at"
+  replied_at: "Replied at"
   or: "or"
   zh-CN: "Chinese(Simplified)"
   en: "English"
