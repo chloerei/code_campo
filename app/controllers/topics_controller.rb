@@ -20,7 +20,6 @@ class TopicsController < ApplicationController
       format.rss do
         @topics = Topic.order_by([[:created_at, :desc]]).limit(20)
         @page_title = 'Newest Topics'
-        @channel_link = newest_topics_path
         render :index, :layout => false
       end
     end

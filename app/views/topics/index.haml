@@ -64,11 +64,11 @@
 
         - else
           = render :partial => 'shared/sidebar_login'
-        - if %w(newest interesting tagged).include?(action_name)
+        - if %w(index newest interesting tagged).include?(action_name)
           %section.box
             %header Subscribe
             - case action_name
-            - when 'newest'
+            - when 'index', 'newest'
               = link_to image_tag('rss.png'), newest_topics_path(:format => :rss)
             - when 'interesting'
               = link_to image_tag('rss.png'), interesting_topics_path(:format => :rss, :access_token => current_user.access_token)
