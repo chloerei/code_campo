@@ -2,7 +2,7 @@
   %td.avatar= image_tag reply.user.gravatar_url(:size => 48)
   %td
     %article
-      %header.clearfix
+      %header.clearbox
         .left
           = link_to_person reply.user
           - if reply.user.name != reply.user.profile.name

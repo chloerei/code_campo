@@ -18,11 +18,11 @@ pre code {
   float: right;
 }
 
-.clearfix {
+.clearbox {
   overflow: hidden;
 }
 
-.clearfix::after {
+.clearbox::after {
   clear: both;
 }
 
