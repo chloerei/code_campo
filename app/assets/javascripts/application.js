@@ -10,4 +10,5 @@
 //= require bootstrap-alerts
 //= require rails.validations
 //= require rails.validations.custom
+//= require highlight
 //= require code_campo

@@ -29,6 +29,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'highlight_js-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
