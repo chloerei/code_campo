@@ -14,8 +14,9 @@
       %span.time
         = t 'created_at'
         = format_time topic.created_at
-        - if topic.actived_at > topic.created_at
+        - if topic.replies_count > 0
           ,
+          = link_to_person(topic.last_reply_user)
           = t 'replied_at'
           = format_time topic.actived_at
   %td.reply-count.last
