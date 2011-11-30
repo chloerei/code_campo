@@ -62,4 +62,13 @@ class TopicTest < ActiveSupport::TestCase
     topic.reply_by topic.user
     assert !topic.reload.replied_by?(topic.user)
   end
+
+  test "should reset actived_at" do
+    topic = Factory :topic
+    reply = Factory :reply, :topic => topic
+    reply_other = Factory :reply, :topic => topic, :created_at => 1.minutes.from_now
+    reply_other.delete
+    topic.reset_actived_at
+    assert_equal reply.created_at.to_i, topic.actived_at.to_i
+  end
 end

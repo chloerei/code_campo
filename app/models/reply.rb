@@ -13,6 +13,7 @@ class Reply
 
   before_save :extract_mentioned_users
   after_create :update_topic, :send_mention_notification
+  after_destroy :reset_topic
 
   attr_accessible :content
 
@@ -20,6 +21,11 @@ class Reply
     topic.update_attribute :actived_at, self.created_at
     topic.reply_by user
     topic.inc :replies_count, 1
+  end
+
+  def reset_topic
+    topic.reset_actived_at
+    topic.inc :replies_count, -1
   end
 
   def edited?

@@ -52,4 +52,12 @@ class ReplyTest < ActiveSupport::TestCase
     reply = Factory :reply, :content => "@#{user.name}", :user => user
     assert_equal [], reply.mentioned_users
   end
+
+  test "should reset topic's actived_at after destroy" do
+    topic = Factory :topic
+    reply = Factory :reply, :topic => topic
+    reply_other = Factory :reply, :topic => topic, :created_at => 1.minutes.from_now
+    reply_other.destroy
+    assert_equal reply.created_at.to_i, topic.actived_at.to_i
+  end
 end

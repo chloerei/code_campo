@@ -97,4 +97,9 @@ class Topic
   def replied_by?(user)
     replier_ids.include? user.id
   end
+
+  def reset_actived_at
+    last_reply = replies.order([[:created_at, :asc]]).last
+    update_attribute :actived_at, (last_reply ? last_reply.created_at : created_at)
+  end
 end

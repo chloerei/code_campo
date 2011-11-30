@@ -36,7 +36,7 @@ class User
   has_many :resources, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :topics, :dependent => :destroy
-  has_many :replies, :dependent => :delete
+  has_many :replies, :dependent => :destroy
   embeds_one :profile
 
   before_create :build_profile, :set_access_token
