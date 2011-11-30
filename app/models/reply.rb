@@ -18,13 +18,13 @@ class Reply
   attr_accessible :content
 
   def update_topic
-    topic.update_attribute :actived_at, self.created_at
+    topic.update_reply_stats_by(self)
     topic.reply_by user
     topic.inc :replies_count, 1
   end
 
   def reset_topic
-    topic.reset_actived_at
+    topic.reset_reply_stats
     topic.inc :replies_count, -1
   end
 

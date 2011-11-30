@@ -19,14 +19,6 @@ class ReplyTest < ActiveSupport::TestCase
     assert_not_equal old_time.to_i, topic.actived_at.to_i
   end
 
-  test "should inc topic's replies_count column" do
-    topic = Factory :topic
-    assert_equal 0, topic.replies_count
-    assert_difference "topic.reload.replies_count" do
-      Factory :reply, :topic => topic
-    end
-  end
-
   test "should mark replier to topic" do
     topic = Factory :topic
     user = Factory :user
@@ -53,11 +45,35 @@ class ReplyTest < ActiveSupport::TestCase
     assert_equal [], reply.mentioned_users
   end
 
-  test "should reset topic's actived_at after destroy" do
+  test "should inc topic's replies_count column" do
+    topic = Factory :topic
+    assert_equal 0, topic.replies_count
+    assert_difference "topic.reload.replies_count" do
+      Factory :reply, :topic => topic
+    end
+  end
+
+  test "should reset topic's actived_at" do
     topic = Factory :topic
     reply = Factory :reply, :topic => topic
     reply_other = Factory :reply, :topic => topic, :created_at => 1.minutes.from_now
     reply_other.destroy
     assert_equal reply.created_at.to_i, topic.actived_at.to_i
+  end
+
+  test "should set topic's last_reply_user" do
+    topic = Factory :topic
+    reply = Factory :reply, :topic => topic
+    assert_equal reply.user, topic.last_reply_user
+  end
+
+  test "should reset topic's last_reply_user" do
+    topic = Factory :topic
+    reply = Factory :reply, :topic => topic
+    reply_other = Factory :reply, :topic => topic
+    reply_other.destroy
+    assert_equal reply.user, topic.last_reply_user
+    reply.destroy
+    assert_nil topic.last_reply_user
   end
 end

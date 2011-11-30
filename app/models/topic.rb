@@ -13,6 +13,7 @@ class Topic
   field :replier_ids,   :type => Array,   :default => []
 
   belongs_to :user
+  belongs_to :last_reply_user, :class_name => 'User'
   has_many   :replies, :dependent => :delete
 
   validates :title, :content, :user, :presence => true
@@ -98,8 +99,20 @@ class Topic
     replier_ids.include? user.id
   end
 
-  def reset_actived_at
+  def update_reply_stats_by(reply)
+    self.actived_at = reply.created_at
+    self.last_reply_user = reply.user
+    save
+  end
+
+  def reset_reply_stats
     last_reply = replies.order([[:created_at, :asc]]).last
-    update_attribute :actived_at, (last_reply ? last_reply.created_at : created_at)
+    if last_reply
+      update_reply_stats_by(last_reply)
+    else
+      self.actived_at = created_at
+      self.last_reply_user = nil
+      save
+    end
   end
 end
