@@ -27,6 +27,7 @@ en:
       home: "Home"
       resources: "Resources"
       topics: "Topics"
+      search: "Search"
       profiles: "Profile"
       settings: "Settings"
   shared:
@@ -128,6 +129,9 @@ en:
     new:
       topics: "Topics"
       new_reply: "New Reply"
+  search:
+    show:
+      loading: "Loading..."
 
   mongoid:
     attributes:

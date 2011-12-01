@@ -7,6 +7,8 @@ CodeCampo::Application.routes.draw do
   resources :users, :only => [:create]
   resources :user_sessions, :only => [:create]
 
+  resource :search, :controller => 'search', :only => 'show'
+
   get '~:name', :controller => 'people', :action => 'show', :as => :person
   resources :notifications, :only => [:index, :destroy] do
     collection do

@@ -1,0 +1,22 @@
+- content_for :head do
+  = stylesheet_link_tag 'search'
+
+#main
+  .container
+    .row
+      #mainbar.span12
+        %section.box#search
+          #cse= t '.loading'
+      #sidebar.span4
+        - if logined?
+          = render :partial => 'shared/sidebar_profile'
+        - else
+          = render :partial => 'shared/sidebar_login'
+      = javascript_include_tag 'http://www.google.com/jsapi'
+      :javascript
+        google.load('search', '1', {language : '#{I18n.locale}'});
+        google.setOnLoadCallback(function() {
+        var customSearchControl = new google.search.CustomSearchControl('#{APP_CONFIG['google_custom_search_id']}');
+        customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+        customSearchControl.draw('cse');
+        }, true);

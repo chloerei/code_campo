@@ -1,0 +1,11 @@
+production:
+  google_custom_search_id: ""
+
+defaults: &defaults
+  google_custom_search_id: ""
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults

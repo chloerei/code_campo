@@ -10,6 +10,8 @@
           = link_to t('.resources'), resources_path
         %li{:class => (controller_name == 'topics' ? 'active' : nil)}
           = link_to t('.topics'), topics_path
+        %li{:class => (controller_name == 'search' ? 'active' : nil)}
+          = link_to t('.search'), search_path
       %ul.nav.secondary-nav
         - if logined?
           - notification_class = []

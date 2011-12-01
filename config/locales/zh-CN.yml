@@ -27,6 +27,7 @@ zh-CN:
       home: "首页"
       resources: "资源"
       topics: "话题"
+      search: "搜索"
       profiles: "个人资料"
       settings: "设置"
   shared:
@@ -128,6 +129,9 @@ zh-CN:
     new:
       topics: "话题"
       new_reply: "新回复"
+  search:
+    show:
+      loading: "载入中..."
 
   mongoid:
     attributes:
