@@ -8,8 +8,8 @@
         %span.tags
           - resource.tags.each do |tag|
             = link_to tag, tagged_resources_path(:tag => tag)
-        %span.comments
-          = link_to t('.comments_count', :count => resource.comments_count), resource
+      %span.comments
+        = link_to t('.comments_count', :count => resource.comments_count), resource
   %td.thin
     .time
       = format_time resource.created_at
