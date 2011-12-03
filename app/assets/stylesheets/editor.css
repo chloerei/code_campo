@@ -24,3 +24,15 @@
 #editor .tag-editor input {
   width: auto;
 }
+
+.wmd-prompt-dialog {
+  background-color: white;
+  padding: 10px 15px 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  border: 1px solid #DDD;
+}
+
+#editor-preview img {
+  max-width: 100%;
+}

@@ -216,6 +216,10 @@ a.lbtn.delete:hover {
   background-color: #C43C35;
 }
 
+article img {
+  max-width: 100%;
+}
+
 section {
   overflow: hidden;
 }
