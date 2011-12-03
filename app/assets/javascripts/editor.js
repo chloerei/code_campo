@@ -6,7 +6,8 @@ $(function(){
   new WMDEditor({
     input: "editor-input",
     button_bar: "editor-button-bar",
-    preview: "editor-preview"
+    preview: "editor-preview",
+    helpLink: "http://daringfireball.net/projects/markdown/syntax"
   });
 
   $('#editor :input[name*=tag_string]').tagEditor();
