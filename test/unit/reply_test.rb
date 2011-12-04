@@ -27,24 +27,6 @@ class ReplyTest < ActiveSupport::TestCase
     assert topic.reload.replied_by?(user)
   end
 
-  test "should extract mentions" do
-    user = Factory :user
-    reply = Factory :reply, :content => "@#{user.name}"
-    assert_equal [user], reply.mentioned_users
-
-    # 5 mentioned limit
-    names = ""
-    6.times do
-      names << " @#{Factory(:user).name}"
-    end
-    reply = Factory :reply, :content => names
-    assert_equal 5, reply.mentioned_users.count
-
-    # except self
-    reply = Factory :reply, :content => "@#{user.name}", :user => user
-    assert_equal [], reply.mentioned_users
-  end
-
   test "should inc topic's replies_count column" do
     topic = Factory :topic
     assert_equal 0, topic.replies_count

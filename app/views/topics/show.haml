@@ -41,7 +41,7 @@
                         = link_to t('edit'), edit_topic_path(@topic), :class => 'lbtn notice'
                     %td.avatar
                       = image_tag @topic.user.gravatar_url(:size => 72)
-            ~ format_text @topic.content
+            ~ format_text @topic.content, :mention_names => @topic.mentioned_user_names
             %footer
               = render :partial => 'marks_count', :locals => {:topic => @topic}
         %section#replies.box
