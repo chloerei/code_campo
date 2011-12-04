@@ -7,6 +7,7 @@ zh-CN:
   submit: "提交"
   update: "更新"
   save: "保存"
+  delete: "删除"
   add: "添加"
   form_disable_with: "提交中..."
   created_at: "创建于"
@@ -56,6 +57,14 @@ zh-CN:
         using_gravatar: "使用 Gravatar"
         change_email: "修改邮箱"
         go_to_gravatar: "到 Gravatar"
+  notifications:
+    notification:
+      mention:
+        mention_you_in: "提及了你"
+    index:
+      no_notifications: "没有提醒"
+      mark_all_as_read: "标记所有为已读"
+      marking: "标记中…"
   resources:
     resource:
       comments_count: "%{count} 评论"

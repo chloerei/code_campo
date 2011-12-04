@@ -10,12 +10,12 @@
                   %tr{:id => notification.anchor}
                     = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
                     %td.last
-                      = link_to 'delete', notification_path(notification), :class => 'lbtn delete', :method => :delete, :remote => true
+                      = link_to t('delete'), notification_path(notification), :class => 'lbtn delete', :method => :delete, :remote => true
           = paginate @notifications
         - else
           %section.box
-            No Notifications
+            = t '.no_notifications'
       #sidebar.span4
         = render :partial => 'shared/sidebar_profile'
         %section.box
-          = button_to 'Mark All as Read', mark_all_as_read_notifications_path, :class => 'btn', :disable_with => 'Marking...', :remote => true, :method => :put
+          = button_to t('.mark_all_as_read'), mark_all_as_read_notifications_path, :class => 'btn', :disable_with => t('.marking'), :remote => true, :method => :put

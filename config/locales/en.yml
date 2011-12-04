@@ -7,6 +7,7 @@ en:
   submit: "Submit"
   update: "Update"
   save: "Save"
+  delete: "Delete"
   add: "Add"
   form_disable_with: "Posting..."
   created_at: "Created at"
@@ -56,6 +57,14 @@ en:
         using_gravatar: "Using Gravatar"
         change_email: "Change Email"
         go_to_gravatar: "Go to Gravatar"
+  notifications:
+    notification:
+      mention:
+        mention_you_in: "mention you in"
+    index:
+      no_notifications: "No notifications"
+      mark_all_as_read: "Mark all as read"
+      marking: "Marking..."
   resources:
     resource:
       comments_count: "%{count} comments"

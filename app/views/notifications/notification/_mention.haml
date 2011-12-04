@@ -7,10 +7,9 @@
     - topic = reply.topic
     %h3
       = link_to_person reply.user
-      mention you in
+      = t '.mention_you_in'
       = link_to topic.title, topic_path(topic, :page => topic.last_page, :anchor => topic.last_anchor)
-      = time_ago_in_words notification.created_at
-      ago.
+      = format_time notification.created_at
       - if !notification.read?
         %span.new.label.warning New
     ~ format_text reply.content, :mention_names => reply.mentioned_user_names
@@ -18,10 +17,9 @@
     - topic = notification.mentionable
     %h3
       = link_to_person topic.user
-      mention you in
+      = t '.mention_you_in'
       = link_to topic.title, topic_path(topic, :page => topic.last_page, :anchor => topic.last_anchor)
-      = time_ago_in_words notification.created_at
-      ago.
+      = format_time notification.created_at
       - if !notification.read?
         %span.new.label.warning New
     ~ format_text topic.content, :mention_names => topic.mentioned_user_names
