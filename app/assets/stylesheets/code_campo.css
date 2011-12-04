@@ -266,6 +266,10 @@ section#resources table.item-list td.last {
   width: 60px;
 }
 
+section#notifications table.item-list td.last {
+  width: 40px;
+}
+
 #sidebar section.profile .avatar {
   float: left;
   width: 64px;
