@@ -8,6 +8,7 @@ class Reply
 
   belongs_to :user
   belongs_to :topic
+  has_many :notification_mentions, :as => :mentionable, :class_name => 'Notification::Mention'
 
   validates :content, :user, :topic, :presence => true
 
@@ -53,7 +54,7 @@ class Reply
 
   def send_mention_notification
     mentioned_users.each do |user|
-      Notification::Mention.create :user => user, :reply => self
+      Notification::Mention.create :user => user, :mentionable => self
     end
   end
 end
