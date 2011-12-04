@@ -5,7 +5,10 @@ class NotificationsControllerTest < ActionController::TestCase
     get :index
     assert_redirected_to login_url
 
-    login_as Factory(:user)
+    user = Factory :user
+    login_as user
+    Factory :notification_mention, :user => user, :mentionable => Factory(:topic)
+    Factory :notification_mention, :user => user, :mentionable => Factory(:reply)
     get :index
     assert_response :success, @response.body
   end

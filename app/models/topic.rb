@@ -2,6 +2,7 @@ class Topic
   include Mongoid::Document
   include Mongoid::Timestamps::Created
   include Mongoid::NumberId
+  include Mentionable
 
   field :title
   field :content
