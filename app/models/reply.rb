@@ -12,7 +12,7 @@ class Reply
 
   validates :content, :user, :topic, :presence => true
 
-  after_create :update_topic
+  after_create :update_topic, :send_topic_reply_notifications
   after_destroy :reset_topic
 
   attr_accessible :content
@@ -34,5 +34,15 @@ class Reply
 
   def anchor
     "reply-#{number_id}"
+  end
+
+  def send_topic_reply_notifications
+    if user != topic.user
+      Notification::TopicReply.create :user => topic.user, :reply => self
+    end
+  end
+
+  def no_mention_users
+    [user, topic.user]
   end
 end

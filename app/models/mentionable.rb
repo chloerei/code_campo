@@ -20,12 +20,16 @@ module Mentionable
     def extract_mentioned_users
       names = content.scan(/@(\w{3,20})(?![.\w])/).flatten
       if names.any?
-        self.mentioned_user_ids = User.where(:name => /^(#{names.join('|')})$/i, :_id.ne => user.id).limit(5).only(:_id).map(&:_id).to_a
+        self.mentioned_user_ids = User.where(:name => /^(#{names.join('|')})$/i).limit(5).only(:_id).map(&:_id).to_a
       end
     end
 
+    def no_mention_users
+      [user]
+    end
+
     def send_mention_notification
-      mentioned_users.each do |user|
+      (mentioned_users - no_mention_users).each do |user|
         Notification::Mention.create :user => user, :mentionable => self
       end
     end

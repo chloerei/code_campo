@@ -61,6 +61,8 @@ zh-CN:
     notification:
       mention:
         mention_you_in: "提及了你"
+      topic_reply:
+        reply_your_topic: "回复了你的主题"
     index:
       no_notifications: "没有提醒"
       mark_all_as_read: "标记所有为已读"

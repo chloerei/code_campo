@@ -61,6 +61,8 @@ en:
     notification:
       mention:
         mention_you_in: "mention you in"
+      topic_reply:
+        reply_your_topic: "reply you topic"
     index:
       no_notifications: "No notifications"
       mark_all_as_read: "Mark all as read"

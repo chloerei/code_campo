@@ -26,16 +26,15 @@ class MentionableTest < ActiveSupport::TestCase
     end
     object = TestModel.create :content => names, :user => Factory(:user)
     assert_equal 5, object.mentioned_users.count
-
-    # except self
-    object = TestModel.create :content => "@#{user.name}", :user => user
-    assert_equal 0, object.mentioned_users.count
   end
 
   test "should send mention notification after create" do
     user = Factory :user
     assert_difference "user.notifications.unread.count" do
       object = TestModel.create :content => "@#{user.name}", :user => Factory(:user)
+    end
+    assert_no_difference "user.notifications.unread.count" do
+      object = TestModel.create :content => "@#{user.name}", :user => user
     end
   end
 end
