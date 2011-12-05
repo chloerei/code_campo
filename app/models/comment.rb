@@ -16,7 +16,8 @@ class Comment
 
   validates :content, :user, :resource, :presence => true
 
-  after_create :update_resource, :send_resource_comment_notification
+  after_create :update_resource, :send_resource_comment_notification,
+    :send_comment_comment_notification
 
   attr_accessible :content
 
@@ -31,6 +32,12 @@ class Comment
   def send_resource_comment_notification
     if user != resource.user && parent.blank?
       Notification::ResourceComment.create :user => resource.user, :comment => self
+    end
+  end
+
+  def send_comment_comment_notification
+    if parent.present? && user != parent.user
+      Notification::CommentComment.create :user => parent.user, :comment => self
     end
   end
 

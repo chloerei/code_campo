@@ -28,7 +28,7 @@
     %h3
       = link_to_person comment.user
       = t '.mention_you_in'
-      = link_to comment.resource.title, comment.resource
+      = link_to comment.resource.title, resource_path(comment.resource, :anchor => comment.anchor)
       = format_time notification.created_at
       - if !notification.read?
         %span.new.label.warning New

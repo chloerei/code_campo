@@ -65,6 +65,8 @@ en:
         reply_your_topic: "reply you topic"
       resource_comment:
         comment_your_resource: "comment your resource"
+      comment_comment:
+        comment_your_comment: "comment your resource comment"
     index:
       no_notifications: "No notifications"
       mark_all_as_read: "Mark all as read"

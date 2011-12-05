@@ -1,0 +1,13 @@
+- comment = notification.comment
+- resource = comment.resource
+%td.avatar
+  = link_avatar_to_person comment.user
+%td
+  %h3
+    = link_to_person comment.user
+    = t '.comment_your_comment'
+    = link_to resource.title, resource_path(resource, :anchor => comment.anchor)
+    = format_time notification.created_at
+    - if !notification.read?
+      %span.new.label.warning New
+  ~ format_text comment.content, :mention_names => comment.mentioned_user_names

@@ -65,6 +65,8 @@ zh-CN:
         reply_your_topic: "回复了你的主题"
       resource_comment:
         comment_your_resource: "回复了你的资源"
+      comment_comment:
+        comment_your_comment: "回复了你的资源回复"
     index:
       no_notifications: "没有提醒"
       mark_all_as_read: "标记所有为已读"
