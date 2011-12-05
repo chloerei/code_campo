@@ -3,6 +3,7 @@ class Comment
   include Mongoid::Timestamps::Created
   include Mongoid::NumberId
   include Mongo::Voteable
+  include Mentionable
 
   voteable self, :up => 1
 
@@ -15,7 +16,8 @@ class Comment
 
   validates :content, :user, :resource, :presence => true
 
-  after_create :update_resource
+  after_create :update_resource, :send_resource_comment_notification,
+    :send_comment_comment_notification
 
   attr_accessible :content
 
@@ -25,5 +27,25 @@ class Comment
 
   def anchor
     "comment-#{number_id}"
+  end
+
+  def send_resource_comment_notification
+    if user != resource.user && parent.blank?
+      Notification::ResourceComment.create :user => resource.user, :comment => self
+    end
+  end
+
+  def send_comment_comment_notification
+    if parent.present? && user != parent.user
+      Notification::CommentComment.create :user => parent.user, :comment => self
+    end
+  end
+
+  def no_mention_users
+    if parent.present?
+      [user, parent.user]
+    else
+      [user, resource.user]
+    end
   end
 end

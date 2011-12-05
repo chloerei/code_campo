@@ -9,6 +9,10 @@ class NotificationsControllerTest < ActionController::TestCase
     login_as user
     Factory :notification_mention, :user => user, :mentionable => Factory(:topic)
     Factory :notification_mention, :user => user, :mentionable => Factory(:reply)
+    Factory :notification_mention, :user => user, :mentionable => Factory(:comment)
+    Factory :notification_topic_reply, :user => user
+    Factory :notification_resource_comment, :user => user
+    Factory :notification_comment_comment, :user => user
     get :index
     assert_response :success, @response.body
   end

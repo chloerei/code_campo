@@ -58,4 +58,21 @@ class ReplyTest < ActiveSupport::TestCase
     reply.destroy
     assert_nil topic.last_reply_user
   end
+
+  test "should not send mention notfication to topic user" do
+    topic = Factory :topic
+    assert_no_difference "topic.user.notifications.where(:_type => 'Notification::Mention').count" do
+      Factory :reply, :topic => topic, :content => "@#{topic.user.name}"
+    end
+  end
+
+  test "should send topic reply notification" do
+    topic = Factory :topic
+    assert_difference "topic.user.notifications.unread.count" do
+      Factory :reply, :topic => topic
+    end
+    assert_no_difference "topic.user.notifications.unread.count" do
+      Factory :reply, :topic => topic, :user => topic.user
+    end
+  end
 end

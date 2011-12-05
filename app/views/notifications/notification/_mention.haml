@@ -23,3 +23,13 @@
       - if !notification.read?
         %span.new.label.warning New
     ~ format_text topic.content, :mention_names => topic.mentioned_user_names
+  - when Comment
+    - comment = notification.mentionable
+    %h3
+      = link_to_person comment.user
+      = t '.mention_you_in'
+      = link_to comment.resource.title, resource_path(comment.resource, :anchor => comment.anchor)
+      = format_time notification.created_at
+      - if !notification.read?
+        %span.new.label.warning New
+    ~ format_text comment.content, :mention_names => comment.mentioned_user_names

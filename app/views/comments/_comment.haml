@@ -1,6 +1,6 @@
 %li
   .avatar= link_avatar_to_person comment.user, :size => 24
-  .comment{'data-comment-id' => comment.number_id, :id => comment.anchor}
+  %article.comment{'data-comment-id' => comment.number_id, :id => comment.anchor}
     .info
       %span.author= link_to_person comment.user
       %span.time
@@ -9,7 +9,7 @@
       - if logined?
         %span.reply= link_to t('.reply'), new_comment_path(:resource_id => comment.resource, :parent_id => comment)
     .content
-      = comment.content
+      ~ format_text comment.content, :mention_names => comment.mentioned_user_names
   - if @comments
     - children = @comments.find_all{|c| c.parent == comment}
     - if children.any?
