@@ -3,6 +3,7 @@ class Comment
   include Mongoid::Timestamps::Created
   include Mongoid::NumberId
   include Mongo::Voteable
+  include Mentionable
 
   voteable self, :up => 1
 
