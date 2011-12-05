@@ -63,6 +63,8 @@ en:
         mention_you_in: "mention you in"
       topic_reply:
         reply_your_topic: "reply you topic"
+      resource_comment:
+        comment_your_resource: "comment your resource"
     index:
       no_notifications: "No notifications"
       mark_all_as_read: "Mark all as read"

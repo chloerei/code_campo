@@ -16,7 +16,7 @@ class Comment
 
   validates :content, :user, :resource, :presence => true
 
-  after_create :update_resource
+  after_create :update_resource, :send_resource_comment_notification
 
   attr_accessible :content
 
@@ -26,5 +26,19 @@ class Comment
 
   def anchor
     "comment-#{number_id}"
+  end
+
+  def send_resource_comment_notification
+    if user != resource.user && parent.blank?
+      Notification::ResourceComment.create :user => resource.user, :comment => self
+    end
+  end
+
+  def no_mention_users
+    if parent.present?
+      [user, parent.user]
+    else
+      [user, resource.user]
+    end
   end
 end
