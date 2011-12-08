@@ -10,6 +10,11 @@ pre code {
   background-color: transparent;
 }
 
+p {
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
 .left {
   float: left;
 }
