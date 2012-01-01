@@ -13,6 +13,8 @@ class Comment
   belongs_to :resource
   has_many :children, :class_name => 'Comment', :as => :parent, :dependent => :destroy
   belongs_to :parent, :class_name => 'Comment'
+  has_one :notification_comment_comment, :class_name => 'Notification::CommentComment', :dependent => :delete
+  has_one :notification_resource_comment, :class_name => 'Notification::ResourceComment', :dependent => :delete
 
   validates :content, :user, :resource, :presence => true
 

@@ -68,11 +68,15 @@ class ReplyTest < ActiveSupport::TestCase
 
   test "should send topic reply notification" do
     topic = Factory :topic
+    reply = nil
     assert_difference "topic.user.notifications.unread.count" do
-      Factory :reply, :topic => topic
+      reply = Factory :reply, :topic => topic
     end
     assert_no_difference "topic.user.notifications.unread.count" do
       Factory :reply, :topic => topic, :user => topic.user
+    end
+    assert_difference "topic.user.notifications.count", -1 do
+      reply.destroy
     end
   end
 end

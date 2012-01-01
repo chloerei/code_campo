@@ -31,6 +31,10 @@ class CommentTest < ActiveSupport::TestCase
       Factory :comment, :resource => resource, :user => resource.user
     end
 
+    assert_difference "resource.user.notifications.count", -1 do
+      comment.destroy
+    end
+
     # except comment comment
     assert_no_difference "resource.user.notifications.unread.count" do
       Factory :comment, :resource => resource, :parent => comment
@@ -39,12 +43,17 @@ class CommentTest < ActiveSupport::TestCase
 
   test "should send comment comment notification" do
     comment = Factory :comment
+    comment_two = nil
     assert_difference "comment.user.notifications.unread.count" do
-      Factory :comment, :parent => comment, :resource => comment.resource
+      comment_two = Factory :comment, :parent => comment, :resource => comment.resource
     end
 
     assert_no_difference "comment.user.notifications.unread.count" do
       Factory :comment, :parent => comment, :resource => comment.resource, :user => comment.user
+    end
+
+    assert_difference "comment.user.notifications.count", -1 do
+      comment_two.destroy
     end
   end
 

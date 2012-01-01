@@ -9,6 +9,7 @@ class Reply
 
   belongs_to :user
   belongs_to :topic
+  has_one :notification_topic_reply, :class_name => 'Notification::TopicReply', :dependent => :delete
 
   validates :content, :user, :topic, :presence => true
 
