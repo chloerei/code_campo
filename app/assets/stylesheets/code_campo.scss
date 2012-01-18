@@ -1,0 +1,456 @@
+body {
+  padding-top: 40px;
+}
+
+html, body {
+  background-color: #EEE;
+}
+
+pre code {
+  background-color: transparent;
+}
+
+p {
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
+label.message{
+  color: red;
+  font-weight: normal;
+  display: inline-block;
+  float: none;
+  text-align: left;
+  width: auto;
+  margin-left: 5px;
+  padding-top: 4px;;
+}
+
+form.button_to {
+  margin: 0;
+}
+
+table tr:first-child td {
+  border-top: none;
+}
+
+table.item-list {
+  border: none;
+  margin-bottom: 0;
+
+  th, table.item-list td {
+    padding: 12px 12px 11px;
+    line-height: 20px;
+  }
+
+  td {
+    span.domain {
+      font-weight: bold;
+    }
+
+    h3 {
+      font-size: 14px;
+      padding-bottom: 10px;
+      line-height: 18px;
+    }
+
+    &.avatar {
+      padding-right: 0;
+      width: 48px;
+      line-height: 0;
+      img {
+        height: 48px;
+        width: 48px;
+      }
+    }
+
+    &.reply-count a {
+      color: #FFF;
+      background-color: #BFBFBF;
+      padding: 2px 9px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:visited {
+        background-color: #EEE;
+      }
+      &:hover {
+        background-color: #AAA;
+      }
+    }
+  }
+
+  th + th, table.item-list td + td {
+    border-left: none;
+  }
+
+  td.last {
+    text-align: right;
+  }
+}
+
+table.clear-table {
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  td {
+    padding: 0;
+    margin: 0;
+    border: none;
+    line-height: 20px;
+  }
+}
+
+a.lbtn,
+.tags a {
+  line-height: 22px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 1px 4px;
+  background-color: #BFBFBF;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+
+  &:hover {
+    text-decoration: none;
+    background-color: #AAA;
+  }
+}
+
+a.lbtn {
+  &.notice {
+    background-color: #62CFFC;
+  }
+
+  &.important {
+    background-color: #C43C35;
+  }
+
+  &.success {
+    background-color: #46A546;
+  }
+
+  &.mark:hover,
+  &.marked {
+    background-color: #F89406;
+  }
+
+  &.marked:hover {
+    background-color: #BFBFBF;
+  }
+
+  &.vote:hover,
+  &.voted {
+    background-color: #46A546;
+  }
+
+  &.voted:hover {
+    background-color: #BFBFBF;
+  }
+
+  &.delete:hover {
+    background-color: #C43C35;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearbox {
+  overflow: hidden;
+}
+
+.clearbox::after {
+  clear: both;
+}
+
+#remote-loader {
+  position: fixed;
+  left: 50%;
+  top: 45px;
+  margin-left: -40px;
+  width: 80px;
+  text-align: center;
+}
+
+#remote-loader .label.important {
+  cursor: pointer;
+}
+
+.secondary-nav {
+  .notifications {
+    a {
+      font-weight: bold;
+      padding: 11px 8px 10px;
+
+      &:hover {
+        background: #444;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .count {
+        background-color: #666;
+        padding: 2px 6px;
+        border-radius: 2px;
+        color: #999;
+        -moz-border-radius: 2px;
+      }
+    }
+
+    &.unread a .count {
+      background-color: #C43C35;
+      color: white;
+    }
+  }
+}
+
+footer div > p {
+  text-align: center;
+}
+
+.box {
+  background-color: white;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0 0 0 1px #DDD;
+  -webkit-box-shadow: 0 0 0 1px #DDD;
+  box-shadow: 0 0 0 1px #DDD;
+}
+
+section.box {
+  &.span16 {
+    width: 910px;
+  }
+
+  .span4 {
+    width: 205px;
+  }
+
+  .span12 {
+    width: 685px;
+  }
+
+  .span16 {
+    width: 910px;
+  }
+}
+
+article img {
+  max-width: 100%;
+}
+
+section {
+  overflow: hidden;
+  padding: 14px;
+
+  &#notifications,
+  &#resources,
+  &#topics,
+  &#replies {
+    padding: 0;
+  }
+
+  &#topics table.item-list td {
+    vertical-align: middle;
+  }
+
+  &#resources table.item-list td {
+    vertical-align: middle;
+
+    &.thin {
+      width: 100px;
+    }
+
+    &.last {
+      width: 60px;
+    }
+  }
+
+  &#notifications table.item-list td.last {
+    width: 40px;
+  }
+
+  footer {
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+#login-form, #signup-form {
+  margin: 90px auto 70px;
+  width: 380px;
+  padding: 20px;
+}
+
+#main {
+  margin-top: 20px;
+}
+
+#sidebar {
+  section {
+    padding: 10px;
+
+    header {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    &.profile {
+      .avatar {
+        float: left;
+        width: 64px;
+
+        img {
+          height: 64px;
+          width: 64px;
+        }
+      }
+
+      .info {
+        float: left;
+        margin-left: 10px;
+      }
+    }
+
+    ul.nice-list {
+      list-style: none;
+      margin: 0;
+
+      li {
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #EEE;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+#topic header {
+  margin-bottom: 17px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #EEE;
+
+  td.avatar {
+    width: 72px;
+
+    img {
+      width: 72px;
+      height: 72px;
+    }
+  }
+}
+
+#replies header {
+  margin-bottom: 5px;
+  color: gray;
+}
+
+.pagination ul {
+  background: white;
+}
+
+.settings {
+  header {
+    margin-bottom: 20px;
+
+    table.clear-table td.avatar {
+      width: 36px; padding-right: 10px;
+
+      img {
+        width: 36px; height: 36px;
+      }
+    }
+  }
+
+  .edit_profile td.avatar {
+    width: 80px; height: 80px; padding-right: 10px;
+  }
+}
+
+#profile {
+  overflow: hidden;
+
+  .left-side {
+    width: 160px; float: left;
+    .avatar img {width: 160px; height: 160px;}
+  }
+
+  .right-side {
+    float: right; width: 720px;
+  }
+
+  ul.nice-list {
+    list-style: none; margin-left: 9px;
+    ul.nice-list li {line-height: 22px;}
+  }
+}
+
+#comments {
+  ul {
+    list-style: none;
+    margin: 0 0 0 34px;
+  }
+
+  & > ul {
+    margin: 0 0 15px 0;
+  }
+
+  li {
+    color: #404040;
+  }
+
+  .avatar {
+    display: table-cell;
+    width: 24px;
+    padding-right: 10px;
+    vertical-align: top;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .comment {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+
+    .info {
+      margin-bottom: 10px;
+    }
+
+    .content {
+      margin-bottom: 15px;
+      border-bottom: 1px dashed #CCC;
+    }
+  }
+
+  .info {
+    color: gray;
+    font-weight: bold;
+  }
+
+  form .btn {
+    margin-right: 10px;
+  }
+}
+
+.new_comment textarea {
+  width: 80%;
+}

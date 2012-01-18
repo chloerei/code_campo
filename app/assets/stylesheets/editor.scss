@@ -3,26 +3,32 @@
  *= require 'tag_editor'
  */
 
-#editor input[type=text],
-#editor textarea {
-  width: 662px;
-}
-
 #editor-preview {
   border: 2px dotted #CCC;
   margin-top: 10px;
   padding: 3px;
+
+  img {
+    max-width: 100%;
+  }
 }
 
-#editor label.message {
-}
+#editor {
+  input[type=text],
+  textarea {
+    width: 662px;
+  }
 
-#editor .tag-editor {
-  width: 662px;
-}
+  label.message {
+  }
 
-#editor .tag-editor input {
-  width: auto;
+  .tag-editor {
+    width: 662px;
+
+    input {
+      width: auto;
+    }
+  }
 }
 
 .wmd-prompt-dialog {
@@ -31,8 +37,4 @@
   border-radius: 3px;
   -moz-border-radius: 3px;
   border: 1px solid #DDD;
-}
-
-#editor-preview img {
-  max-width: 100%;
 }
