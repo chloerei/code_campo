@@ -275,6 +275,11 @@ section#notifications table.item-list td.last {
   width: 40px;
 }
 
+section footer {
+  margin: 0;
+  padding: 10px;
+}
+
 #sidebar section.profile .avatar {
   float: left;
   width: 64px;

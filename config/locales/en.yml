@@ -41,7 +41,10 @@ en:
     truncate: "..."
     next: "Next"
     previous: "Prev"
-    
+  homepage:
+    index:
+      more_resources: "» More Resources"
+      more_topics: "» More Topics"
   users:
     new:
       already_have_account: "Already Signup?"
