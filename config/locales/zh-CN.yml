@@ -45,6 +45,10 @@ zh-CN:
     index:
       more_resources: "» 更多资源"
       more_topics: "» 更多话题"
+      status: "统计信息"
+      users_count: "用户数 %{count}"
+      resources_count: "资源数 %{count}"
+      topics_count: "话题数 %{count}"
   users:
     new:
       already_have_account: "已经注册过？"

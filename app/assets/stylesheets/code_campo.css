@@ -280,6 +280,10 @@ section footer {
   padding: 10px;
 }
 
+#sidebar section ul {
+  margin-bottom: 0;
+}
+
 #sidebar section.profile .avatar {
   float: left;
   width: 64px;

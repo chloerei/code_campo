@@ -19,3 +19,9 @@
           = render :partial => 'shared/sidebar_profile'
         - else
           = render :partial => 'shared/sidebar_login'
+        %section.box
+          %header= t('.status')
+          %ul
+            %li= t '.users_count', :count => @users_count
+            %li= t '.resources_count', :count => @resources_count
+            %li= t '.topics_count', :count => @topics_count

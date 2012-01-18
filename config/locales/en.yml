@@ -45,6 +45,10 @@ en:
     index:
       more_resources: "» More Resources"
       more_topics: "» More Topics"
+      status: "Status"
+      users_count: "Users %{count}"
+      resources_count: "Resources %{count}"
+      topics_count: "Topics %{count}"
   users:
     new:
       already_have_account: "Already Signup?"
