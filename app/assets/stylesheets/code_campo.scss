@@ -44,8 +44,6 @@ table.item-list {
   }
 
   td {
-    vertical-align: middle;
-
     span.domain {
       font-weight: bold;
     }
@@ -369,6 +367,9 @@ section {
 }
 
 #topics {
+  table.item-list td {
+    vertical-align: middle;
+  }
 }
 
 #topic header {
@@ -393,6 +394,8 @@ section {
 
 #resources {
   table.item-list td {
+    vertical-align: middle;
+
     &.thin {
       width: 100px;
     }
