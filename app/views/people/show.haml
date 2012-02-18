@@ -45,25 +45,3 @@
                     ago.
           - else
             have no topic yet.
-          %h2
-            Resources
-            %small
-              = @resources.total_count
-              total
-          - if @resources.any?
-            %ul.nice-list
-              - @resources.each do |resource|
-                %li
-                  = link_to resource.title, resource
-                  = '/'
-                  - if resource.tags.to_a.any?
-                    tags
-                    %span.tags
-                      - resource.tags.each do |tag|
-                        = link_to tag, tagged_resources_path(:tag => tag)
-                    ,
-                  %span.time
-                    = time_ago_in_words resource.created_at
-                    ago.
-          - else
-            have no resource yet.

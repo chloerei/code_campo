@@ -33,8 +33,6 @@ class User
       unread.count > 0
     end
   end
-  has_many :resources, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
   has_many :topics, :dependent => :destroy
   has_many :replies, :dependent => :destroy
   embeds_one :profile

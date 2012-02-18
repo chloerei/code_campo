@@ -2,13 +2,7 @@
   .container
     .row
       #mainbar.span12
-        %section#resources.box
-          %table.item-list
-            %tbody
-              = render :partial => 'resources/resource', :collection => @resources
-          %footer
-            = link_to t('.more_resources'), resources_path
-        %section#resources.box
+        %section#topics.box
           %table.item-list
             %tbody
               = render :partial => 'topics/topic', :collection => @topics
@@ -23,5 +17,5 @@
           %header= t('.status')
           %ul
             %li= t '.users_count', :count => @users_count
-            %li= t '.resources_count', :count => @resources_count
             %li= t '.topics_count', :count => @topics_count
+            %li= t '.replies_count', :count => @replies_count

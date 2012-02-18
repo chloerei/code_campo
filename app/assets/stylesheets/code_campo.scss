@@ -255,7 +255,6 @@ section {
   padding: 14px;
 
   &#notifications,
-  &#resources,
   &#topics,
   &#replies {
     padding: 0;
@@ -390,73 +389,4 @@ section {
 #replies header {
   margin-bottom: 5px;
   color: gray;
-}
-
-#resources {
-  table.item-list td {
-    vertical-align: middle;
-
-    &.thin {
-      width: 100px;
-    }
-
-    &.last {
-      width: 60px;
-    }
-  }
-}
-
-#comments {
-  ul {
-    list-style: none;
-    margin: 0 0 0 34px;
-  }
-
-  & > ul {
-    margin: 0 0 15px 0;
-  }
-
-  li {
-    color: #404040;
-  }
-
-  .avatar {
-    display: table-cell;
-    width: 24px;
-    padding-right: 10px;
-    vertical-align: top;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-  .comment {
-    display: table-cell;
-    vertical-align: top;
-    width: 100%;
-
-    .info {
-      margin-bottom: 10px;
-    }
-
-    .content {
-      margin-bottom: 15px;
-      border-bottom: 1px dashed #CCC;
-    }
-  }
-
-  .info {
-    color: gray;
-    font-weight: bold;
-  }
-
-  form .btn {
-    margin-right: 10px;
-  }
-}
-
-.new_comment textarea {
-  width: 80%;
 }

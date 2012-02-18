@@ -1,4 +1,0 @@
-(function(){
-  var $resource = $('#' + '<%= @resource.anchor %>');
-  $resource.find('.votes_count').replaceWith('<%= escape_javascript(render :partial => 'votes_count', :locals => {:resource => @resource}) %>');
-})();
