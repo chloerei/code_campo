@@ -21,19 +21,17 @@ module Mongoid
       end
     end
 
-    module InstanceMethods
-      def set_number_id
-        self.number_id = Mongoid.master.collection("counters").find_and_modify({
-          :query  => {:_id   => self.class.name},
-          :update => {'$inc' => {:next => 1}},
-          :new    => true,
-          :upsert => true
-        })["next"]
-      end
+    def set_number_id
+      self.number_id = Mongoid.master.collection("counters").find_and_modify({
+        :query  => {:_id   => self.class.name},
+        :update => {'$inc' => {:next => 1}},
+        :new    => true,
+        :upsert => true
+      })["next"]
+    end
 
-      def to_param
-        self.number_id.to_s
-      end
+    def to_param
+      self.number_id.to_s
     end
   end
 end
