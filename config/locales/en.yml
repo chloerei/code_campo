@@ -59,8 +59,19 @@ en:
       remember_me: "Remember Me"
       password: "Password"
   settings:
+    accounts:
+      show:
+        account_settings: "Account settings"
+    passwords:
+      show:
+        password_settings: "Password settings"
+    favorite_tags:
+      index:
+        favorite_tags_settings: "Favorite tags settings"
+        add_favorite_tags: "Add favorite tags" 
     profiles:
       show:
+        profile_settings: "Profile settings"
         using_gravatar: "Using Gravatar"
         change_email: "Change Email"
         go_to_gravatar: "Go to Gravatar"

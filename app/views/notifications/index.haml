@@ -1,7 +1,7 @@
 #main
   .container
     .row
-      #mainbar.span12
+      #mainbar.span9
         - if @notifications.any?
           %section.box#notifications
             %table.item-list
@@ -10,12 +10,12 @@
                   %tr{:id => notification.anchor}
                     = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
                     %td.last
-                      = link_to t('delete'), notification_path(notification), :class => 'lbtn delete', :method => :delete, :remote => true
+                      = button_to t('delete'), notification_path(notification), :class => 'btn', :method => :delete, :remote => true
           = paginate @notifications
         - else
           %section.box
             = t '.no_notifications'
-      #sidebar.span4
+      #sidebar.span3
         = render :partial => 'shared/sidebar_profile'
         %section.box
           = button_to t('.mark_all_as_read'), mark_all_as_read_notifications_path, :class => 'btn', :disable_with => t('.marking'), :remote => true, :method => :put

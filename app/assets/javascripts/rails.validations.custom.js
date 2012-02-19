@@ -1,17 +1,16 @@
-clientSideValidations.validators.local['confirmation'] = function (element, options) {
+window.ClientSideValidations.validators.local['confirmation'] = function (element, options) {
   var confirmation = jQuery('#' + element.attr('id') + '_confirmation');
   if (confirmation.val() !== '' && element.val() !== confirmation.val()) {
     return options.message;
   }
 }
-
-clientSideValidations.validators.local['tag_string'] = function(element, options) {
+window.ClientSideValidations.validators.local['tag_string'] = function(element, options) {
   if ($.unique(element.val().split(/[,\s]+/).filter(function(tag){return tag !== "";})).length > options.limit) {
     return options.message;
   }
 }
 
-clientSideValidations.validators.local['current_password'] = function(element, options) {
+window.ClientSideValidations.validators.local['current_password'] = function(element, options) {
   var $form = element.parents('form');
   if (element.val() === '') {
     var need_current_password = false;
@@ -26,7 +25,7 @@ clientSideValidations.validators.local['current_password'] = function(element, o
   }
 }
 
-clientSideValidations.formBuilders['ActionView::Helpers::FormBuilder'] = {
+window.ClientSideValidations.formBuilders['ActionView::Helpers::FormBuilder'] = {
   add: function(element, settings, message) {
     if (element.data('valid') !== false && jQuery('label.message[for="' + element.attr('id') + '"]')[0] == undefined) {
       var error_label = jQuery('<label class="message"></label>').attr('for', element.attr('id'));

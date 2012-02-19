@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location(path = nil)
-    session[:return_to] ||= path || request.fullpath
+    session[:return_to] = path || request.fullpath
   end
 
   def redirect_back_or_default(default)

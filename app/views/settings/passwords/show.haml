@@ -1,16 +1,20 @@
+%header
+  %h3= t '.password_settings'
 = form_for current_user, :url => settings_password_path, :validate => true do |f|
   %fieldset
-    .clearfix
-      = f.label :current_password
-      .input
-        = f.password_field :current_password
-    .clearfix
-      = f.label :password
-      .input
-        = f.password_field :password
-    .clearfix
-      = f.label :password_confirmation
-      .input
-        = f.password_field :password_confirmation
-    .actions
-      = f.submit t('save'), :class => 'btn primary'
+    .control-group
+      .control-label
+        = f.label :current_password
+      .controls
+        = f.password_field :current_password, :class => 'span3'
+    .control-group
+      .control-label
+        = f.label :password
+      .controls
+        = f.password_field :password, :class => 'span3'
+    .control-group
+      .control-label
+        = f.label :password_confirmation
+      .controls
+        = f.password_field :password_confirmation, :class => 'span3'
+    = f.submit t('save'), :class => 'btn primary'

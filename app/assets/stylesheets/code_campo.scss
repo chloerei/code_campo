@@ -1,7 +1,3 @@
-body {
-  padding-top: 40px;
-}
-
 html, body {
   background-color: #EEE;
 }
@@ -15,15 +11,24 @@ p {
   margin-bottom: 16px;
 }
 
+.navbar-inner {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.full-input-wrap {
+  padding-right: 10px;
+
+  textarea, input {
+    width: 100%;
+  }
+}
+
 label.message{
   color: red;
   font-weight: normal;
   display: inline-block;
-  float: none;
-  text-align: left;
-  width: auto;
-  margin-left: 5px;
-  padding-top: 4px;;
 }
 
 form.button_to {
@@ -32,64 +37,6 @@ form.button_to {
 
 table tr:first-child td {
   border-top: none;
-}
-
-table.item-list {
-  border: none;
-  margin-bottom: 0;
-
-  th, table.item-list td {
-    padding: 12px 12px 11px;
-    line-height: 20px;
-  }
-
-  td {
-    span.domain {
-      font-weight: bold;
-    }
-
-    h3 {
-      font-size: 14px;
-      padding-bottom: 10px;
-      line-height: 18px;
-    }
-
-    &.avatar {
-      padding-right: 0;
-      width: 48px;
-      line-height: 0;
-      img {
-        height: 48px;
-        width: 48px;
-      }
-    }
-
-    &.reply-count a {
-      color: #FFF;
-      background-color: #BFBFBF;
-      padding: 2px 9px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: bold;
-      text-decoration: none;
-
-      &:visited {
-        background-color: #EEE;
-      }
-      &:hover {
-        background-color: #AAA;
-      }
-    }
-  }
-
-  th + th, table.item-list td + td {
-    border-left: none;
-  }
-
-  td.last {
-    text-align: right;
-  }
 }
 
 table.clear-table {
@@ -105,7 +52,6 @@ table.clear-table {
   }
 }
 
-a.lbtn,
 .tags a {
   line-height: 22px;
   color: white;
@@ -119,42 +65,6 @@ a.lbtn,
   &:hover {
     text-decoration: none;
     background-color: #AAA;
-  }
-}
-
-a.lbtn {
-  &.notice {
-    background-color: #62CFFC;
-  }
-
-  &.important {
-    background-color: #C43C35;
-  }
-
-  &.success {
-    background-color: #46A546;
-  }
-
-  &.mark:hover,
-  &.marked {
-    background-color: #F89406;
-  }
-
-  &.marked:hover {
-    background-color: #BFBFBF;
-  }
-
-  &.vote:hover,
-  &.voted {
-    background-color: #46A546;
-  }
-
-  &.voted:hover {
-    background-color: #BFBFBF;
-  }
-
-  &.delete:hover {
-    background-color: #C43C35;
   }
 }
 
@@ -174,6 +84,57 @@ a.lbtn {
   clear: both;
 }
 
+table.item-list {
+  width: 100%;
+
+  tr {
+    border-top: 1px solid #DDD;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+
+    &.avatar {
+      width: 48px;
+      padding-right: 0;
+      line-height: 0;
+    }
+
+    &.reply-count {
+      text-align: right;
+
+      a {
+        color: #FFF;
+        background-color: #BFBFBF;
+        padding: 2px 9px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:visited {
+          background-color: #EEE;
+        }
+        &:hover {
+          background-color: #AAA;
+        }
+      }
+    }
+  }
+
+  h3 {
+    font-size: 100%;
+    padding-bottom: 10px;
+    line-height: 18px;
+  }
+}
+
 #remote-loader {
   position: fixed;
   left: 50%;
@@ -187,7 +148,7 @@ a.lbtn {
   }
 }
 
-.secondary-nav {
+#topbar {
   .notifications {
     a {
       font-weight: bold;
@@ -228,24 +189,6 @@ footer div > p {
   box-shadow: 0 0 0 1px #DDD;
 }
 
-section.box {
-  &.span16 {
-    width: 910px;
-  }
-
-  .span4 {
-    width: 205px;
-  }
-
-  .span12 {
-    width: 685px;
-  }
-
-  .span16 {
-    width: 910px;
-  }
-}
-
 article img {
   max-width: 100%;
 }
@@ -258,6 +201,12 @@ section {
   &#topics,
   &#replies {
     padding: 0;
+  }
+
+  header {
+    margin-bottom: 17px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #EEE;
   }
 
   footer {
@@ -323,12 +272,6 @@ section {
   }
 }
 
-#notifications {
-  table.item-list td.last {
-    width: 40px;
-  }
-}
-
 #settings {
   header {
     margin-bottom: 20px;
@@ -365,18 +308,16 @@ section {
   }
 }
 
-#topics {
-  table.item-list td {
-    vertical-align: middle;
-  }
-}
-
 #topic header {
-  margin-bottom: 17px;
-  padding-bottom: 17px;
-  border-bottom: 1px solid #EEE;
+  table {
+    width: 100%;
+  }
 
-  td.avatar {
+  td {
+    vertical-align: top;
+  }
+
+  .avatar {
     width: 72px;
 
     img {
@@ -389,4 +330,13 @@ section {
 #replies header {
   margin-bottom: 5px;
   color: gray;
+}
+
+#settings-nav li a {
+  background-color: white;
+}
+
+#settings .avatar img {
+  height: 160px;
+  width: 160px;
 }

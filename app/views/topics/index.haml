@@ -9,7 +9,7 @@
   .container
     - if action_name != 'index'
       .row
-        .span16
+        .span12
           %ul.breadcrumb
             %li
               = link_to t('.topics'), topics_path
@@ -20,7 +20,7 @@
               - else
                 = t ".#{action_name}"
     .row
-      #mainbar.span12
+      #mainbar.span9
         - if @topics.any?
           %section#topics.box
             %table.item-list
@@ -30,7 +30,7 @@
         - else
           %section.box
             = t '.no_topics'
-      #sidebar.span4
+      #sidebar.span3
         - if logined?
           %section.box
             - if action_name == 'tagged'

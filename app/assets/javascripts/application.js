@@ -6,8 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-dropdown
-//= require bootstrap-alerts
+//= require twitter/bootstrap
 //= require rails.validations
 //= require rails.validations.custom
 //= require highlight

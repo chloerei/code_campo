@@ -9,18 +9,18 @@
 #main
   .container
     .row
-      .span16
+      .span12
         %ul.breadcrumb
           %li
             = link_to t('.topics'), topics_path
             %span.divider /
           %li.active= @topic.title
     .row
-      #mainbar.span12
+      #mainbar.span9
         %section#topic.box
           %article{:id => @topic.anchor}
             %header
-              %table.clear-table
+              %table
                 %tbody
                   %tr
                     %td
@@ -54,9 +54,9 @@
             %h4= t('.post_reply')
             = form_for @reply, :url => replies_path(:topic_id => @topic), :remote => true do |f|
               = render :partial => 'replies/form', :object => f
-              .clearfix= f.submit t('submit'), :class => 'btn primary', :disable_with => t('form_disable_with')
+              .control-group= f.submit t('submit'), :class => 'btn primary', :disable_with => t('form_disable_with')
 
-      #sidebar.span4
+      #sidebar.span3
         %section.box
           %header
             = t('.relate_topics')

@@ -5,7 +5,6 @@
 
 #editor-preview {
   border: 2px dotted #CCC;
-  margin-top: 10px;
   padding: 3px;
 
   img {
@@ -15,15 +14,12 @@
 
 #editor {
   input[type=text],
-  textarea {
-    width: 662px;
-  }
 
   label.message {
   }
 
   .tag-editor {
-    width: 662px;
+    width: 100%;
 
     input {
       width: auto;

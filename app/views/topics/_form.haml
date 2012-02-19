@@ -1,8 +1,8 @@
-.clearfix
-  = form.text_field :title, :validate => false
-.clearfix
+.control-group
+  .full-input-wrap= form.text_field :title, :validate => false
+.control-group
   #editor-button-bar
-  = form.text_area :content, :id => 'editor-input', :rows => 20, :validate => false
+  .full-input-wrap= form.text_area :content, :id => 'editor-input', :rows => 20, :validate => false
   #editor-preview
-.clearfix
-  = form.text_field :tag_string
+.control-group
+  .full-input-wrap= form.text_field :tag_string

@@ -2,6 +2,9 @@
   = javascript_include_tag 'settings/favorite_tags'
   = stylesheet_link_tag 'settings/favorite_tags'
 
+%header
+  %h3= t '.favorite_tags_settings'
+
 .tags
   - current_user.favorite_tags.each do |tag|
     %span.tag
@@ -10,9 +13,8 @@
 
 = form_for current_user, :url => settings_favorite_tags_path, :method => :post, :validate => true do |f|
   %fieldset
-    .clearfix
-      = f.label :extra_favorite_tag_string
-      .input
-        = f.text_field :extra_favorite_tag_string, :class => 'span7'
-    .actions
-      = f.submit t('add'), :class => 'btn primary'
+    %h4= t '.add_favorite_tags'
+    .control-group
+      .controls
+        = f.text_field :extra_favorite_tag_string, :class => 'span6'
+    = f.submit t('add'), :class => 'btn primary'

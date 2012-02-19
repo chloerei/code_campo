@@ -59,8 +59,19 @@ zh-CN:
       remember_me: "记住我"
       password: "密码"
   settings:
+    accounts:
+      show:
+        account_settings: "账户设置"
+    passwords:
+      show:
+        password_settings: "密码设置"
+    favorite_tags:
+      index:
+        favorite_tags_settings: "喜好标签设置"
+        add_favorite_tags: "添加喜欢标签" 
     profiles:
       show:
+        profile_settings: "个人资料设置"
         using_gravatar: "使用 Gravatar"
         change_email: "修改邮箱"
         go_to_gravatar: "到 Gravatar"

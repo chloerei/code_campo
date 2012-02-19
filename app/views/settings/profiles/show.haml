@@ -1,29 +1,29 @@
+%header
+  %h3= t '.profile_settings'
 = form_for current_user.profile, :url => settings_profile_path, :validate => true do |f|
   %fieldset
-    .clearfix
-      = f.label :avatar
-      .input
-        %table.clear-table
-          %tbody
-            %tr
-              %td.avatar= image_tag current_user.gravatar_url(:size => 80)
-              %td
-                %p= t '.using_gravatar'
-                %p
-                  = link_to t('.change_email'), settings_account_path
-                  = '/'
-                  = link_to t('.go_to_gravatar'), 'http://www.gravatar.com', :rel => 'external'
-    .clearfix
-      = f.label :name
-      .input
-        = f.text_field :name, :class => 'span4'
-    .clearfix
-      = f.label :url
-      .input
-        = f.text_field :url, :class => 'span4'
-    .clearfix
-      = f.label :description
-      .input
-        = f.text_area :description, :rows => 5, :class => 'span8'
-    .actions
-      = f.submit t('save'), :class => 'btn primary'
+    .control-group
+      .control-label
+        = f.label :avatar
+      .controls
+        .avatar= image_tag current_user.gravatar_url(:size => 160)
+        %p
+          = link_to t('.change_email'), settings_account_path
+          = '/'
+          = link_to t('.go_to_gravatar'), 'http://www.gravatar.com', :rel => 'external'
+    .control-group
+      .control-label
+        = f.label :name
+      .controls
+        = f.text_field :name, :class => 'span3'
+    .control-group
+      .control-label
+        = f.label :url
+      .controls
+        = f.text_field :url, :class => 'span3'
+    .control-group
+      .control-label
+        = f.label :description
+      .controls
+        = f.text_area :description, :rows => 5, :class => 'span6'
+    = f.submit t('save'), :class => 'btn primary'

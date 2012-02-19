@@ -1,22 +1,30 @@
 #main
   .container
     #signup-form.box
-      = form_for @user, :url => users_path, :validate => true, :html => {:class => 'form-stacked'} do |f|
+      = form_for @user, :url => users_path, :validate => true do |f|
         %fieldset
           %legend= t('signup')
-          .clearfix
-            = f.label :name
-            = f.text_field :name, :class => 'span6', :tabIndex => 1
-          .clearfix
-            = f.label :email
-            = f.text_field :email, :class => 'span6', :tabIndex => 2
-          .clearfix
-            = f.label :password
-            = f.password_field :password, :class => 'span6', :tabIndex => 3
-          .clearfix
-            = f.label :password_confirmation
-            = f.password_field :password_confirmation, :class => 'span6', :tabIndex => 4
-          .actions
+          .control-group
+            .control-label
+              = f.label :name
+            .controls
+              .full-input-wrap= f.text_field :name, :class => 'span6', :tabIndex => 1
+          .control-group
+            .control-label
+              = f.label :email
+            .controls
+              .full-input-wrap= f.text_field :email, :class => 'span6', :tabIndex => 2
+          .control-group
+            .control-label
+              = f.label :password
+            .controls
+              .full-input-wrap= f.password_field :password, :class => 'span6', :tabIndex => 3
+          .control-group
+            .control-label
+              = f.label :password_confirmation
+            .controls
+              .full-input-wrap= f.password_field :password_confirmation, :class => 'span6', :tabIndex => 4
+          .form-actions
             = f.submit t('signup'), :class => 'btn primary', :tabIndex => 5
             = t 'or'
             = link_to t('.already_have_account'), login_path

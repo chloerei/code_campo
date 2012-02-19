@@ -9,8 +9,9 @@ gem 'bcrypt-ruby'
 gem 'mongoid', "~> 2.2"
 gem 'bson_ext', "~> 1.3"
 gem 'haml'
-gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
-gem 'client_side_validations'
+gem 'twitter-bootstrap-rails'
+gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
+gem 'client_side_validations-mongoid'
 gem 'kaminari'
 gem 'gravtastic'
 gem 'wmd-rails'

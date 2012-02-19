@@ -1,14 +1,14 @@
 #main
   .container
     .row
-      #mainbar.span12
+      #mainbar.span9
         %section#topics.box
           %table.item-list
             %tbody
               = render :partial => 'topics/topic', :collection => @topics
           %footer
             = link_to t('.more_topics'), topics_path
-      #sidebar.span4
+      #sidebar.span3
         - if logined?
           = render :partial => 'shared/sidebar_profile'
         - else

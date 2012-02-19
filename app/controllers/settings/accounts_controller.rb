@@ -3,6 +3,7 @@ class Settings::AccountsController < ApplicationController
   layout 'settings'
 
   def show
+    logger.info current_user.inspect
   end
 
   def update

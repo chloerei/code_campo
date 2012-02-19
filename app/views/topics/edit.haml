@@ -7,7 +7,7 @@
 #main
   .container
     .row
-      .span16
+      .span12
         %ul.breadcrumb
           %li
             = link_to t('.topics'), topics_path
@@ -19,10 +19,10 @@
             = t('edit')
 
     .row
-      #mainbar.span12
+      #mainbar.span9
         %section#editor.box
           = form_for @topic, :validate => true do |f|
             = render :partial => 'form', :object => f
-            .clearfix= f.submit t('update'), :class => 'btn primary'
-      #sidebar.span4
+            .control-group= f.submit t('update'), :class => 'btn primary'
+      #sidebar.span3
         = render :partial => 'shared/sidebar_profile'
