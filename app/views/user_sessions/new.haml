@@ -1,25 +1,27 @@
 #main
   .container
-    #login-form.box
-      = form_tag user_sessions_path do
-        %fieldset
-          %legend= t 'login'
-          .control-group
-            .control-label
-              = label_tag :login, t('.name_or_email')
-            .controls
-              .full-input-wrap= text_field_tag :login, nil, :class => 'span6', :tabIndex => 1
-          .control-group
-            .control-label
-              = label_tag :password, t('.password')
-            .controls
-              .full-input-wrap= password_field_tag :password, nil, :class => 'span6', :tabIndex => 2
-          .control-group
-            .controls
-              %label.checkbox
-                = check_box_tag :remember_me, 'yes', false, :tabIndex => 3
-                = t '.remember_me'
-          .form-actions
-            = submit_tag t('login'), :class => 'btn primary', :tabIndex => 4
-            = t 'or'
-            = link_to t('.not_signup_yet'), signup_path
+    .row
+      .span4.offset4
+        %section#login-form.box
+          = form_tag user_sessions_path do
+            %fieldset
+              %legend= t 'login'
+              .control-group
+                .control-label
+                  = label_tag :login, t('.name_or_email')
+                .controls
+                  .full-input-wrap= text_field_tag :login, nil, :class => 'span6', :tabIndex => 1
+              .control-group
+                .control-label
+                  = label_tag :password, t('.password')
+                .controls
+                  .full-input-wrap= password_field_tag :password, nil, :class => 'span6', :tabIndex => 2
+              .control-group
+                .controls
+                  %label.checkbox
+                    = check_box_tag :remember_me, 'yes', false, :tabIndex => 3
+                    = t '.remember_me'
+              .form-actions
+                = submit_tag t('login'), :class => 'btn primary', :tabIndex => 4
+                = t 'or'
+                = link_to t('.not_signup_yet'), signup_path
