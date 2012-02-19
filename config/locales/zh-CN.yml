@@ -139,6 +139,7 @@ zh-CN:
       marker_count: "%{count}人收藏"
     index:
       topics: "话题"
+      active: "活跃"
       newest: "最新"
       interesting: "喜好"
       marked: "收藏"
@@ -151,6 +152,7 @@ zh-CN:
       create_topic: "创建话题"
       add_favorite: "添加为喜好"
       remove_favorite: "从喜好中移除"
+      subscribe: "订阅"
     show:
       topics: "话题"
       post_reply: "回复话题？"

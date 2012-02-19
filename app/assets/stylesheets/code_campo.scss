@@ -11,9 +11,11 @@ p {
   margin-bottom: 16px;
 }
 
-.avatar img {
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+.avatar {
+  img {
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
 }
 
 .navbar-inner {
@@ -106,6 +108,7 @@ table.item-list {
 
     &.avatar {
       width: 48px;
+      height: 48px;
       padding-right: 0;
       line-height: 0;
     }
@@ -247,6 +250,7 @@ section {
     padding: 10px;
 
     header {
+      padding-bottom: 10px;
       margin-bottom: 10px;
       font-weight: bold;
     }
@@ -282,6 +286,10 @@ section {
         margin-bottom: 5px;
       }
     }
+  }
+
+  .nav li a {
+    background-color: white;
   }
 }
 
@@ -359,10 +367,6 @@ section {
   padding-bottom: 0;
   border-bottom: 0;
   color: gray;
-}
-
-#settings-nav li a {
-  background-color: white;
 }
 
 #settings .avatar img {

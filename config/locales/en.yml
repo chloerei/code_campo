@@ -139,6 +139,7 @@ en:
       marker_count: "%{count} people marked"
     index:
       topics: "Topics"
+      active: "Active"
       newest: "Newest"
       interesting: "Interesting"
       marked: "Marked"
@@ -151,6 +152,7 @@ en:
       create_topic: "Create Topic"
       add_favorite: "Add Favorite"
       remove_favorite: "Remove Favorite"
+      subscribe: "Subscribe"
     show:
       topics: "Topics"
       post_reply: "Post Reply?"

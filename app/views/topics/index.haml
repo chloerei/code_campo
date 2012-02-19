@@ -34,17 +34,17 @@
         - if logined?
           %section.box
             - if action_name == 'tagged'
-              = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn primary'
+              = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn btn-primary'
             - else
-              = link_to t('.create_topic'), new_topic_path, :class => 'btn primary'
+              = link_to t('.create_topic'), new_topic_path, :class => 'btn btn-primary'
           = render :partial => 'shared/sidebar_profile'
-          %section.box
-            %ul.nice-list
-              %li= link_to_unless (action_name == 'newest'), t('.newest'), newest_topics_path
-              %li= link_to_unless (action_name == 'interesting'), t('.interesting'), interesting_topics_path
-              %li= link_to_unless (action_name == 'marked'), t('.marked'), marked_topics_path
-              %li= link_to_unless (action_name == 'my'), t('.my'), my_topics_path
-              %li= link_to_unless (action_name == 'replied'), t('.replied'), replied_topics_path
+          %ul.nav.nav-tabs.nav-stacked
+            %li{:class => (action_name == 'index' ? 'active' : nil)}= link_to t('.active'), topics_path
+            %li{:class => (action_name == 'newest' ? 'active' : nil)}= link_to t('.newest'), newest_topics_path
+            %li{:class => (action_name == 'interesting' ? 'active' : nil)}= link_to t('.interesting'), interesting_topics_path
+            %li{:class => (action_name == 'marked' ? 'active' : nil)}= link_to t('.marked'), marked_topics_path
+            %li{:class => (action_name == 'my' ? 'active' : nil)}= link_to t('.my'), my_topics_path
+            %li{:class => (action_name == 'replied' ? 'active' : nil)}= link_to t('.replied'), replied_topics_path
           - if action_name == 'tagged'
             %section.box
               %header
@@ -66,7 +66,7 @@
           = render :partial => 'shared/sidebar_login'
         - if %w(index newest interesting tagged).include?(action_name)
           %section.box
-            %header Subscribe
+            %header= t('.subscribe')
             - case action_name
             - when 'index', 'newest'
               = link_to image_tag('rss.png'), newest_topics_path(:format => :rss)
