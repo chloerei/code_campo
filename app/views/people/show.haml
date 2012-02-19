@@ -1,47 +1,30 @@
 #main
   .container
-    %section.box
-      #profile
-        .left-side
-          .avatar= image_tag @person.gravatar_url(:size => 160)
-        .right-side
-          %h1
-            = "#{@person.name}'s Profile"
-            %small
-              - if @person == current_user
-                It's you !
-                = link_to 'Edit', settings_profile_path, :class => 'lbtn notice'
-          %dl
-            - if @person.profile.name.present?
-              %dt Name
-              %dd= @person.profile.name
-            %dt Member Since
-            %dd= l @person.created_at.to_date, :format => :long
-            - if @person.profile.url.present?
-              %dt Url
-              %dd= link_to @person.profile.url, @person.profile.url, :rel => 'external nofollow'
-            - if @person.profile.description.present?
-              %dt Description
-              %dd= simple_format @person.profile.description
-          %h2
-            Topics
-            %small
-              = @topics.total_count
-              total
-          - if @topics.any?
-            %ul.nice-list
-              - @topics.each do |topic|
-                %li
-                  = link_to topic.title, topic
-                  = '/'
-                  - if topic.tags.to_a.any?
-                    tags
-                    %span.tags
-                      - topic.tags.each do |tag|
-                        = link_to tag, tagged_topics_path(:tag => tag)
-                    ,
-                  %span.time
-                    = time_ago_in_words topic.created_at
-                    ago.
-          - else
-            have no topic yet.
+    .row
+      #mainbar.span9
+        %section#profile.box
+          .profile-wrap
+            .profile-inner
+              .avatar
+                = image_tag @person.gravatar_url(:size => 128)
+              .info
+                %h1
+                  = @person.profile.name.present? ? @person.profile.name : @person.name
+                  %small= "@#{@person.name}"
+                - if @person.profile.description.present?
+                  = simple_format @person.profile.description
+                - if @person.profile.url.present?
+                  = link_to @person.profile.url, @person.profile.url, :rel => 'external nofollow'
+          - if @person == current_user
+            %footer
+              = link_to t('.edit_profile'), settings_profile_path, :class => 'btn'
+        %section#topics.box
+          %table.item-list
+            %tbody
+              = render :partial => 'topics/topic', :collection => @topics
+      #sidebar.span3
+        %section.box
+          %header= t('.status')
+          %ul
+            %li= t '.topics_count', :count => @topics_count
+            %li= t '.replies_count', :count => @replies_count

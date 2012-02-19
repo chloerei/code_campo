@@ -49,6 +49,12 @@ en:
       users_count: "Users %{count}"
       topics_count: "Topics %{count}"
       replies_count: "Replies %{count}"
+  people:
+    show:
+      edit_profile: "Edit profile"
+      status: "Status"
+      topics_count: "Topics %{count}"
+      replies_count: "Replies %{count}"
   users:
     new:
       already_have_account: "Already Signup?"

@@ -11,6 +11,11 @@ p {
   margin-bottom: 16px;
 }
 
+.avatar img {
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
 .navbar-inner {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -107,6 +112,7 @@ table.item-list {
 
     &.reply-count {
       text-align: right;
+      padding-left: 0;
 
       a {
         color: #FFF;
@@ -133,6 +139,7 @@ table.item-list {
     padding-bottom: 10px;
     line-height: 18px;
   }
+
 }
 
 #remote-loader {
@@ -201,6 +208,11 @@ section {
   &#topics,
   &#replies {
     padding: 0;
+
+    footer {
+      margin-top: 0;
+      padding: 10px;
+    }
   }
 
   header {
@@ -210,8 +222,9 @@ section {
   }
 
   footer {
-    margin: 0;
-    padding: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD;
   }
 }
 
@@ -291,20 +304,33 @@ section {
 }
 
 #profile {
-  overflow: hidden;
+  .profile-wrap {
+    display: table;
+    width: 100%;
 
-  .left-side {
-    width: 160px; float: left;
-    .avatar img {width: 160px; height: 160px;}
+    .profile-inner {
+      display: table-row;
+
+      & > div {
+        display: table-cell;
+        vertical-align: top;
+      }
+    }
   }
 
-  .right-side {
-    float: right; width: 720px;
+  .avatar {
+    width: 128px;
+    height: 128px;
+    padding-right: 15px;
+    line-height: 0;
+
+    img {
+      width: 128px;
+    }
   }
 
-  ul.nice-list {
-    list-style: none; margin-left: 9px;
-    ul.nice-list li {line-height: 22px;}
+  p {
+    margin-bottom: 0;
   }
 }
 
@@ -319,16 +345,19 @@ section {
 
   .avatar {
     width: 72px;
+    height: 72px;
+    line-height: 0;
 
     img {
       width: 72px;
-      height: 72px;
     }
   }
 }
 
 #replies header {
   margin-bottom: 5px;
+  padding-bottom: 0;
+  border-bottom: 0;
   color: gray;
 }
 
@@ -337,6 +366,25 @@ section {
 }
 
 #settings .avatar img {
-  height: 160px;
-  width: 160px;
+  height: 128px;
+  width: 128px;
+}
+
+@media (max-width: 480px) {
+  #profile .profile-wrap {
+    .avatar {
+      width: 64px;
+      height: auto;
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+
+  #topics {
+    .reply-count {
+      display: none;
+    }
+  }
 }
