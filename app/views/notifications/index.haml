@@ -10,7 +10,7 @@
                   %tr{:id => notification.anchor}
                     = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
                     %td.last
-                      = button_to t('delete'), notification_path(notification), :class => 'btn', :method => :delete, :remote => true
+                      = link_to '×', notification_path(notification), :class => 'close', :method => :delete, :remote => true
           = paginate @notifications
         - else
           %section.box
