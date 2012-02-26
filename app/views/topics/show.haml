@@ -38,7 +38,7 @@
                           = t('updated_at')
                           = format_time @topic.edited_at
                       - if logined? && current_user == @topic.user
-                        = link_to t('edit'), edit_topic_path(@topic), :class => 'lbtn notice'
+                        = link_to t('edit'), edit_topic_path(@topic)
                     %td.avatar
                       = link_to image_tag(@topic.user.gravatar_url(:size => 72)), person_path(@topic.user)
             ~ format_text @topic.content, :mention_names => @topic.mentioned_user_names

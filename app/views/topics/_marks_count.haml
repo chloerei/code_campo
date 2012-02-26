@@ -1,8 +1,8 @@
 %span.marks_count
   - if logined?
     - if topic.marked_by?(current_user)
-      = link_to t('.marked'), mark_topic_path(topic), :method => :delete, :class => 'lbtn marked', :remote => true
+      = link_to t('.marked'), mark_topic_path(topic), :method => :delete, :remote => true
     - else
-      = link_to t('.mark'), mark_topic_path(topic), :method => :post, :class => 'lbtn mark', :remote => true
+      = link_to t('.mark'), mark_topic_path(topic), :method => :post, :remote => true
   - if topic.marker_count > 0
     = t '.marker_count', :count => topic.marker_count
