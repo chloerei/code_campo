@@ -25,12 +25,12 @@ namespace :deploy do
   end
 
   task :pipeline_precompile do
-    run "cd #{current_path}; bundle exec rake assets:precompile"
+    run "cd #{release_path}; bundle exec rake assets:precompile"
   end
 
   task :copy_config do
-    run "cp #{deploy_to}/shared/config/*.yml #{current_path}/config"
+    run "cp #{deploy_to}/shared/config/*.yml #{release_path}/config"
   end
 end
 
-after "deploy:create_symlink", "deploy:copy_config", "deploy:pipeline_precompile"
+after "deploy:update_code", "deploy:copy_config", "deploy:pipeline_precompile"
