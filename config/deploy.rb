@@ -33,4 +33,4 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink", "deploy:copy_config", "deploy:pipeline_precompile"
+after "deploy:create_symlink", "deploy:copy_config", "deploy:pipeline_precompile"
