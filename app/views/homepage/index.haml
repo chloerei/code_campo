@@ -1,3 +1,5 @@
+- @subscribe_url = newest_topics_url(:format => :rss)
+
 #main
   .container
     .row
@@ -11,11 +13,16 @@
       #sidebar.span3
         - if logined?
           = render :partial => 'shared/sidebar_profile'
+          %section.box
+            = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn btn-primary'
         - else
           = render :partial => 'shared/sidebar_login'
         %section.box
-          %header= t('.status')
+          %header= t('.site_status')
           %ul
             %li= t '.users_count', :count => @users_count
             %li= t '.topics_count', :count => @topics_count
             %li= t '.replies_count', :count => @replies_count
+        %section.box
+          %header= t('.subscribe')
+          = link_to image_tag('rss.png'), newest_topics_url(:format => :rss)

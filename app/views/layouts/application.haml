@@ -4,6 +4,8 @@
     %meta{charset: "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= page_title
+    - if defined?(@subscribe_url)
+      %link{:rel => 'alternate', :type => 'application/rss+xml', :href => @subscribe_url}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     - if content_for? :head

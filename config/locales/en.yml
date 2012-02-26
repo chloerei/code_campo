@@ -33,7 +33,7 @@ en:
       settings: "Settings"
   shared:
     sidebar_login:
-      header: "Submit Resource?"
+      header: "Join Discuss?"
       or: "or"
     sidebar_profile:
       signed_as: "Signed As"
@@ -43,16 +43,17 @@ en:
     previous: "Prev"
   homepage:
     index:
-      more_resources: "» More Resources"
       more_topics: "» More Topics"
-      status: "Status"
+      create_topic: "Create Topic"
+      site_status: "Site Status"
       users_count: "Users %{count}"
       topics_count: "Topics %{count}"
       replies_count: "Replies %{count}"
+      subscribe: "Subscribe"
   people:
     show:
       edit_profile: "Edit profile"
-      status: "Status"
+      person_status: "Person Status"
       topics_count: "Topics %{count}"
       replies_count: "Replies %{count}"
   users:

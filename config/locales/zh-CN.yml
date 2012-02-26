@@ -33,7 +33,7 @@ zh-CN:
       settings: "设置"
   shared:
     sidebar_login:
-      header: "想要提交资源？"
+      header: "加入讨论？"
       or: "或者"
     sidebar_profile:
       signed_as: "登录为"
@@ -43,16 +43,17 @@ zh-CN:
     previous: "上一页"
   homepage:
     index:
-      more_resources: "» 更多资源"
       more_topics: "» 更多话题"
-      status: "统计信息"
+      create_topic: "创建话题"
+      site_status: "全站统计"
       users_count: "用户数 %{count}"
       topics_count: "话题数 %{count}"
       replies_count: "回帖数 %{count}"
+      subscribe: "订阅"
   people:
     show:
       edit_profile: "编辑个人资料"
-      status: "统计信息"
+      person_status: "个人统计"
       topics_count: "话题数 %{count}"
       replies_count: "回帖数 %{count}"
   users:

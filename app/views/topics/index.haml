@@ -5,6 +5,8 @@
 - else
   - @page_title = "#{t(".#{action_name}")} - #{t('.topics')}"
 
+- @subscribe_url = subscribe_url
+
 #main
   .container
     - if action_name != 'index'
@@ -32,12 +34,12 @@
             = t '.no_topics'
       #sidebar.span3
         - if logined?
+          = render :partial => 'shared/sidebar_profile'
           %section.box
             - if action_name == 'tagged'
               = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn btn-primary'
             - else
               = link_to t('.create_topic'), new_topic_path, :class => 'btn btn-primary'
-          = render :partial => 'shared/sidebar_profile'
           %ul.nav.nav-tabs.nav-stacked
             %li{:class => (action_name == 'index' ? 'active' : nil)}= link_to t('.active'), topics_path
             %li{:class => (action_name == 'newest' ? 'active' : nil)}= link_to t('.newest'), newest_topics_path
@@ -67,10 +69,4 @@
         - if %w(index newest interesting tagged).include?(action_name)
           %section.box
             %header= t('.subscribe')
-            - case action_name
-            - when 'index', 'newest'
-              = link_to image_tag('rss.png'), newest_topics_path(:format => :rss)
-            - when 'interesting'
-              = link_to image_tag('rss.png'), interesting_topics_path(:format => :rss, :access_token => current_user.access_token)
-            - when 'tagged'
-              = link_to image_tag('rss.png'), tagged_topics_path(:format => :rss, :tag => params[:tag]) 
+            = link_to image_tag('rss.png'), subscribe_url
