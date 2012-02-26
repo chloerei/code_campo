@@ -34,3 +34,10 @@
   -moz-border-radius: 3px;
   border: 1px solid #DDD;
 }
+
+@media (max-width: 480px) {
+  #editor-button-bar,
+  #editor-preview {
+    display: none;
+  }
+}
