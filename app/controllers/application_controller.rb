@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_no_logined
+    if logined?
+      redirect_to root_url
+    end
+  end
+
   def current_user
     @current_user ||= login_from_session || login_from_cookies unless defined?(@current_user)
     @current_user

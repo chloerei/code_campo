@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :require_no_logined
+
   def new
     @user = User.new
     store_location request.referrer if request.referrer.present?
