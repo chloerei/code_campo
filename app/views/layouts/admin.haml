@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= page_title
+    - if defined?(@subscribe_url)
+      %link{:rel => 'alternate', :type => 'application/rss+xml', :href => @subscribe_url}
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    - if content_for? :head
+      = yield :head
+    = csrf_meta_tags
+  %body
+    #topbar.navbar
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{'data-toggle' => 'collapse', 'data-target' => '.nav-collapse'}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to 'CodeCampo', root_path, :class => 'brand'
+          .nav-collapse
+            %ul.nav
+              %li{:class => (controller_name == 'dashboard' ? 'active' : nil)}
+                = link_to t('.dashboard'), root_path
+              %li{:class => (controller_name == 'users' ? 'active' : nil)}
+                = link_to t('.users'), admin_users_path
+    = yield
+    = render :partial => 'layouts/footer'
