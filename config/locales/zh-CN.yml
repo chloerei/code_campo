@@ -12,6 +12,7 @@ zh-CN:
   form_disable_with: "提交中..."
   created_at: "创建于"
   updated_at: "更新于"
+  edited_at: "编辑于"
   replied_at: "回复于"
   or: "或者"
   zh-CN: "中文（简体）"
@@ -197,6 +198,21 @@ zh-CN:
         content: "内容"
       destroy:
         delete_success: "成功删除用户 %{name}"
+    topics:
+      index:
+        title: "标题"
+        user: "用户"
+        replies_count: "回复数"
+      show:
+        topics: "主题"
+        user: "用户"
+        content: "内容"
+        marker_count: "收藏数"
+        replies_count: "回复数"
+        delete_confirm: "确定删除主题 %{title} 吗？（所有回帖会被一并删除）"
+        action: "操作"
+      destroy:
+        delete_success: "成功删除主题 %{title}"
 
   mongoid:
     attributes:

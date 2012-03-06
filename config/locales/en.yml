@@ -12,6 +12,7 @@ en:
   form_disable_with: "Posting..."
   created_at: "Created at"
   updated_at: "Updated at"
+  edited_at: "Edited at"
   replied_at: "Replied at"
   or: "or"
   zh-CN: "Chinese(Simplified)"
@@ -197,6 +198,21 @@ en:
         content: "Content"
       destroy:
         delete_success: "success destroy user %{name}"
+    topics:
+      index:
+        title: "Title"
+        user: "User"
+        replies_count: "Replies count"
+      show:
+        topics: "Topics"
+        user: "User"
+        content: "Content"
+        marker_count: "Marker count"
+        replies_count: "Replies count"
+        delete_confirm: "Are you sure destroy topic %{title} ? (All replies will be destroy together)"
+        action: "Action"
+      destroy:
+        delete_success: "Success destroy topic %{title}"
 
   mongoid:
     attributes:

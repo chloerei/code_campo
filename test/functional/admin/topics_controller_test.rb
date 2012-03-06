@@ -1,9 +1,9 @@
 require 'test_helper'
 require 'functional/admin/base_controller_test'
 
-class Admin::UsersControllerTest < Admin::BaseControllerTest
+class Admin::TopicsControllerTest < Admin::BaseControllerTest
   def setup
-    @user = Factory :user
+    @topic = Factory :topic
   end
 
   test "should get index" do
@@ -13,18 +13,19 @@ class Admin::UsersControllerTest < Admin::BaseControllerTest
     assert_response :success, @response.body
   end
 
-  test "should show user" do
+  test "should show topic" do
     assert_require_admin do
-      get :show, :id => @user
+      get :show, :id => @topic
     end
     assert_response :success, @response.body
   end
 
-  test "should destroy user" do
-    assert_require_admin do
-      delete :destroy, :id => @user
+  test "should destroy topic" do
+    assert_difference "Topic.count", -1 do
+      assert_require_admin do
+        delete :destroy, :id => @topic
+      end
     end
-    assert_nil User.where(:_id => @user.id).first
     assert_redirected_to :action => :index
   end
 end

@@ -39,5 +39,6 @@ CodeCampo::Application.routes.draw do
 
   namespace :admin do
     resources :users, :only => [:index, :show, :destroy]
+    resources :topics, :only => [:index, :show, :destroy]
   end
 end
