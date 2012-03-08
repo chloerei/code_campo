@@ -32,6 +32,11 @@ zh-CN:
       search: "搜索"
       profiles: "个人资料"
       settings: "设置"
+    admin:
+      dashboard: "面板"
+      users: "用户"
+      topics: "主题"
+      replies: "回复"
   shared:
     sidebar_login:
       header: "加入讨论？"
@@ -213,6 +218,19 @@ zh-CN:
         action: "操作"
       destroy:
         delete_success: "成功删除主题 %{title}"
+    replies:
+      index:
+        content: "内容"
+        user: "用户"
+      show:
+        replies: "回复"
+        topic: "主题"
+        user: "用户"
+        content: "内容"
+        delete_confirm: "确定删除回复吗？"
+        action: "操作"
+      destroy:
+        delete_success: "成功删除回复"
 
   mongoid:
     attributes:

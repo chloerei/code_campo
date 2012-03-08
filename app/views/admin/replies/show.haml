@@ -1,0 +1,26 @@
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.replies'), admin_replies_path
+            %span.divider /
+          %li.active= @reply.number_id
+    .row
+      #mainbar.span9
+        %section#reply.box
+          %dl
+            %dt= t '.topic'
+            %dd= link_to @reply.topic.title, admin_topic_path(@reply.topic)
+            %dt= t '.user'
+            %dd= link_to @reply.user.name, admin_user_path(@reply.user)
+            %dt= t 'created_at'
+            %dd= format_time @reply.created_at
+            %dt= t '.content'
+            %dd
+              %pre~ @reply.content
+      #sidebar.span3
+        %section.box
+          %header= t '.action'
+          = button_to t('delete'), admin_reply_path(@reply), :class => 'btn btn-danger', :method => :delete, :confirm => t('.delete_confirm')

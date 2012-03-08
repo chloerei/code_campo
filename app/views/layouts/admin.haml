@@ -28,5 +28,7 @@
                 = link_to t('.users'), admin_users_path
               %li{:class => (controller_name == 'topics' ? 'active' : nil)}
                 = link_to t('.topics'), admin_topics_path
+              %li{:class => (controller_name == 'replies' ? 'active' : nil)}
+                = link_to t('.replies'), admin_replies_path
     = yield
     = render :partial => 'layouts/footer'

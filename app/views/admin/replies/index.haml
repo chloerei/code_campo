@@ -1,0 +1,19 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        = render :partial => 'layouts/flash_messages'
+        %section#replies.box
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.content'
+                %th= t '.user'
+                %th= t 'created_at'
+            %tbody
+              - @replies.each do |reply|
+                %tr
+                  %td= link_to truncate(reply.content), admin_reply_path(reply), :title => reply.content
+                  %td= link_to reply.user.name, admin_user_path(reply.user)
+                  %td= l reply.created_at, :format => :long
+        = paginate @replies

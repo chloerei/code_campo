@@ -53,7 +53,7 @@
             %tbody
               - @replies.each do |reply|
                 %tr
-                  %td= reply.content
+                  %td= link_to truncate(reply.content), admin_reply_path(reply), :title => reply.content
                   %td= l reply.created_at, :format => :long
 
       #sidebar.span3

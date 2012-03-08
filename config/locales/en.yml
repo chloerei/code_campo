@@ -32,6 +32,11 @@ en:
       search: "Search"
       profiles: "Profile"
       settings: "Settings"
+    admin:
+      dashboard: "Dashboard"
+      users: "Users"
+      topics: "Topics"
+      replies: "Replies"
   shared:
     sidebar_login:
       header: "Join Discuss?"
@@ -213,6 +218,19 @@ en:
         action: "Action"
       destroy:
         delete_success: "Success destroy topic %{title}"
+    replies:
+      index:
+        content: "Content"
+        user: "User"
+      show:
+        replies: "Replies"
+        topic: "Topic"
+        user: "User"
+        content: "Content"
+        delete_confirm: "Are you sure destroy reply？"
+        action: "Action"
+      destroy:
+        delete_success: "Success destroy reply"
 
   mongoid:
     attributes:
