@@ -3,7 +3,7 @@
     .row
       #mainbar.span9
         - if @notifications.any?
-          %section.box#notifications
+          %section.box#notifications.no-padding
             %table.item-list
               %tbody
                 - @notifications.each do |notification|

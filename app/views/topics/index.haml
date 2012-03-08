@@ -24,7 +24,7 @@
     .row
       #mainbar.span9
         - if @topics.any?
-          %section#topics.box
+          %section#topics.box.no-padding
             %table.item-list
               %tbody
                 = render :partial => 'topic', :collection => @topics

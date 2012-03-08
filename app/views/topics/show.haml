@@ -44,7 +44,7 @@
             ~ format_text @topic.content, :mention_names => @topic.mentioned_user_names
             %footer
               = render :partial => 'marks_count', :locals => {:topic => @topic}
-        %section#replies.box
+        %section#replies.box.no-padding
           %table.item-list
             %tbody
               = render :partial => 'replies/reply', :collection => @replies
