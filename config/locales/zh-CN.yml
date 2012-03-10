@@ -17,6 +17,9 @@ zh-CN:
   or: "或者"
   zh-CN: "中文（简体）"
   en: "英文"
+  code_campo_newest_topics: "CodeCampo 最新主题"
+  code_campo_tagged_newest_topics: "CodeCampo 最新主题 标签：%{tag}"
+  code_campo_interesting_topics: "CodeCampo 最新主题 %{name} 定制"
 
   layouts:
     settings:
