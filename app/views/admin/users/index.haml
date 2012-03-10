@@ -1,0 +1,21 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        = render :partial => 'layouts/flash_messages'
+        %section#users.box
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.name'
+                %th= t '.profile_name'
+                %th= t '.email'
+                %th= t '.sign_up'
+            %tbody
+              - @users.each do |user|
+                %tr
+                  %td= link_to user.name, admin_user_path(user)
+                  %td= user.profile.name
+                  %td= user.email
+                  %td= l user.created_at, :format => :long
+        = paginate @users

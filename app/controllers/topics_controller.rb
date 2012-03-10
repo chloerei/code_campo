@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
       end
       format.rss do
         @topics = Topic.order_by([[:created_at, :desc]]).limit(20)
-        @page_title = 'Newest Topics'
+        @page_title = I18n.t('code_campo_newest_topics')
         render :index, :layout => false
       end
     end
@@ -48,6 +48,7 @@ class TopicsController < ApplicationController
       end
       format.rss do
         @topics = Topic.where(:tags => params[:tag]).order_by([[:created_at, :desc]]).limit(20)
+        @page_title = I18n.t('code_campo_tagged_newest_topics', :tag => params[:tag])
         render :index, :layout => false
       end
     end
@@ -61,6 +62,7 @@ class TopicsController < ApplicationController
       end
       format.rss do
         @topics = Topic.where(:tags.in => current_user.favorite_tags).order_by([[:created_at, :desc]]).limit(20)
+        @page_title = I18n.t('code_campo_interesting_topics', :name => current_user.name)
         render :index, :layout => false
       end
     end

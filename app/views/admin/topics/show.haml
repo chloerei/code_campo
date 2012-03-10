@@ -1,0 +1,32 @@
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.topics'), admin_topics_path
+            %span.divider /
+          %li.active= @topic.title
+    .row
+      #mainbar.span9
+        %section#topic.box
+          %h1= @topic.title
+          %dl
+            %dt= t '.user'
+            %dd= link_to @topic.user.name, admin_user_path(@topic.user)
+            %dt= t 'created_at'
+            %dd= format_time @topic.created_at
+            - if @topic.edited_at
+              %dt= t 'edited_at'
+              %dd= format_time @topic.edited_at
+            %dt= t '.content' 
+            %dd
+              %pre~ @topic.content
+            %dt= t '.marker_count' 
+            %dd= @topic.marker_count
+            %dt= t '.replies_count' 
+            %dd= @topic.replies_count
+      #sidebar.span3
+        %section.box
+          %header= t '.action'
+          = button_to t('delete'), admin_topic_path(@topic), :class => 'btn btn-danger', :method => :delete, :confirm => t('.delete_confirm', :title => @topic.title)

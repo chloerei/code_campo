@@ -12,10 +12,14 @@ en:
   form_disable_with: "Posting..."
   created_at: "Created at"
   updated_at: "Updated at"
+  edited_at: "Edited at"
   replied_at: "Replied at"
   or: "or"
   zh-CN: "Chinese(Simplified)"
   en: "English"
+  code_campo_newest_topics: "CodeCampo Newest Topics"
+  code_campo_tagged_newest_topics: "CodeCampo Newest Topics Tagged：%{tag}"
+  code_campo_interesting_topics: "CodeCampo Newest Topics Customize for %{name}"
 
   layouts:
     settings:
@@ -31,6 +35,13 @@ en:
       search: "Search"
       profiles: "Profile"
       settings: "Settings"
+      admin_dashboard: "Admin dashboard"
+    admin:
+      dashboard: "Dashboard"
+      users: "Users"
+      topics: "Topics"
+      replies: "Replies"
+      back_home: "Bakc home"
   shared:
     sidebar_login:
       header: "Join Discuss?"
@@ -174,6 +185,72 @@ en:
   search:
     show:
       loading: "Loading..."
+  admin:
+    dashboard:
+      show:
+        more: "More"
+        topics: "Topics"
+        today_total_count: "Today %{today_count} / Total %{total_count}"
+        title: "Title"
+        user: "User"
+        replies_count: "Replies count"
+        replies: "Replies"
+        users: "Users"
+        content: "Content"
+        name: "Name"
+        profile_name: "Profile name"
+        email: "Email"
+        sign_up: "Sign up"
+    users:
+      index:
+        name: "User Name"
+        profile_name: "Profile Name"
+        email: "Email"
+        sign_up: "Sign Up"
+      show:
+        users: "Users"
+        person_page: "Person Page"
+        url: "Url"
+        description: "Description"
+        email: "Email"
+        delete_confirm: "Are you sure destroy user %{name} ? (Topics and Replies will be destroy together)"
+        topics: "Topics (%{count})"
+        replies: "Replies (%{count})"
+        action: "Action"
+        title: "Title"
+        replies_count: "Replies count"
+        created_at: "Created at"
+        content: "Content"
+      destroy:
+        delete_success: "success destroy user %{name}"
+    topics:
+      index:
+        title: "Title"
+        user: "User"
+        replies_count: "Replies count"
+      show:
+        topics: "Topics"
+        user: "User"
+        content: "Content"
+        marker_count: "Marker count"
+        replies_count: "Replies count"
+        delete_confirm: "Are you sure destroy topic %{title} ? (All replies will be destroy together)"
+        action: "Action"
+      destroy:
+        delete_success: "Success destroy topic %{title}"
+    replies:
+      index:
+        content: "Content"
+        user: "User"
+      show:
+        replies: "Replies"
+        topic: "Topic"
+        user: "User"
+        content: "Content"
+        delete_confirm: "Are you sure destroy reply？"
+        action: "Action"
+      destroy:
+        delete_success: "Success destroy reply"
 
   mongoid:
     attributes:

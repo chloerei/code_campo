@@ -58,4 +58,9 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal nil, User.find_by_access_token(nil)
   end
+
+  test "admin logic by Setings admin emails" do
+    assert !Factory(:user).admin?
+    assert Factory(:user, :email => APP_CONFIG['admin_emails'].first).admin?
+  end
 end

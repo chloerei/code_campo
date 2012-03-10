@@ -1,0 +1,37 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= page_title
+    - if defined?(@subscribe_url)
+      %link{:rel => 'alternate', :type => 'application/rss+xml', :href => @subscribe_url}
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    - if content_for? :head
+      = yield :head
+    = csrf_meta_tags
+  %body
+    #topbar.navbar
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{'data-toggle' => 'collapse', 'data-target' => '.nav-collapse'}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to 'CodeCampo', admin_dashboard_path, :class => 'brand'
+          .nav-collapse
+            %ul.nav
+              %li{:class => (controller_name == 'dashboard' ? 'active' : nil)}
+                = link_to t('.dashboard'), admin_dashboard_path
+              %li{:class => (controller_name == 'topics' ? 'active' : nil)}
+                = link_to t('.topics'), admin_topics_path
+              %li{:class => (controller_name == 'replies' ? 'active' : nil)}
+                = link_to t('.replies'), admin_replies_path
+              %li{:class => (controller_name == 'users' ? 'active' : nil)}
+                = link_to t('.users'), admin_users_path
+            %ul.nav.pull-right
+              %li
+                = link_to t('.back_home'), root_path
+    = yield
+    = render :partial => 'layouts/footer'

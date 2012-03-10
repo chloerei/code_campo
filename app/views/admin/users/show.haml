@@ -1,0 +1,62 @@
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.users'), admin_users_path
+            %span.divider /
+          %li.active= @user.name
+    .row
+      #mainbar.span9
+        %section#profile.box
+          .profile-wrap
+            .profile-inner
+              .avatar
+                = image_tag @user.gravatar_url(:size => 128)
+              .info
+                %h1
+                  = @user.profile.name.present? ? @user.profile.name : @user.name
+                  %small= "@#{@user.name}"
+                %dl
+                  %dt= t '.person_page'
+                  %dd= link_to person_path(@user), person_path(@user)
+                  %dt= t '.email'
+                  %dd= @user.email
+                  - if @user.profile.description.present?
+                    %dt= t '.description'
+                    %dd= @user.profile.description
+                  - if @user.profile.url.present?
+                    %dt= t '.url'
+                    %dd= link_to @user.profile.url, @user.profile.url, :rel => 'external nofollow'
+        %section.box
+          %header= t '.topics', :count => @topics.count
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.title'
+                %th= t '.replies_count'
+                %th= t '.created_at'
+            %tbody
+              - @topics.each do |topic|
+                %tr
+                  %td= link_to topic.title, '#'
+                  %td= topic.replies_count
+                  %td= l topic.created_at, :format => :long
+        %section.box
+          %header= t '.replies', :count => @replies.count
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.content'
+                %th= t '.created_at'
+            %tbody
+              - @replies.each do |reply|
+                %tr
+                  %td= link_to truncate(reply.content), admin_reply_path(reply), :title => reply.content
+                  %td= l reply.created_at, :format => :long
+
+      #sidebar.span3
+        %section.box
+          %header= t '.action'
+          = button_to t('delete'), admin_user_path(@user), :class => 'btn btn-danger', :method => :delete, :confirm => t('.delete_confirm', :name => @user.name)

@@ -36,4 +36,11 @@ CodeCampo::Application.routes.draw do
     resource :profile, :only => [:show, :update]
     resources :favorite_tags, :only => [:index, :create, :update, :destroy], :constraints => {:id => /[^\/]+/}
   end
+
+  namespace :admin do
+    get '/', :to => 'dashboard#show', :as => 'dashboard'
+    resources :users, :only => [:index, :show, :destroy]
+    resources :topics, :only => [:index, :show, :destroy]
+    resources :replies, :only => [:index, :show, :destroy]
+  end
 end

@@ -105,6 +105,10 @@ class User
     first :conditions => {:access_token => token} if token.present?
   end
 
+  def admin?
+    APP_CONFIG['admin_emails'].include?(self.email)
+  end
+
   # TODO old data migration begin
   field :crypted_password
   field :password_salt
