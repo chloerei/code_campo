@@ -32,6 +32,7 @@ en:
       search: "Search"
       profiles: "Profile"
       settings: "Settings"
+      admin_dashboard: "Admin dashboard"
     admin:
       dashboard: "Dashboard"
       users: "Users"

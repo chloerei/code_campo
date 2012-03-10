@@ -31,6 +31,10 @@
                   = link_to t('.profiles'), person_path(:name => current_user)
                 %li
                   = link_to t('.settings'), settings_account_path
+                - if current_user.admin?
+                  %li.divider
+                  %li
+                    = link_to t('.admin_dashboard'), admin_dashboard_path
                 %li.divider
                 %li
                   = link_to t('logout'), logout_path, :method => :delete

@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
   protected
 
   def require_admin
-    unless APP_CONFIG['admin_emails'].include?(current_user.email)
+    unless current_user.admin?
       redirect_to root_url
     end
   end
