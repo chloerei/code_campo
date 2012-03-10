@@ -37,6 +37,7 @@ en:
       users: "Users"
       topics: "Topics"
       replies: "Replies"
+      back_home: "Bakc home"
   shared:
     sidebar_login:
       header: "Join Discuss?"
@@ -181,6 +182,21 @@ en:
     show:
       loading: "Loading..."
   admin:
+    dashboard:
+      show:
+        more: "More"
+        topics: "Topics"
+        today_total_count: "Today %{today_count} / Total %{total_count}"
+        title: "Title"
+        user: "User"
+        replies_count: "Replies count"
+        replies: "Replies"
+        users: "Users"
+        content: "Content"
+        name: "Name"
+        profile_name: "Profile name"
+        email: "Email"
+        sign_up: "Sign up"
     users:
       index:
         name: "User Name"

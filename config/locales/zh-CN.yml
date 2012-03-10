@@ -37,6 +37,7 @@ zh-CN:
       users: "用户"
       topics: "主题"
       replies: "回复"
+      back_home: "回到前台"
   shared:
     sidebar_login:
       header: "加入讨论？"
@@ -181,6 +182,21 @@ zh-CN:
     show:
       loading: "载入中..."
   admin:
+    dashboard:
+      show:
+        more: "更多"
+        topics: "主题"
+        today_total_count: "今天 %{today_count} / 总共 %{total_count}"
+        title: "标题"
+        user: "用户"
+        replies_count: "回复数"
+        replies: "回复"
+        users: "用户"
+        content: "内容"
+        name: "用户名"
+        profile_name: "名字"
+        email: "Email"
+        sign_up: "注册时间"
     users:
       index:
         name: "用户名"

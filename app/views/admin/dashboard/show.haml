@@ -1,0 +1,66 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        = render :partial => 'layouts/flash_messages'
+        %section#topics.box
+          %header
+            %h3
+              = t '.topics'
+              %small
+                = t '.today_total_count', :today_count => @topics_today_count, :total_count => @topics_total_count
+                = link_to t('.more'), admin_topics_path
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.title'
+                %th= t '.user'
+                %th= t '.replies_count'
+                %th= t 'created_at'
+            %tbody
+              - @topics.each do |topic|
+                %tr
+                  %td= link_to topic.title, admin_topic_path(topic)
+                  %td= link_to topic.user.name, admin_user_path(topic.user)
+                  %td= topic.replies_count
+                  %td= l topic.created_at, :format => :long
+        %section#replies.box
+          %header
+            %h3
+              = t '.replies'
+              %small
+                = t '.today_total_count', :today_count => @replies_today_count, :total_count => @replies_total_count
+                = link_to t('.more'), admin_replies_path
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.content'
+                %th= t '.user'
+                %th= t 'created_at'
+            %tbody
+              - @replies.each do |reply|
+                %tr
+                  %td= link_to truncate(reply.content), admin_reply_path(reply), :title => reply.content
+                  %td= link_to reply.user.name, admin_user_path(reply.user)
+                  %td= l reply.created_at, :format => :long
+        %section#users.box
+          %header
+            %h3
+              = t '.users'
+              %small
+                = t '.today_total_count', :today_count => @users_today_count, :total_count => @users_total_count
+                = link_to t('.more'), admin_users_path
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.name'
+                %th= t '.profile_name'
+                %th= t '.email'
+                %th= t '.sign_up'
+            %tbody
+              - @users.each do |user|
+                %tr
+                  %td= link_to user.name, admin_user_path(user)
+                  %td= user.profile.name
+                  %td= user.email
+                  %td= l user.created_at, :format => :long

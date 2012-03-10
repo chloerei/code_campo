@@ -38,6 +38,7 @@ CodeCampo::Application.routes.draw do
   end
 
   namespace :admin do
+    get '/', :to => 'dashboard#show', :as => 'dashboard'
     resources :users, :only => [:index, :show, :destroy]
     resources :topics, :only => [:index, :show, :destroy]
     resources :replies, :only => [:index, :show, :destroy]
