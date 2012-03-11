@@ -31,6 +31,7 @@ group :assets do
 end
 
 group :development do
+  gem 'whenever', :require => false
   gem 'capistrano', :require => false
 end
 

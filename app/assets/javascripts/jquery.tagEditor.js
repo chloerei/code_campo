@@ -4,6 +4,7 @@
     this.tag_editor = $('<div class="tag-editor"></div>');
     this.tag_preview = $('<span class="tag-preview"></span>');
     this.tag_input = $('<input class="tag-input" type="text"></input>');
+    this.tag_input.typeahead({source: this._input.data('suggest'), items: 5});
     this.tag_editor.append(this.tag_preview).append(this.tag_input);
     this.tag_editor.insertBefore(this._input);
     this._input.hide();
