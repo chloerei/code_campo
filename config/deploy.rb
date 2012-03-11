@@ -24,13 +24,10 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
-  task :pipeline_precompile do
-    run "cd #{release_path}; bundle exec rake assets:precompile"
-  end
-
   task :copy_config do
     run "cp #{deploy_to}/shared/config/*.yml #{release_path}/config"
   end
 end
 
-after "deploy:update_code", "deploy:copy_config", "deploy:pipeline_precompile"
+after "deploy:update_code", "deploy:copy_config"
+load 'deploy/assets'
