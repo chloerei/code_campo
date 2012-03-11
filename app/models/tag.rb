@@ -5,7 +5,7 @@ class Tag
   field :value, :type => Integer, :default => 0
 
   def self.suggest_tags(limit = 500)
-    self.where(:value.gt => 1).order_by([[:value, :desc]]).limit(limit).map(&:_id)
+    self.order_by([[:value, :desc]]).limit(limit).map(&:_id)
   end
 
   def self.recount
