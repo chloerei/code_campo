@@ -8,7 +8,6 @@ class User
   field :name
   field :email
   field :password_digest
-  field :favorite_tags, :type => Array, :default => []
   field :access_token
   field :locale, :default => I18n.locale.to_s
 
@@ -20,12 +19,10 @@ class User
   validates :password, :password_confirmation, :presence => true, :on => :create
   validates :password, :length => {:minimum => 6, :allow_nil => true}
   validates :current_password, :current_password => {:fields => [:name, :email, :password]}, :on => :update
-  validates :extra_favorite_tag_string, :format => { :with => /\A[^\/]+\z/, :message => I18n.t("errors.no_allow_slash"), :allow_blank => true}
   validates :locale, :inclusion => {:in => AllowLocale}
   
   attr_accessor :current_password
-  attr_reader :extra_favorite_tag_string
-  attr_accessible :name, :email, :password, :password_confirmation, :current_password, :extra_favorite_tag_string, :locale
+  attr_accessible :name, :email, :password, :password_confirmation, :current_password, :locale
 
   has_many :notifications, :class_name => 'Notification::Base', :dependent => :delete do
     def has_unread?
@@ -37,22 +34,6 @@ class User
   embeds_one :profile
 
   before_create :build_profile, :set_access_token
-  after_save :clear_extra_favorite_tag_string
-
-  def remove_favorite_tag(tag)
-    collection.update({:_id => self.id},
-                      {"$pull" => {:favorite_tags => tag}})
-  end
-
-  def extra_favorite_tag_string=(string)
-    self.favorite_tags += string.to_s.downcase.split(/[,\s]+/).uniq
-    self.favorite_tags.uniq!
-    @extra_favorite_tag_string = string
-  end
-
-  def clear_extra_favorite_tag_string
-    @extra_favorite_tag_string = nil
-  end
 
   def to_param
     name

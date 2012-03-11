@@ -149,25 +149,6 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
   end
 
-  test "shoud get interesting topics" do
-    topic = Factory :topic, :tags => ['ruby']
-    user = Factory :user, :favorite_tags => ['ruby']
-    get :interesting
-    assert_redirected_to login_url
-    
-    login_as user
-    get :interesting
-    assert_response :success, @response.body
-    assert assigns(:topics).include?(topic)
-
-    logout
-    get :interesting, :access_token => user.access_token
-    assert_response :success, @response.body
-
-    get :interesting, :access_token => user.access_token, :format => :rss
-    assert_response :success, @response.body
-  end
-
   # TODO remove
   test "should redirect when using _id" do
     topic = Factory :topic

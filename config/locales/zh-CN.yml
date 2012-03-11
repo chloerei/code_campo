@@ -19,7 +19,6 @@ zh-CN:
   en: "英文"
   code_campo_newest_topics: "CodeCampo 最新主题"
   code_campo_tagged_newest_topics: "CodeCampo 最新主题 标签：%{tag}"
-  code_campo_interesting_topics: "CodeCampo 最新主题 %{name} 定制"
 
   layouts:
     settings:
@@ -27,7 +26,6 @@ zh-CN:
       account: "账户"
       password: "密码"
       profile: "个人资料"
-      favorite_tags: "喜好标签"
     topbar:
       home: "首页"
       resources: "资源"
@@ -83,10 +81,6 @@ zh-CN:
     passwords:
       show:
         password_settings: "密码设置"
-    favorite_tags:
-      index:
-        favorite_tags_settings: "喜好标签设置"
-        add_favorite_tags: "添加喜欢标签" 
     profiles:
       show:
         profile_settings: "个人资料设置"
@@ -114,16 +108,11 @@ zh-CN:
       votes_count: "%{count} 票"
     index:
       resources: "资源"
-      interesting: "喜好"
       voted: "已投票"
       my: "我的资源"
-      tagged: "标记为：%{tag}"
       no_resources: "没有资源"
-      favorite_tags: "喜好标签"
       settings: "设置"
       submit_resource: "提交资源"
-      add_favorite: "添加为喜好"
-      remove_favorite: "从喜好中移除"
     new:
       resources: "资源"
       submit_resource: "提交资源"
@@ -153,17 +142,13 @@ zh-CN:
       topics: "话题"
       active: "活跃"
       newest: "最新"
-      interesting: "喜好"
       marked: "收藏"
       my: "我的话题"
       tagged: "标记为：%{tag}"
       replied: "回复过"
       no_topics: "没有话题"
-      favorite_tags: "喜好标签"
       settings: "设置"
       create_topic: "创建话题"
-      add_favorite: "添加为喜好"
-      remove_favorite: "从喜好中移除"
       subscribe: "订阅"
     show:
       topics: "话题"
@@ -261,7 +246,6 @@ zh-CN:
         password_confirmation: "密码确认"
         locale: "语言"
         current_password: "当前密码"
-        extra_favorite_tag_string: "添加喜好标签"
       profile:
         name: "名称"
         avatar: "头像"

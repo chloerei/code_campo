@@ -20,7 +20,6 @@
               %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to t('.account'), settings_account_path
               %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to t('.password'), settings_password_path
               %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to t('.profile'), settings_profile_path
-              %li{:class => (controller_name == 'favorite_tags' ? 'active' : nil)}= link_to t('.favorite_tags'), settings_favorite_tags_path
           #mainbar.span9
             %section#settings.box
               = yield

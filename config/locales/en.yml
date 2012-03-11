@@ -19,7 +19,6 @@ en:
   en: "English"
   code_campo_newest_topics: "CodeCampo Newest Topics"
   code_campo_tagged_newest_topics: "CodeCampo Newest Topics Tagged：%{tag}"
-  code_campo_interesting_topics: "CodeCampo Newest Topics Customize for %{name}"
 
   layouts:
     settings:
@@ -27,7 +26,6 @@ en:
       account: "Account"
       password: "Password"
       profile: "Profile"
-      favorite_tags: "Favorite Tags"
     topbar:
       home: "Home"
       resources: "Resources"
@@ -83,10 +81,6 @@ en:
     passwords:
       show:
         password_settings: "Password settings"
-    favorite_tags:
-      index:
-        favorite_tags_settings: "Favorite tags settings"
-        add_favorite_tags: "Add favorite tags" 
     profiles:
       show:
         profile_settings: "Profile settings"
@@ -114,16 +108,11 @@ en:
       votes_count: "%{count} points"
     index:
       resources: "Resources"
-      interesting: "Interesting"
       voted: "Voted"
       my: "My Resources"
-      tagged: "Tagged: %{tag}"
       no_resources: "No Resources"
-      favorite_tags: "Favorite Tags"
       settings: "Settings"
       submit_resource: "Submit Resource"
-      add_favorite: "Add Favorite"
-      remove_favorite: "Remove Favorite"
     new:
       resources: "Resources"
       submit_resource: "Submit Resource"
@@ -153,17 +142,13 @@ en:
       topics: "Topics"
       active: "Active"
       newest: "Newest"
-      interesting: "Interesting"
       marked: "Marked"
       my: "My Topics"
       tagged: "Tagged: %{tag}"
       replied: "Replied"
       no_topics: "No Topics"
-      favorite_tags: "Favorite Tags"
       settings: "Settings"
       create_topic: "Create Topic"
-      add_favorite: "Add Favorite"
-      remove_favorite: "Remove Favorite"
       subscribe: "Subscribe"
     show:
       topics: "Topics"
@@ -261,7 +246,6 @@ en:
         password_confirmation: "Password Confirmation"
         locale: "Locale"
         current_password: "Current Password"
-        extra_favorite_tag_string: "Extra Tags"
       profile:
         name: "Name"
         avatar: "Avatar"

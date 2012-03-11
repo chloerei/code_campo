@@ -1,11 +1,10 @@
 class TopicsController < ApplicationController
   before_filter :old_id_redirect, :only => [:show]
-  before_filter :login_from_access_token, :only => [:interesting]
   before_filter :require_logined, :except => [:index, :show, :tagged, :newest]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
   respond_to :html, :js, :only => [:mark]
-  respond_to :html, :rss, :only => [:newest, :interesting, :tagged]
+  respond_to :html, :rss, :only => [:newest, :tagged]
 
   def index
     @topics = Topic.active.page(params[:page])
@@ -49,20 +48,6 @@ class TopicsController < ApplicationController
       format.rss do
         @topics = Topic.where(:tags => params[:tag]).order_by([[:created_at, :desc]]).limit(20)
         @page_title = I18n.t('code_campo_tagged_newest_topics', :tag => params[:tag])
-        render :index, :layout => false
-      end
-    end
-  end
-
-  def interesting
-    respond_with do |format|
-      format.html do
-        @topics = Topic.where(:tags.in => current_user.favorite_tags).active.page(params[:page])
-        render :index
-      end
-      format.rss do
-        @topics = Topic.where(:tags.in => current_user.favorite_tags).order_by([[:created_at, :desc]]).limit(20)
-        @page_title = I18n.t('code_campo_interesting_topics', :name => current_user.name)
         render :index, :layout => false
       end
     end
