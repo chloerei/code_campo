@@ -11,12 +11,10 @@ module ApplicationHelper
     sanitize markdown(link_mentions(text, options[:mention_names]))
   end
 
+  MarkdownRender = MdEmoji::Render.new :hard_wrap => true, :no_styles => true
+  Markdown = Redcarpet::Markdown.new MarkdownRender, :autolink => true, :no_intra_emphasis => true
   def markdown(text)
-    markdown_render = Redcarpet::Render::HTML.new :hard_wrap => true, :no_styles => true
-    markdown = Redcarpet::Markdown.new(markdown_render,
-                                       :autolink => true,
-                                       :no_intra_emphasis => true)
-    markdown.render(text.to_s)
+    Markdown.render(text.to_s)
   end
 
   def link_mentions(text, mention_names)
