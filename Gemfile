@@ -30,8 +30,8 @@ group :assets do
   gem 'therubyracer'
 end
 
+gem 'whenever', :require => false
 group :development do
-  gem 'whenever', :require => false
   gem 'capistrano', :require => false
 end
 
