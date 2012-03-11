@@ -1,5 +1,5 @@
-//= require wmd
-//= require showdown
+//= require wmd/wmd
+//= require wmd/showdown
 //= require jquery.tagEditor
 
 $(function(){

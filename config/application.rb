@@ -52,7 +52,6 @@ module CodeCampo
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.precompile += %w(wmd-buttons.png)
     config.assets.precompile += %w(editor.js setttings/favorite_tags.js resources/new.js resources/show.js)
     config.assets.precompile += %w(settings/favorite_tags.js topics/show.js)
     config.assets.precompile += %w(editor.css resources.css search.css settings/favorite_tags.css)
