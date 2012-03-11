@@ -4,6 +4,9 @@ set :rvm_bin_path, "/usr/local/bin"
 
 require 'bundler/capistrano'
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 set :application, "codecampo.com"
 set :repository,  "git://github.com/chloerei/code_campo.git"
 set :scm, :git
