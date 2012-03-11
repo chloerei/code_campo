@@ -52,9 +52,8 @@ module CodeCampo
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.precompile += %w(editor.js resources/new.js resources/show.js)
-    config.assets.precompile += %w(topics/show.js)
-    config.assets.precompile += %w(editor.css resources.css search.css)
+    config.assets.precompile += %w(editor.js topics/show.js)
+    config.assets.precompile += %w(editor.css search.css)
 
     config.generators do |g|  
       g.test_framework :test_unit, :fixture_replacement => :factory_girl
