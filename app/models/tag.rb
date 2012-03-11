@@ -4,6 +4,10 @@ class Tag
   identity :type => String
   field :value, :type => Integer, :default => 0
 
+  def self.suggest_tags(limit = 500)
+    self.order_by([[:value, :desc]]).limit(limit).map(&:_id)
+  end
+
   def self.recount
     map = <<-EOF
       function() {

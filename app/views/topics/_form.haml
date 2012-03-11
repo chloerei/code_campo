@@ -5,4 +5,4 @@
   .full-input-wrap= form.text_area :content, :id => 'editor-input', :rows => 20, :validate => false
   #editor-preview
 .control-group
-  .full-input-wrap= form.text_field :tag_string
+  .full-input-wrap= form.text_field :tag_string, :data => {:suggest => Tag.suggest_tags}
