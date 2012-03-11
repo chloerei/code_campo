@@ -8,12 +8,7 @@ module ApplicationHelper
   end
 
   def format_text(text, options = {})
-    sanitize markdown(replace_emoji(link_mentions(text.to_s, options[:mention_names])))
-  end
-
-  @@emoji_render = MdEmoji::Render.new
-  def replace_emoji(text)
-    @@emoji_render.replace_emoji(text)
+    sanitize markdown(link_mentions(text.to_s, options[:mention_names]))
   end
 
   @@html_render  = Redcarpet::Render::HTML.new :hard_wrap => true, :no_styles => true
