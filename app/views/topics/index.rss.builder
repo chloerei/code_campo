@@ -14,7 +14,7 @@ xml.rss :version => "2.0" do
         end
         xml.pubDate topic.created_at.to_s(:rfc822)
         xml.author topic.user.profile.name
-        xml.link topic_url(topic, :page => topic.last_page, :anchor => topic.last_anchor)
+        xml.link topic_url(topic, :page => topic.last_page)
         xml.guid topic_url(topic)
         if topic.tags.present?
           topic.tags.each do |tag|

@@ -23,7 +23,7 @@ class RepliesControllerTest < ActionController::TestCase
     assert_difference "@topic.replies.count" do
       post :create, :topic_id => @topic, :reply => {:content => 'reply body'}
     end
-    assert_redirected_to topic_url(@topic, :anchor => @topic.reload.last_anchor)
+    assert_redirected_to topic_url(@topic)
   end
 
   test "should get edit page" do

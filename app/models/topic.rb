@@ -54,10 +54,6 @@ class Topic
     page > 1 ? page : nil
   end
 
-  def last_anchor
-    replies_count > 0 ? "replies-#{replies_count}" : nil
-  end
-
   def anchor
     "topic-#{number_id}"
   end
