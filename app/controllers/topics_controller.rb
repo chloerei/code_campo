@@ -67,7 +67,10 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @reply = current_user.replies.new :topic => @topic if logined?
+    if logined?
+      @topic.read_by current_user
+      @reply = current_user.replies.new :topic => @topic
+    end
     @replies = @topic.replies.page(params[:page])
     @relate_topics = @topic.relate_topics(5)
   end

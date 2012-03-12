@@ -123,7 +123,7 @@ table.item-list {
         font-weight: bold;
         text-decoration: none;
 
-        &:visited {
+        &.read {
           background-color: #EEE;
         }
         &:hover {

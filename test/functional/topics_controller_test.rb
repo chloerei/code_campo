@@ -149,6 +149,16 @@ class TopicsControllerTest < ActionController::TestCase
     assert_response :success, @response.body
   end
 
+  test "should read topic" do
+    topic = Factory :topic
+    user = Factory :user
+    login_as user
+    assert !topic.last_read?(user)
+    get :show, :id => topic
+    topic.reload
+    assert topic.last_read?(user)
+  end
+
   # TODO remove
   test "should redirect when using _id" do
     topic = Factory :topic

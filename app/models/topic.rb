@@ -6,12 +6,13 @@ class Topic
 
   field :title
   field :content
-  field :tags,          :type => Array,   :default => []
-  field :actived_at,    :type => Time
-  field :edited_at,     :type => Time
-  field :replies_count, :type => Integer, :default => 0
-  field :marker_ids,    :type => Array,   :default => []
-  field :replier_ids,   :type => Array,   :default => []
+  field :tags,               :type => Array,   :default => []
+  field :actived_at,         :type => Time
+  field :edited_at,          :type => Time
+  field :replies_count,      :type => Integer, :default => 0
+  field :marker_ids,         :type => Array,   :default => []
+  field :replier_ids,        :type => Array,   :default => []
+  field :last_read_user_ids, :type => Array,   :default => []
 
   belongs_to :user
   belongs_to :last_reply_user, :class_name => 'User'
@@ -114,6 +115,16 @@ class Topic
       self.actived_at = created_at
       self.last_reply_user = nil
       save
+    end
+  end
+
+  def last_read?(user)
+    last_read_user_ids.include? user.id
+  end
+
+  def read_by(user)
+    unless last_read?(user)
+      add_to_set(:last_read_user_ids, user.id)
     end
   end
 end

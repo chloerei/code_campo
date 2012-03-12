@@ -63,4 +63,20 @@ class TopicTest < ActiveSupport::TestCase
     assert !topic.reload.replied_by?(topic.user)
   end
 
+  test "should had last_read_user_ids and empty by new reply" do
+    topic = Factory :topic
+    user = Factory :user
+    assert !topic.last_read?(user)
+    topic.read_by user
+    topic.reload
+    assert topic.last_read_user_ids.include?(user.id)
+    assert topic.last_read?(user)
+    Factory :reply, :topic => topic
+    assert !topic.last_read_user_ids.include?(user.id)
+    assert !topic.last_read?(user)
+    topic.read_by user
+    topic.reload
+    assert topic.last_read_user_ids.include?(user.id)
+    assert topic.last_read?(user)
+  end
 end
