@@ -4,7 +4,6 @@
     this.tag_editor = $('<div class="tag-editor"></div>');
     this.tag_preview = $('<span class="tag-preview"></span>');
     this.tag_input = $('<input class="tag-input" type="text"></input>');
-    this.tag_input.typeahead({source: this._input.data('suggest'), items: 5});
     this.tag_editor.append(this.tag_preview).append(this.tag_input);
     this.tag_editor.insertBefore(this._input);
     this._input.hide();
@@ -12,35 +11,51 @@
     this.tags = this._input.val().split(/[,\s]+/).filter(function(tag){return tag !== ""});
     this.draw_preview();
 
-    var that = this;
-
-    this.tag_editor.click(function(event){
-      that.focus_input();
-    });
-    
-    this.tag_input.keyup(function(event){
-      that.keyup_handle(event);
-    });
-
-    this.tag_input.keydown(function(event){
-      that.keydown_handle(event);
-    });
-
-    this.tag_input.focus(function(event){
-      that.tag_editor.addClass('focus');
-    });
-
-    this.tag_input.focusout(function(event){
-      that.extract_tags();
-      that.tag_editor.removeClass('focus');
-    });
-
-    this._input.parents('form').submit(function(event){
-      that.extract_tags();
-    });
+    this.typeahead();
+    this.lisent();
   }
 
   Editor.prototype = {
+    typeahead: function() {
+      this.tag_input.typeahead({source: this._input.data('suggest'), items: 5});
+      var typeahead = this.tag_input.data('typeahead');
+      var original_select = typeahead.select;
+
+      var that = this;
+      typeahead.select = function () {
+        original_select.call(this);
+        that.extract_tags();
+      }
+    },
+
+    lisent: function() {
+      var that = this;
+      this.tag_editor.click(function(event){
+        that.focus_input();
+      });
+
+      this.tag_input.keyup(function(event){
+        that.keyup_handle(event);
+      });
+
+      this.tag_input.keydown(function(event){
+        that.keydown_handle(event);
+      });
+
+      this.tag_input.focus(function(event){
+        that.tag_editor.addClass('focus');
+      });
+
+      this.tag_input.focusout(function(event){
+        //that.extract_tags();
+        that.tag_editor.removeClass('focus');
+      });
+
+      this._input.parents('form').submit(function(event){
+        that.extract_tags();
+      });
+    },
+
     focus_input: function() {
       this.tag_input.focus();
     },
@@ -68,10 +83,10 @@
     keydown_handle: function(event) {
       if (event.which == 8){
         if (this.tag_input.val() === '' && this.tags.length !== 0) {
+          event.preventDefault();
           this.tag_input.val(this.tags.pop());
           this.draw_preview();
           this.update_input();
-          event.preventDefault();
         }
       }
     },
