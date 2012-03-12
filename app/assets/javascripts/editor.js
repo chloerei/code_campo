@@ -14,7 +14,7 @@ $(function(){
 
   var $form = $('#editor form[data-validate]');
   if ($form.length > 0) {
-    var setting = window[$form.attr('id')];
+    var setting = window.ClientSideValidations.forms[$form.attr('id')];
     $('#editor :input[name*=tag_string][data-validate]').change(function(){
       $(this).isValid(setting.validators);
     });
