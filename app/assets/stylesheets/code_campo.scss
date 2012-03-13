@@ -2,6 +2,19 @@ html, body {
   background-color: #EEE;
 }
 
+body > footer {
+  margin: 20px 0;
+
+  p {
+    color: #555;
+    margin-bottom: 0;
+  }
+
+  div > p {
+    text-align: left;
+  }
+}
+
 pre code {
   background-color: transparent;
 }

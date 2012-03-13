@@ -26,3 +26,4 @@
         %section.box
           %header= t('.subscribe')
           = link_to image_tag('rss.png'), newest_topics_url(:format => :rss)
+        = raw @site.fragment.home_sidebar_bottom

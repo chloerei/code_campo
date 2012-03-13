@@ -2,9 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :logined?, :current_user
-  before_filter :set_locale
+  before_filter :load_site, :set_locale
 
   protected
+
+  def load_site
+    @site = Site.first || Site.new
+  end
 
   def set_locale
     I18n.locale = set_locale_from_user || set_locale_from_accept_language_header || I18n.default_locale
