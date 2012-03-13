@@ -21,7 +21,7 @@ class Reply
   def update_topic
     topic.update_reply_stats_by(self)
     topic.reply_by user
-    topic.set :last_read_user_ids, []
+    topic.set :last_read_user_ids, [user.id]
     topic.inc :replies_count, 1
   end
 

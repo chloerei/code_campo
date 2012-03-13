@@ -71,10 +71,16 @@ class TopicTest < ActiveSupport::TestCase
     topic.reload
     assert topic.last_read_user_ids.include?(user.id)
     assert topic.last_read?(user)
+
     Factory :reply, :topic => topic
     assert !topic.last_read_user_ids.include?(user.id)
     assert !topic.last_read?(user)
     topic.read_by user
+    topic.reload
+    assert topic.last_read_user_ids.include?(user.id)
+    assert topic.last_read?(user)
+
+    Factory :reply, :topic => topic, :user => user
     topic.reload
     assert topic.last_read_user_ids.include?(user.id)
     assert topic.last_read?(user)
