@@ -1,0 +1,20 @@
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.fragments'), admin_fragments_path
+            %span.divider /
+          %li.active= t "admin.fragments.index.#{@field}"
+    .row
+      #mainbar.span12
+        = render :partial => 'layouts/flash_messages'
+        %section#fragment.box
+          %header
+            %h2
+              = t "admin.fragments.index.#{@field}"
+              %small= t "admin.fragments.index.#{@field}_description"
+          = form_for @site.fragment, :url => admin_fragment_path(:id => @field), :method => :put do |f|
+            .full-input-wrap= f.text_area @field
+            = f.submit 'save', :class => 'btn'

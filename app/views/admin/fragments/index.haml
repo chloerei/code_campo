@@ -1,0 +1,18 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        = render :partial => 'layouts/flash_messages'
+        %section#fragments.box
+          %table.table.table-striped
+            %thead
+              %tr
+                %th= t '.field'
+                %th= t '.description'
+                %th= t '.action'
+            %tbody
+              - Fragment::FIELDS.each do |field|
+                %tr
+                  %td= t ".#{field}"
+                  %td= t ".#{field}_description"
+                  %td= link_to t('edit'), edit_admin_fragment_path(:id => field)

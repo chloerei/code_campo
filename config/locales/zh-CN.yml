@@ -39,6 +39,7 @@ zh-CN:
       users: "用户"
       topics: "主题"
       replies: "回复"
+      fragments: "页面片段"
       back_home: "回到前台"
   shared:
     sidebar_login:
@@ -236,6 +237,19 @@ zh-CN:
         action: "操作"
       destroy:
         delete_success: "成功删除回复"
+    fragments:
+      index:
+        field: "区域"
+        description: "描述"
+        action: "动作"
+        home_sidebar_bottom: "首页边栏底部"
+        home_sidebar_bottom_description: ""
+        topics_sidebar_bottom: "话题边栏底部"
+        topics_sidebar_bottom_description: "包括话题索引和话题详细页"
+        footer: "全站底部"
+        footer_description: "网站信息"
+      edit:
+        fragments: "页面片段"
 
   mongoid:
     attributes:

@@ -1,9 +1,10 @@
 class Fragment
   include Mongoid::Document
 
-  field :home_sidebar_bottom
-  field :topics_sidebar_bottom
-  field :footer
+  FIELDS = %w(home_sidebar_bottom topics_sidebar_bottom footer)
+  FIELDS.each do |name|
+    field name
+  end
 
   embedded_in :site
 end

@@ -15,4 +15,5 @@ It's the source of http://codecampo.com , a light weight bbs for developer.
     bundle install
     cp config/app_config.example.yml config/app_config.yml
     cp config/mongoid.example.yml config/mongoid.yml
+    rake db:seed
     rails s

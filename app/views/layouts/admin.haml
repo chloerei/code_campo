@@ -30,6 +30,8 @@
                 = link_to t('.replies'), admin_replies_path
               %li{:class => (controller_name == 'users' ? 'active' : nil)}
                 = link_to t('.users'), admin_users_path
+              %li{:class => (controller_name == 'fragments' ? 'active' : nil)}
+                = link_to t('.fragments'), admin_fragments_path
             %ul.nav.pull-right
               %li
                 = link_to t('.back_home'), root_path

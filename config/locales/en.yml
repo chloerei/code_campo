@@ -39,6 +39,7 @@ en:
       users: "Users"
       topics: "Topics"
       replies: "Replies"
+      fragments: "Fragments"
       back_home: "Bakc home"
   shared:
     sidebar_login:
@@ -236,6 +237,19 @@ en:
         action: "Action"
       destroy:
         delete_success: "Success destroy reply"
+    fragments:
+      index:
+        field: "Field"
+        description: "Description"
+        action: "Action"
+        home_sidebar_bottom: "Home sidebar bottom"
+        home_sidebar_bottom_description: ""
+        topics_sidebar_bottom: "Topics sidebar bottom"
+        topics_sidebar_bottom_description: "include topics index and topic deatil page"
+        footer: "Footer"
+        footer_description: "About your website"
+      edit:
+        fragments: "Fragments"
 
   mongoid:
     attributes:
