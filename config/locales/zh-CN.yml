@@ -242,6 +242,8 @@ zh-CN:
         field: "区域"
         description: "描述"
         action: "动作"
+        home_mainbar_bottom: "首页主栏底部"
+        home_mainbar_bottom_description: ""
         home_sidebar_bottom: "首页边栏底部"
         home_sidebar_bottom_description: ""
         topics_sidebar_bottom: "话题边栏底部"

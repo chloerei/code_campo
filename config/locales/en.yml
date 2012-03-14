@@ -242,6 +242,8 @@ en:
         field: "Field"
         description: "Description"
         action: "Action"
+        home_mainbar_bottom: "Home mainbar bottom"
+        home_mainbar_bottom_description: ""
         home_sidebar_bottom: "Home sidebar bottom"
         home_sidebar_bottom_description: ""
         topics_sidebar_bottom: "Topics sidebar bottom"
