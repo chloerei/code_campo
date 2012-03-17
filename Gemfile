@@ -20,6 +20,7 @@ gem 'http_accept_language'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'highlight_js-rails'
+gem 'md_emoji'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -95,6 +95,9 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    md_emoji (0.0.6)
+      rails (>= 3.1.0)
+      redcarpet (>= 2.0)
     mime-types (1.17.2)
     mongo (1.6.1)
       bson (~> 1.6.1)
@@ -186,6 +189,7 @@ DEPENDENCIES
   http_accept_language
   jquery-rails
   kaminari
+  md_emoji
   mongoid
   rails (= 3.2.2)
   rails-i18n

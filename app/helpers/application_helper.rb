@@ -11,7 +11,26 @@ module ApplicationHelper
     sanitize markdown(link_mentions(text.to_s, options[:mention_names]))
   end
 
-  @@html_render  = Redcarpet::Render::HTML.new :hard_wrap => true, :no_styles => true
+  class HtmlRender < Redcarpet::Render::HTML
+    @@emoji_render = MdEmoji::Render.new
+
+    def initialize(options={})
+      @options = options
+      super options
+    end
+
+    def paragraph(text)
+      text.gsub!("\n", "<br>\n") if @options[:hard_wrap]
+
+      "<p>#{@@emoji_render.replace_emoji(text)}</p>\n"
+    end
+
+    def list_item(text, list_type)
+      "<li>#{@@emoji_render.replace_emoji(text)}</li>"
+    end
+  end
+
+  @@html_render  = HtmlRender.new :hard_wrap => true, :no_styles => true
   @@markdown     = Redcarpet::Markdown.new @@html_render, :autolink => true, :no_intra_emphasis => true
   def markdown(text)
     @@markdown.render(text)

@@ -1,5 +1,6 @@
 //= require wmd/wmd
-//= require wmd/showdown
+//= require showdown
+//= require wmd/showdown.emoji
 //= require jquery.tagEditor
 
 $(function(){
