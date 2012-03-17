@@ -67,11 +67,18 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @replies = @topic.replies.page(params[:page])
+
     if logined?
+      if !@topic.last_read?(current_user) && current_user.notifications.has_unread?
+        current_user.notifications.unread.any_of({:mentionable_type => 'Topic', :mentionable_id => @topic.id},
+                                                 {:mentionable_type => 'Reply', :mentionable_id.in => @replies.map(&:id)},
+                                                 {:reply_id.in => @replies.map(&:id)}).update_all(:read => true)
+      end
       @topic.read_by current_user
       @reply = current_user.replies.new :topic => @topic
     end
-    @replies = @topic.replies.page(params[:page])
+
     @relate_topics = @topic.relate_topics(5)
   end
 

@@ -23,7 +23,7 @@ class TopicsControllerTest < ActionController::TestCase
     topic = Factory :topic, :user => @user
     get :my
     assert_redirected_to login_url
-    
+
     login_as @user
     get :my
     assert_response :success, @response.body
@@ -119,7 +119,7 @@ class TopicsControllerTest < ActionController::TestCase
     topic.mark_by user
     get :marked
     assert_redirected_to login_url
-    
+
     login_as user
     get :marked
     assert_response :success, @response.body
@@ -157,6 +157,26 @@ class TopicsControllerTest < ActionController::TestCase
     get :show, :id => topic
     topic.reload
     assert topic.last_read?(user)
+  end
+
+  test "should read relate notification" do
+    login_as @user
+    notification_mention = Factory :notification_mention, :user => @user, :mentionable => Factory(:topic)
+    assert_difference "@user.notifications.unread.count", -1 do
+      get :show, :id => notification_mention.mentionable
+    end
+
+    notification_mention_two = Factory :notification_mention, :user => @user, :mentionable => Factory(:reply)
+    assert_difference "@user.notifications.unread.count", -1 do
+      get :show, :id => notification_mention_two.mentionable.topic
+    end
+
+    notification_topic_reply = Factory :notification_topic_reply
+    user = notification_topic_reply.reply.topic.user
+    login_as user
+    assert_difference "user.notifications.unread.count", -1 do
+      get :show, :id => notification_topic_reply.reply.topic
+    end
   end
 
   # TODO remove
