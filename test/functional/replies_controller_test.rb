@@ -2,8 +2,8 @@ require 'test_helper'
 
 class RepliesControllerTest < ActionController::TestCase
   def setup
-    @user = Factory :user
-    @topic = Factory :topic
+    @user = create :user
+    @topic = create :topic
   end
 
   test "should get new page" do
@@ -18,7 +18,7 @@ class RepliesControllerTest < ActionController::TestCase
   test "should create reply" do
     post :create, :topic_id => @topic, :reply => {:content => 'reply body'}
     assert_redirected_to login_url
-    
+
     login_as @user
     assert_difference "@topic.replies.count" do
       post :create, :topic_id => @topic, :reply => {:content => 'reply body'}
@@ -27,9 +27,9 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   test "should get edit page" do
-    reply = Factory :reply
+    reply = create :reply
 
-    login_as Factory(:user)
+    login_as create(:user)
     assert_raise Mongoid::Errors::DocumentNotFound do
       get :edit, :id => reply
     end
@@ -40,9 +40,9 @@ class RepliesControllerTest < ActionController::TestCase
   end
 
   test "should update reply" do
-    reply = Factory :reply
-    
-    login_as Factory(:user)
+    reply = create :reply
+
+    login_as create(:user)
     assert_raise Mongoid::Errors::DocumentNotFound do
       put :update, :id => reply, :reply => {:content => 'change'}
     end

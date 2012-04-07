@@ -3,7 +3,7 @@ require 'functional/admin/base_controller_test'
 
 class Admin::UsersControllerTest < Admin::BaseControllerTest
   def setup
-    @user = Factory :user
+    @user = create :user
   end
 
   test "should get index" do

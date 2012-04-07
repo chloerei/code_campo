@@ -3,7 +3,7 @@ require 'functional/admin/base_controller_test'
 
 class Admin::TopicsControllerTest < Admin::BaseControllerTest
   def setup
-    @topic = Factory :topic
+    @topic = create :topic
   end
 
   test "should get index" do

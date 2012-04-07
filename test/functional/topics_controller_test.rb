@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TopicsControllerTest < ActionController::TestCase
   def setup
-    @user = Factory :user
+    @user = create :user
   end
 
   test "should get index" do
@@ -11,7 +11,7 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should get newest topics" do
-    3.times { Factory :topic }
+    3.times { create :topic }
     get :newest
     assert_response :success, @response.body
 
@@ -20,7 +20,7 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should get my topics" do
-    topic = Factory :topic, :user => @user
+    topic = create :topic, :user => @user
     get :my
     assert_redirected_to login_url
 
@@ -40,27 +40,27 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should create topic" do
-    post :create, :topic => Factory.attributes_for(:topic)
+    post :create, :topic => attributes_for(:topic)
     assert_redirected_to login_url
 
     login_as @user
     assert_difference "current_user.topics.count" do
-      post :create, :topic => Factory.attributes_for(:topic)
+      post :create, :topic => attributes_for(:topic)
     end
   end
 
   test "should show topic" do
-    topic = Factory :topic
+    topic = create :topic
     get :show, :id => topic
     assert_response :success, @response.body
   end
 
   test "should get edit page" do
-    topic = Factory :topic
+    topic = create :topic
     get :edit, :id => topic
     assert_redirected_to login_url
 
-    login_as Factory(:user)
+    login_as create(:user)
     assert_raise Mongoid::Errors::DocumentNotFound do
       get :edit, :id => topic
     end
@@ -71,11 +71,11 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should update topic" do
-    topic = Factory :topic
+    topic = create :topic
     post :update, :id => topic, :topic => {:title => 'new title'}
     assert_redirected_to login_url
 
-    login_as Factory(:user)
+    login_as create(:user)
     assert_raise Mongoid::Errors::DocumentNotFound do
       post :update, :id => topic, :topic => {:title => 'new title'}
     end
@@ -87,11 +87,11 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should mark topic" do
-    topic = Factory :topic
+    topic = create :topic
     post :mark, :id => topic
     assert_redirected_to login_url
 
-    user = Factory :user
+    user = create :user
     login_as user
     assert_difference "Topic.mark_by(user).count" do
       post :mark, :id => topic
@@ -100,8 +100,8 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should cancel mark topic" do
-    topic = Factory :topic
-    user = Factory :user
+    topic = create :topic
+    user = create :user
     topic.mark_by user
     delete :unmark, :id => topic
     assert_redirected_to login_url
@@ -114,8 +114,8 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should get marked topics" do
-    topic = Factory :topic
-    user = Factory :user
+    topic = create :topic
+    user = create :user
     topic.mark_by user
     get :marked
     assert_redirected_to login_url
@@ -127,9 +127,9 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should get replied topics" do
-    topic = Factory :topic
-    user = Factory :user
-    Factory :reply, :topic => topic, :user => user
+    topic = create :topic
+    user = create :user
+    create :reply, :topic => topic, :user => user
     get :replied
     assert_redirected_to login_url
 
@@ -140,7 +140,7 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should get tagged topics" do
-    topic = Factory :topic
+    topic = create :topic
     get :tagged, :tag => topic.tags.first
     assert_response :success, @response.body
     assert assigns(:topics).include?(topic)
@@ -150,8 +150,8 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should read topic" do
-    topic = Factory :topic
-    user = Factory :user
+    topic = create :topic
+    user = create :user
     login_as user
     assert !topic.last_read?(user)
     get :show, :id => topic
@@ -161,17 +161,17 @@ class TopicsControllerTest < ActionController::TestCase
 
   test "should read relate notification" do
     login_as @user
-    notification_mention = Factory :notification_mention, :user => @user, :mentionable => Factory(:topic)
+    notification_mention = create :notification_mention, :user => @user, :mentionable => create(:topic)
     assert_difference "@user.notifications.unread.count", -1 do
       get :show, :id => notification_mention.mentionable
     end
 
-    notification_mention_two = Factory :notification_mention, :user => @user, :mentionable => Factory(:reply)
+    notification_mention_two = create :notification_mention, :user => @user, :mentionable => create(:reply)
     assert_difference "@user.notifications.unread.count", -1 do
       get :show, :id => notification_mention_two.mentionable.topic
     end
 
-    notification_topic_reply = Factory :notification_topic_reply
+    notification_topic_reply = create :notification_topic_reply
     user = notification_topic_reply.reply.topic.user
     login_as user
     assert_difference "user.notifications.unread.count", -1 do
@@ -181,7 +181,7 @@ class TopicsControllerTest < ActionController::TestCase
 
   # TODO remove
   test "should redirect when using _id" do
-    topic = Factory :topic
+    topic = create :topic
     get :show, :id => topic.id
     assert_redirected_to topic_url(topic)
   end

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
   def setup
-    @user = Factory :user
+    @user = create :user
   end
 
   test "should get person page" do

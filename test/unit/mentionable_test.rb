@@ -15,23 +15,23 @@ class MentionableTest < ActiveSupport::TestCase
   end
 
   test "should extract mention users" do
-    user = Factory :user
-    object = TestModel.create :content => "@#{user.name}", :user => Factory(:user)
+    user = create :user
+    object = TestModel.create :content => "@#{user.name}", :user => create(:user)
     assert_equal [user], object.mentioned_users.to_a
 
     # 5 mentioned limit
     names = ""
     6.times do
-      names << " @#{Factory(:user).name}"
+      names << " @#{create(:user).name}"
     end
-    object = TestModel.create :content => names, :user => Factory(:user)
+    object = TestModel.create :content => names, :user => create(:user)
     assert_equal 5, object.mentioned_users.count
   end
 
   test "should send mention notification after create" do
-    user = Factory :user
+    user = create(:user)
     assert_difference "user.notifications.unread.count" do
-      object = TestModel.create :content => "@#{user.name}", :user => Factory(:user)
+      object = TestModel.create :content => "@#{user.name}", :user => create(:user)
     end
     assert_no_difference "user.notifications.unread.count" do
       object = TestModel.create :content => "@#{user.name}", :user => user

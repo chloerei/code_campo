@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserSessionsControllerTest < ActionController::TestCase
   def setup
-    @user = Factory :user, :password => 'password'
+    @user = create :user, :password => 'password'
   end
 
   test "should get login page" do

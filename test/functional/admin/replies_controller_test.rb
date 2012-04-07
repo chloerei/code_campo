@@ -3,7 +3,7 @@ require 'functional/admin/base_controller_test'
 
 class Admin::RepliesControllerTest < Admin::BaseControllerTest
   def setup
-    @reply = Factory :reply
+    @reply = create :reply
   end
 
   test "should get index" do

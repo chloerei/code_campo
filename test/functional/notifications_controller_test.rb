@@ -5,18 +5,18 @@ class NotificationsControllerTest < ActionController::TestCase
     get :index
     assert_redirected_to login_url
 
-    user = Factory :user
+    user = create :user
     login_as user
-    Factory :notification_mention, :user => user, :mentionable => Factory(:topic)
-    Factory :notification_mention, :user => user, :mentionable => Factory(:reply)
-    Factory :notification_topic_reply, :user => user
+    create :notification_mention, :user => user, :mentionable => create(:topic)
+    create :notification_mention, :user => user, :mentionable => create(:reply)
+    create :notification_topic_reply, :user => user
     get :index
     assert_response :success, @response.body
   end
 
   test "should mark as read when visit notifications index" do
-    user = Factory :user
-    3.times{ Factory :notification_mention, :user => user, :mentionable => Factory(:reply)}
+    user = create :user
+    3.times{ create :notification_mention, :user => user, :mentionable => create(:reply)}
     login_as user
     assert_difference "user.notifications.unread.count", -3 do
       get :index
@@ -24,18 +24,18 @@ class NotificationsControllerTest < ActionController::TestCase
   end
 
   test "should mark all as read" do
-    user = Factory :user
-    3.times{ Factory :notification_mention, :user => user, :mentionable => Factory(:reply)}
+    user = create :user
+    3.times{ create :notification_mention, :user => user, :mentionable => create(:reply)}
     login_as user
-    
+
     assert_difference "user.notifications.unread.count", -3 do
       put :mark_all_as_read
     end
   end
 
   test "should delete notification" do
-    user = Factory :user
-    notification = Factory :notification_base, :user => user
+    user = create :user
+    notification = create :notification_base, :user => user
 
     delete :destroy, :id => notification
     assert_redirected_to login_url

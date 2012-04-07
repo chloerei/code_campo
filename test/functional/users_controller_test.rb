@@ -11,7 +11,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_template :new
 
     assert_difference "User.count" do
-      post :create, :user => Factory.attributes_for(:user)
+      post :create, :user => attributes_for(:user)
     end
     assert_redirected_to root_url
   end

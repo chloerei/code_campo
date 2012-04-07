@@ -3,9 +3,9 @@ require 'functional/admin/base_controller_test'
 
 class Admin::DashboardControllerTest < Admin::BaseControllerTest
   def setup
-    @topic = Factory :topic
-    @reply = Factory :reply
-    @user = Factory :user
+    @topic = create :topic
+    @reply = create :reply
+    @user = create :user
   end
 
   test "shoud show dashboard" do
