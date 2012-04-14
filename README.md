@@ -5,7 +5,7 @@ It's the source of http://codecampo.com , a light weight bbs for developer.
 ## Dependency
 
 * ruby 1.9.3
-* rails 3.1
+* rails 3.2.3
 * mongodb 1.8+
 
 ## Setup
