@@ -13,7 +13,7 @@ module Mentionable
   end
 
   def mentioned_user_names
-    mentioned_users.map(&:name)
+    mentioned_user_ids.any? ? mentioned_users.map(&:name) : []
   end
 
   def extract_mentioned_users
