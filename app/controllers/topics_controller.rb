@@ -3,15 +3,13 @@ class TopicsController < ApplicationController
   before_filter :require_logined, :except => [:index, :show, :tagged, :newest]
   before_filter :find_topic, :only => [:show, :mark, :unmark]
   before_filter :find_user_topic, :only => [:edit, :update]
-  respond_to :html, :js, :only => [:mark]
-  respond_to :html, :rss, :only => [:newest, :tagged]
 
   def index
     @topics = Topic.active.page(params[:page])
   end
 
   def newest
-    respond_with do |format|
+    respond_to do |format|
       format.html do
         @topics = Topic.order_by([[:created_at, :desc]]).page(params[:page])
         render :index
@@ -40,7 +38,7 @@ class TopicsController < ApplicationController
   end
 
   def tagged
-    respond_with do |format|
+    respond_to do |format|
       format.html do
         @topics = Topic.where(:tags => params[:tag]).active.page(params[:page])
         render :index
@@ -95,7 +93,7 @@ class TopicsController < ApplicationController
 
   def mark
     @topic.mark_by current_user
-    respond_with(@topic) do |format|
+    respond_to do |format|
       format.html { redirect_referrer_or_default @topic }
       format.js { render :layout => false }
     end
@@ -103,14 +101,14 @@ class TopicsController < ApplicationController
 
   def unmark
     @topic.unmark_by current_user
-    respond_with(@topic) do |format|
+    respond_to do |format|
       format.html { redirect_referrer_or_default @topic }
       format.js { render :mark, :layout => false }
     end
   end
 
   protected
-  
+
   def find_topic
     @topic = Topic.number(params[:id])
   end
