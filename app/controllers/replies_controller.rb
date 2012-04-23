@@ -13,10 +13,10 @@ class RepliesController < ApplicationController
     respond_with(@reply) do |format|
       if @reply.save
         format.html { redirect_to topic_url(@topic, :page => @topic.last_page) }
-        format.js { render :create, :layout => false }
+        format.js { render :layout => false }
       else
         format.html { render :new }
-        format.js { render :text => @reply.errors.full_messages.join(','), :status => 406, :layout => false }
+        format.js { render :layout => false }
       end
     end
   end

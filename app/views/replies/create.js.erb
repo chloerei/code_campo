@@ -1,3 +1,8 @@
-(function(){
-  $('<%= escape_javascript(render :partial => 'reply', :object => @reply) %>').hide().appendTo($('#replies table > tbody')).fadeIn('fast').css('display', 'table-row');
-})();
+(function() {
+  <% if @reply.errors.empty? %>
+    $('<%= escape_javascript(render :partial => 'reply', :object => @reply) %>').hide().appendTo($('#replies table > tbody')).fadeIn('fast').css('display', 'table-row')
+  $('#new_reply').val('')
+<% else %>
+    $('<div class="alert alert-error"><%= escape_javascript(@reply.errors.full_messages.join(',')) %><a href="#" data-dismiss="alert" class="close">×</a></div>').hide().insertBefore('#new_reply').fadeIn()
+<% end %>
+})()

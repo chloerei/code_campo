@@ -36,5 +36,8 @@ class MentionableTest < ActiveSupport::TestCase
     assert_no_difference "user.notifications.unread.count" do
       object = TestModel.create :content => "@#{user.name}", :user => user
     end
+    assert_no_difference "user.notifications.unread.count" do
+      object = TestModel.create(:content => "@#{user.name}", :user => create(:user)).destroy
+    end
   end
 end
