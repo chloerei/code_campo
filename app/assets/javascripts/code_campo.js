@@ -11,7 +11,7 @@ $(function(){
     }
     $loader.html('<span class="label label-warning">Loading...</span>');
     $loader.fadeIn();
-  }).live('ajax:success', function() {
+  }).ajaxSuccess(function() {
     var $loader = $('#remote-loader');
     $loader.html('<span class="label label-warning">Done</span>');
     setTimeout(function() {
@@ -19,7 +19,7 @@ $(function(){
         $(this).remove();
       });
     }, 500);
-  }).live('ajax:error', function() {
+  }).ajaxError(function() {
     var $loader = $('#remote-loader');
     var $error = $('<span class="label label-important">Error</span>');
     $loader.html($error);
