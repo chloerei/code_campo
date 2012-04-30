@@ -31,9 +31,8 @@ group :assets do
 end
 
 gem 'whenever', :require => false
-group :development do
-  gem 'capistrano', :require => false
-end
+gem 'capistrano', :require => false
+gem 'rvm-capistrano', :require => false
 
 group :test, :development do
   gem 'factory_girl_rails'

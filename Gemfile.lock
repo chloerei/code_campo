@@ -138,6 +138,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
+    rvm-capistrano (1.1.0)
+      capistrano (>= 2.0.0)
     sass (3.1.16)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -189,6 +191,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rails-i18n
   redcarpet
+  rvm-capistrano
   sass-rails
   therubyracer
   twitter-bootstrap-rails (= 2.0.3)
