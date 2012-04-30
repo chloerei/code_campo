@@ -5,7 +5,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'CodeCampo', root_path, :class => 'brand'
+      = link_to @site.name, root_path, :class => 'brand'
       .nav-collapse
         %ul.nav
           %li{:class => (controller_name == 'homepage' ? 'active' : nil)}

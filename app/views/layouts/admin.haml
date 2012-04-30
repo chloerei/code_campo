@@ -19,7 +19,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to 'CodeCampo', admin_dashboard_path, :class => 'brand'
+          = link_to @site.name, admin_dashboard_path, :class => 'brand'
           .nav-collapse
             %ul.nav
               %li{:class => (controller_name == 'dashboard' ? 'active' : nil)}
@@ -30,6 +30,8 @@
                 = link_to t('.replies'), admin_replies_path
               %li{:class => (controller_name == 'users' ? 'active' : nil)}
                 = link_to t('.users'), admin_users_path
+              %li{:class => (controller_name == 'sites' ? 'active' : nil)}
+                = link_to t('.site'), admin_site_path
               %li{:class => (controller_name == 'fragments' ? 'active' : nil)}
                 = link_to t('.fragments'), admin_fragments_path
             %ul.nav.pull-right

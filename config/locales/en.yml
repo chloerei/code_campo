@@ -17,8 +17,8 @@ en:
   or: "or"
   zh-CN: "Chinese(Simplified)"
   en: "English"
-  code_campo_newest_topics: "CodeCampo Newest Topics"
-  code_campo_tagged_newest_topics: "CodeCampo Newest Topics Tagged：%{tag}"
+  newest_topics_title: "%{site_name} newest topics"
+  tagged_newest_topics_title: "%{site_name} newest topics tagged: %{tag}"
 
   layouts:
     settings:
@@ -39,6 +39,7 @@ en:
       users: "Users"
       topics: "Topics"
       replies: "Replies"
+      site: "Site Setting"
       fragments: "Fragments"
       back_home: "Bakc home"
   shared:
@@ -237,6 +238,10 @@ en:
         action: "Action"
       destroy:
         delete_success: "Success destroy reply"
+    sites:
+      show:
+        site_settings: 'Site settings'
+        site_name: 'Site name'
     fragments:
       index:
         field: "Field"
@@ -247,7 +252,7 @@ en:
         home_sidebar_bottom: "Home sidebar bottom"
         home_sidebar_bottom_description: ""
         topics_sidebar_bottom: "Topics sidebar bottom"
-        topics_sidebar_bottom_description: "include topics index and topic deatil page"
+        topics_sidebar_bottom_description: ""
         footer: "Footer"
         footer_description: "About your website"
       edit:
@@ -279,6 +284,8 @@ en:
         tag_string: "Tags"
       reply:
         content: "Content"
+      site:
+        name: "Site name"
   errors:
     no_allow_slash: "No Allow Slash"
     messages:

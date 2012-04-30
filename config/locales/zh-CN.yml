@@ -17,8 +17,8 @@ zh-CN:
   or: "或者"
   zh-CN: "中文（简体）"
   en: "英文"
-  code_campo_newest_topics: "CodeCampo 最新主题"
-  code_campo_tagged_newest_topics: "CodeCampo 最新主题 标签：%{tag}"
+  newest_topics_title: "%{site_name} 最新主题"
+  tagged_newest_topics_title: "%{site_name} 最新主题 标签：%{tag}"
 
   layouts:
     settings:
@@ -39,6 +39,7 @@ zh-CN:
       users: "用户"
       topics: "主题"
       replies: "回复"
+      site: "网站设置"
       fragments: "页面片段"
       back_home: "回到前台"
   shared:
@@ -237,6 +238,10 @@ zh-CN:
         action: "操作"
       destroy:
         delete_success: "成功删除回复"
+    sites:
+      show:
+        site_settings: '网站设置'
+        site_name: '网站名'
     fragments:
       index:
         field: "区域"
@@ -247,7 +252,7 @@ zh-CN:
         home_sidebar_bottom: "首页边栏底部"
         home_sidebar_bottom_description: ""
         topics_sidebar_bottom: "话题边栏底部"
-        topics_sidebar_bottom_description: "包括话题索引和话题详细页"
+        topics_sidebar_bottom_description: ""
         footer: "全站底部"
         footer_description: "网站信息"
       edit:
@@ -279,6 +284,8 @@ zh-CN:
         tag_string: "标签"
       reply:
         content: "内容"
+      site:
+        name: "网站名"
   errors:
     no_allow_slash: "不能包含斜杠"
     messages:

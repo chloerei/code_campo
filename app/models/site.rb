@@ -1,6 +1,7 @@
 class Site
   include Mongoid::Document
 
+  field :name, :default => 'CodeCampo'
   embeds_one :fragment
 
   after_initialize :build_fragment_if_nil

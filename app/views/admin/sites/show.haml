@@ -1,0 +1,12 @@
+#main
+  .container
+    .row
+      #mainbar.span12
+        %section#site.box
+          %header
+            = t '.site_settings'
+          = form_for @site, :url => admin_site_path, :method => :put do |f|
+            .control-group
+              = f.label :name
+              = f.text_field :name, :placeholder => t('.site_name')
+            = f.submit t('save'), :class => 'btn'
