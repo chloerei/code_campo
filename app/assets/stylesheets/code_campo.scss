@@ -208,8 +208,12 @@ footer div > p {
   box-shadow: 0 0 0 1px #DDD;
 }
 
-article img {
-  max-width: 100%;
+article {
+  word-break: break-word;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 section {
