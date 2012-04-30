@@ -248,8 +248,12 @@ section {
   }
 }
 
-.pagination ul {
-  background: white;
+.pagination {
+  height: auto;
+
+  ul {
+    background-color: white;
+  }
 }
 
 #main {
@@ -400,6 +404,20 @@ section {
   #topics {
     .reply-count {
       display: none;
+    }
+  }
+
+  #topic {
+    header .avatar {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  table.item-list {
+    td.avatar {
+      width: 32px;
+      height: 32px;
     }
   }
 }
