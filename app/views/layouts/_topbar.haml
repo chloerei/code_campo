@@ -5,14 +5,23 @@
     %ul.nav.nav-pills
       %li{:class => (controller_name == 'homepage' ? 'active' : nil)}
         = link_to t('.home'), root_path
-      %li{:class => (controller_name == 'topics' ? 'active' : nil)}
-        = link_to t('.topics'), topics_path
+      %li.dropdown{:class => (controller_name == 'topics' ? 'active' : nil)}
+        %a{:href => topics_path, :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
+          = t('.topics')
+          %b.caret
+        %ul.dropdown-menu
+          %li= link_to t('.active'), topics_path
+          %li= link_to t('.newest'), newest_topics_path
+          - if logined?
+            %li= link_to t('.marked'), marked_topics_path
+            %li= link_to t('.my'), my_topics_path
+            %li= link_to t('.replied'), replied_topics_path
       %li{:class => (controller_name == 'search' ? 'active' : nil)}
         = link_to t('.search'), search_path
     %ul.nav.nav-pills.pull-right
       - if logined?
         %li.dropdown
-          %a{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'}
+          %a{:href => person_path(:name => current_user), :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'data-target' => '#'}
             = current_user.name
             %b.caret
           %ul.dropdown-menu

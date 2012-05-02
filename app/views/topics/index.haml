@@ -9,18 +9,17 @@
 
 #main
   .container
-    - if action_name != 'index'
-      .row
-        .span12
-          %ul.breadcrumb
-            %li
-              = link_to t('.topics'), topics_path
-              %span.divider /
-            %li.active
-              - if action_name == 'tagged'
-                = t '.tagged', :tag => params[:tag]
-              - else
-                = t ".#{action_name}"
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.topics'), topics_path
+            %span.divider /
+          %li.active
+            - if action_name == 'tagged'
+              = t '.tagged', :tag => params[:tag]
+            - else
+              = t ".#{action_name}"
     .row
       #mainbar.span9
         - if @topics.any?
@@ -40,12 +39,6 @@
               = link_to t('.create_topic'), new_topic_path(:tag => params[:tag]), :class => 'btn btn-primary'
             - else
               = link_to t('.create_topic'), new_topic_path, :class => 'btn btn-primary'
-          %ul.nav.nav-tabs.nav-stacked
-            %li{:class => (action_name == 'index' ? 'active' : nil)}= link_to t('.active'), topics_path
-            %li{:class => (action_name == 'newest' ? 'active' : nil)}= link_to t('.newest'), newest_topics_path
-            %li{:class => (action_name == 'marked' ? 'active' : nil)}= link_to t('.marked'), marked_topics_path
-            %li{:class => (action_name == 'my' ? 'active' : nil)}= link_to t('.my'), my_topics_path
-            %li{:class => (action_name == 'replied' ? 'active' : nil)}= link_to t('.replied'), replied_topics_path
         - else
           = render :partial => 'shared/sidebar_login'
         - if %w(index newest tagged).include?(action_name)

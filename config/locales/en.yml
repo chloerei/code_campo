@@ -34,6 +34,11 @@ en:
       profiles: "Profile"
       settings: "Settings"
       admin_dashboard: "Admin dashboard"
+      active: "Active"
+      newest: "Newest"
+      marked: "Marked"
+      my: "My Topics"
+      replied: "Replied"
     admin:
       dashboard: "Dashboard"
       users: "Users"
@@ -142,8 +147,8 @@ en:
       mark: "Mark"
       marker_count: "%{count} people marked"
     index:
+      index: "Active"
       topics: "Topics"
-      active: "Active"
       newest: "Newest"
       marked: "Marked"
       my: "My Topics"

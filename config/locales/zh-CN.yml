@@ -34,6 +34,11 @@ zh-CN:
       profiles: "个人资料"
       settings: "设置"
       admin_dashboard: "管理面板"
+      active: "活跃"
+      newest: "最新"
+      marked: "收藏"
+      my: "我的话题"
+      replied: "回复过"
     admin:
       dashboard: "面板"
       users: "用户"
@@ -142,8 +147,8 @@ zh-CN:
       mark: "收藏"
       marker_count: "%{count}人收藏"
     index:
+      index: "活跃"
       topics: "话题"
-      active: "活跃"
       newest: "最新"
       marked: "收藏"
       my: "我的话题"

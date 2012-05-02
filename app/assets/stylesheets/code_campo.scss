@@ -31,12 +31,6 @@ p {
   }
 }
 
-.navbar-inner {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-}
-
 .full-input-wrap {
   padding-right: 10px;
 
@@ -198,7 +192,11 @@ table.item-list {
     margin-bottom: 0;
   }
 
-  .dropdown-menu {
+  .active.dropdown a:hover {
+    color: white;
+  }
+
+  .pull-right .dropdown-menu {
     left: auto;
     right: 0;
   }
