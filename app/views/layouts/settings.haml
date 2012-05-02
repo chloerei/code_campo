@@ -6,6 +6,7 @@
     %title= page_title
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Trocchi'
     - if content_for? :head
       = yield :head
     = csrf_meta_tags
