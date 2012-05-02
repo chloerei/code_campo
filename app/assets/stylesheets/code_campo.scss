@@ -220,6 +220,7 @@ footer div > p {
 }
 
 article {
+  word-break: break-word;
   img {
     max-width: 100%;
   }
@@ -414,6 +415,10 @@ section {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
   #profile .profile-wrap {
     .avatar {
       width: 64px;
