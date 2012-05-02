@@ -1,7 +1,7 @@
 %tr{:id => topic.anchor}
   %td.avatar
     = link_avatar_to_person(topic.user)
-  %td
+  %td.content
     %h3
       = link_to topic.title, topic_path(topic, :page => topic.last_page)
     .info
