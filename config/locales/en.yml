@@ -48,6 +48,7 @@ en:
       or: "or"
     sidebar_profile:
       signed_as: "Signed As"
+      unread_notifications: "unread notifications"
   pagination:
     truncate: "..."
     next: "Next"

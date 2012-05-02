@@ -1,6 +1,13 @@
 %section.profile.box
-  .avatar
-    = link_avatar_to_person current_user, :size => 64
-  .info
-    = t '.signed_as'
-    %h3= current_user.name
+  .clearfix
+    .avatar
+      = link_avatar_to_person current_user, :size => 64
+    .info
+      = t '.signed_as'
+      %h3= current_user.name
+  %hr
+  .notifications
+    - count = current_user.notifications.unread.count
+    = content_tag 'a', :href => notifications_path, :class => (count > 0 ? nil : 'read') do
+      %span.count= count
+      = t('.unread_notifications')

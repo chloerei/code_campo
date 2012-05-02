@@ -57,6 +57,8 @@
               .control-group= f.submit t('submit'), :class => 'btn primary', :disable_with => t('form_disable_with')
 
       #sidebar.span3
+        - if logined?
+          = render :partial => 'shared/sidebar_profile'
         %section.box
           %header
             = t('.relate_topics')

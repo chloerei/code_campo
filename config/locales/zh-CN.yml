@@ -48,6 +48,7 @@ zh-CN:
       or: "或者"
     sidebar_profile:
       signed_as: "登录为"
+      unread_notifications: "条未读消息"
   pagination:
     truncate: "..."
     next: "下一页"
