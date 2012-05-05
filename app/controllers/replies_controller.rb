@@ -29,7 +29,7 @@ class RepliesController < ApplicationController
     @reply = current_user.replies.number params[:id]
     @return_to = params[:return_to]
     if @reply.update_attributes params[:reply]
-      redirect_to "#{@return_to}##{@reply.anchor}" || topic_path(@reply.topic, :anchor => @reply.anchor)
+      redirect_to @return_to.present? ? "#{@return_to}##{@reply.anchor}" : topic_path(@reply.topic, :anchor => @reply.anchor)
     else
       render :edit
     end
