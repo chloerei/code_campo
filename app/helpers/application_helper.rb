@@ -38,6 +38,6 @@ module ApplicationHelper
   end
 
   def format_time(time)
-    t 'time_ago', :duration => time_ago_in_words(time)
+    timeago_tag time, :limit => 1.weeks.ago
   end
 end

@@ -8,6 +8,7 @@
       %link{:rel => 'alternate', :type => 'application/rss+xml', :href => @subscribe_url}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    = timeago_script_tag
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Trocchi'
     - if content_for? :head
       = yield :head
