@@ -2,7 +2,6 @@ zh-CN:
   signup: "注册"
   login: "登录"
   logout: "退出"
-  time_ago: "%{duration}前"
   edit: "编辑"
   submit: "提交"
   update: "更新"
@@ -28,7 +27,6 @@ zh-CN:
       profile: "个人资料"
     topbar:
       home: "首页"
-      resources: "资源"
       topics: "话题"
       search: "搜索"
       profiles: "个人资料"
@@ -101,46 +99,10 @@ zh-CN:
         mention_you_in: "提及了你"
       topic_reply:
         reply_your_topic: "回复了你的主题"
-      resource_comment:
-        comment_your_resource: "回复了你的资源"
-      comment_comment:
-        comment_your_comment: "回复了你的资源回复"
     index:
       no_notifications: "没有提醒"
       mark_all_as_read: "标记所有为已读"
       marking: "标记中…"
-  resources:
-    resource:
-      comments_count: "%{count} 评论"
-    votes_count:
-      votes_count: "%{count} 票"
-    index:
-      resources: "资源"
-      voted: "已投票"
-      my: "我的资源"
-      no_resources: "没有资源"
-      settings: "设置"
-      submit_resource: "提交资源"
-    new:
-      resources: "资源"
-      submit_resource: "提交资源"
-    show:
-      resources: "资源"
-      submit_comment: "提交评论？"
-      relate_resources: "相关资源"
-      no_relate_resources: "没有相关资源"
-  comments:
-    comment:
-      reply: "回复"
-    up_votes_count:
-      voted: "已投票"
-      vote_up: "投票"
-      point: "票"
-    new:
-      resources: "资源"
-      submit_comment: "提交评论"
-      reply_to: "回复"
-      new_comment: "新评论"
   topics:
     marks_count:
       marked: "已收藏"
@@ -278,12 +240,6 @@ zh-CN:
         avatar: "头像"
         url: "网站"
         description: "描述"
-      resource:
-        title: "标题"
-        url: "URL"
-        tag_string: "标签"
-      comment:
-        content: "内容"
       topic:
         title: "标题"
         content: "内容"
