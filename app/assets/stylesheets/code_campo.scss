@@ -388,6 +388,12 @@ section {
 }
 
 #topic header {
+  color: gray;
+
+  h1 {
+    margin-bottom: 14px;
+  }
+
   table {
     width: 100%;
   }
@@ -432,6 +438,16 @@ section {
         width: 64px;
         height: 64px;
       }
+    }
+  }
+
+  article {
+    h1 {
+      font-size: 22px;
+    }
+
+    h2 {
+      font-size: 20px;
     }
   }
 

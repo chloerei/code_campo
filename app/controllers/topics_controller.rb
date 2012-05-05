@@ -84,6 +84,7 @@ class TopicsController < ApplicationController
   end
 
   def update
+    @topic.set_edited_at
     if @topic.update_attributes params[:topic]
       redirect_to @topic
     else
