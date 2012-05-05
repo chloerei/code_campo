@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/bcardarella/client_side_validations.git
-  revision: 291e4f74fcb2d39f7ecbd1d4aa618a7162f9b98c
+  revision: f74b9c301850ff66cf563bfe0845364d1823eb99
   specs:
     client_side_validations (3.2.0.beta.3)
 
@@ -148,7 +148,7 @@ GEM
     redcarpet (2.1.1)
     rvm-capistrano (1.1.0)
       capistrano (>= 2.0.0)
-    sass (3.1.16)
+    sass (3.1.17)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
