@@ -19,14 +19,14 @@
             - if @topic.edited_at
               %dt= t 'edited_at'
               %dd= format_time @topic.edited_at
-            %dt= t '.content' 
+            %dt= t '.content'
             %dd
               %pre~ @topic.content
-            %dt= t '.marker_count' 
+            %dt= t '.marker_count'
             %dd= @topic.marker_count
-            %dt= t '.replies_count' 
+            %dt= t '.replies_count'
             %dd= @topic.replies_count
       #sidebar.span3
         %section.box
           %header= t '.action'
-          = button_to t('delete'), admin_topic_path(@topic), :class => 'btn btn-danger', :method => :delete, :confirm => t('.delete_confirm', :title => @topic.title)
+          = button_to t('delete'), admin_topic_path(@topic), :class => 'btn btn-danger', :method => :delete, :data => {:confirm => t('.delete_confirm', :title => @topic.title)}

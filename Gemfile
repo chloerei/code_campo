@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.6'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -9,7 +9,7 @@ gem 'bcrypt-ruby'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'haml'
-gem 'twitter-bootstrap-rails', '2.0.3'
+gem 'twitter-bootstrap-rails'
 gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 gem 'client_side_validations-mongoid'
 gem 'kaminari'

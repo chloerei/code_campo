@@ -59,4 +59,4 @@
       #sidebar.span3
         %section.box
           %header= t '.action'
-          = button_to t('delete'), admin_user_path(@user), :class => 'btn btn-danger', :method => :delete, :confirm => t('.delete_confirm', :name => @user.name)
+          = button_to t('delete'), admin_user_path(@user), :class => 'btn btn-danger', :method => :delete, :data => {:confirm => t('.delete_confirm', :name => @user.name)}

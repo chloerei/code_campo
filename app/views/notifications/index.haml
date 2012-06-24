@@ -18,4 +18,4 @@
       #sidebar.span3
         = render :partial => 'shared/sidebar_profile'
         %section.box
-          = button_to t('.mark_all_as_read'), mark_all_as_read_notifications_path, :class => 'btn', :disable_with => t('.marking'), :remote => true, :method => :put
+          = button_to t('.mark_all_as_read'), mark_all_as_read_notifications_path, :class => 'btn', :data => {:disable_with => t('.marking')}, :remote => true, :method => :put
