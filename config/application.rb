@@ -55,7 +55,7 @@ module CodeCampo
     config.assets.precompile += %w(editor.js topics/show.js)
     config.assets.precompile += %w(editor.css search.css)
 
-    config.generators do |g|  
+    config.generators do |g|
       g.test_framework :test_unit, :fixture_replacement => :factory_girl
       g.assets false
       g.helper false
@@ -63,5 +63,5 @@ module CodeCampo
   end
 end
 
-AllowLocale = %w(zh-CN en)
+AllowLocale = Dir["#{Rails.root}/config/locales/*.yml"].map {|f| File.basename(f).split('.').first}
 APP_CONFIG = YAML.load_file("#{Rails.root}/config/app_config.yml")[Rails.env]

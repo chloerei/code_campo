@@ -4,14 +4,6 @@ GIT
   specs:
     client_side_validations (3.2.0.beta.3)
 
-GIT
-  remote: git://github.com/jgraichen/rails-timeago.git
-  revision: e1b3c142e54b1ed3c5dbf390a713477c1ce79a00
-  specs:
-    rails-timeago (1.4.0)
-      actionpack (>= 3.1)
-      activesupport (>= 3.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -134,6 +126,9 @@ GEM
       railties (= 3.2.6)
     rails-i18n (0.6.4)
       i18n (~> 0.5)
+    rails-timeago (1.4.0)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     railties (3.2.6)
       actionpack (= 3.2.6)
       activesupport (= 3.2.6)
@@ -198,7 +193,7 @@ DEPENDENCIES
   mongoid
   rails (= 3.2.6)
   rails-i18n
-  rails-timeago!
+  rails-timeago
   redcarpet
   rvm-capistrano
   sass-rails

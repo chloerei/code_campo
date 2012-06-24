@@ -20,7 +20,7 @@ gem 'http_accept_language'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'highlight_js-rails'
-gem 'rails-timeago', :git => 'git://github.com/jgraichen/rails-timeago.git'
+gem 'rails-timeago'
 
 # Gems used only for assets and not required
 # in production environments by default.
