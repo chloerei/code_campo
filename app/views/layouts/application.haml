@@ -3,12 +3,7 @@
   %head
     %meta{charset: "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-
-    - if logined? && current_user.notifications.unread.count != 0
-      %title= page_title + " (#{current_user.notifications.unread.count})"
-    - else
-      %title= page_title
-
+    %title= page_title_with_notification
     - if defined?(@subscribe_url)
       %link{:rel => 'alternate', :type => 'application/rss+xml', :href => @subscribe_url}
     = stylesheet_link_tag    "application"

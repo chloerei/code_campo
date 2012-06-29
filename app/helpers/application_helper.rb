@@ -7,6 +7,14 @@ module ApplicationHelper
     end
   end
 
+  def page_title_with_notification
+    if logined? && current_user.notifications.unread.count != 0
+      "(#{current_user.notifications.unread.count}) #{page_title}"
+    else
+      page_title
+    end
+  end
+
   def format_text(text, options = {})
     sanitize markdown(link_mentions(text.to_s, options[:mention_names]))
   end
