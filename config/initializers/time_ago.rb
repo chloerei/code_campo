@@ -1,0 +1,1 @@
+Rails::Timeago.locales = AllowLocale
