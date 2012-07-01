@@ -7,12 +7,17 @@
     border: none;
   }
 
+  table.gsc-search-box td {
+    vertical-align: middle;
+  }
+
   td.gsc-search-button {
     padding-left: 12px;
   }
 
   input.gsc-input {
     height: 24px;
+    margin: 0;
   }
 
   input.gsc-search-button {

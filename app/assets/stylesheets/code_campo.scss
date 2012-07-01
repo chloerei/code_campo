@@ -426,6 +426,10 @@ section {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
   .container {
     padding: 0 10px;
   }
@@ -448,12 +452,6 @@ section {
 
     h2 {
       font-size: 20px;
-    }
-  }
-
-  #topics {
-    .reply-count {
-      display: none;
     }
   }
 
