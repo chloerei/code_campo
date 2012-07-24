@@ -17,3 +17,13 @@ It's the source of http://codecampo.com , a light weight bbs for developer.
     cp config/mongoid.example.yml config/mongoid.yml
     rake db:seed
     rails s
+
+## Config admin
+
+In config/app_config.yml, replace admin_emails, for example:
+
+    admin_emails:
+      - "youremail@yourdomain.com"
+      - "anotheradmin@yourdomain.com"
+
+Then the user use this email will be admin.
