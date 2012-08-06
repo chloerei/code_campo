@@ -1,8 +1,8 @@
 .control-group
-  .full-input-wrap= form.text_field :title, :validate => false
+  .full-input-wrap= form.text_field :title, :validate => false, :placeholder => t('.title_placeholder')
 .control-group
   #editor-button-bar
   .full-input-wrap= form.text_area :content, :id => 'editor-input', :rows => 20, :validate => false
   #editor-preview
 .control-group
-  .full-input-wrap= form.text_field :tag_string, :data => {:suggest => Tag.suggest_tags}
+  .full-input-wrap= form.text_field :tag_string, :data => {:suggest => Tag.suggest_tags}, :placeholder => t('.tags_placeholder')

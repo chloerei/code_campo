@@ -130,6 +130,9 @@ en:
       create_topic: "Create topic"
     edit:
       topics: "Topics"
+    form:
+      title_placeholder: 'Title'
+      tags_placeholder: 'Tags'
   replies:
     edit:
       topics: "Topics"

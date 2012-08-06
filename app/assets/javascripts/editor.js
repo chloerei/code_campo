@@ -11,6 +11,7 @@ $(function(){
   });
 
   $('#editor :input[name*=tag_string]').tagEditor();
+  $('#editor input.tag-input').attr('placeholder', $('#editor :input[name*=tag_string]').attr('placeholder'))
 
   var $form = $('#editor form[data-validate]');
   if ($form.length > 0) {
