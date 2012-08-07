@@ -23,3 +23,7 @@
       .controls
         = f.password_field :current_password, :class => 'span3'
     = f.submit t('save'), :class => 'btn primary'
+%header
+  %h3= t('.danger_action')
+= button_to t('.delete_user'), user_path(current_user), :method => :delete, :class => 'btn btn-danger', :data => {:confirm => t('.delete_confirm', :name => current_user.name)}
+

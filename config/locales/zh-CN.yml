@@ -84,6 +84,10 @@ zh-CN:
     accounts:
       show:
         account_settings: "账户设置"
+        danger_action: "高危操作"
+        delete_user: "删除账户"
+        delete_confirm: "确认删除用户 %{name} 吗？（主题和回复会被一并删除且不能恢复）"
+        delete_success: "成功删除用户 %{name}"
     passwords:
       show:
         password_settings: "密码设置"
