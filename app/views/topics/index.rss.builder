@@ -13,7 +13,7 @@ xml.rss :version => "2.0" do
           xml.cdata! format_text(topic.content)
         end
         xml.pubDate topic.created_at.to_s(:rfc822)
-        xml.author topic.user.profile.name
+        xml.author topic.user.profile.name.present? ? topic.user.profile.name : topic.user.name
         xml.link topic_url(topic, :page => topic.last_page)
         xml.guid topic_url(topic)
         if topic.tags.present?
