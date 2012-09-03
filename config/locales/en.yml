@@ -255,3 +255,4 @@ en:
     no_allow_slash: "No allow slash"
     messages:
       tag_string: "Limit %{limit} tags"
+      current_password_no_match: 'Current password no match'

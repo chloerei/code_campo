@@ -255,3 +255,4 @@ zh-CN:
     no_allow_slash: "不能包含斜杠"
     messages:
       tag_string: "Tag 不能超过%{limit}个"
+      current_password_no_match: '当前密码不匹配'

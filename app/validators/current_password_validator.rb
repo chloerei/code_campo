@@ -1,16 +1,16 @@
 class CurrentPasswordValidator < ActiveModel::EachValidator
   def initialize(options)
     options[:column] ||= []
-    
+
     super
   end
-  
+
   def validate_each(record, attribute, value)
     if (record.changed & options[:fields].map(&:to_s)).any?
       if record.current_password.blank?
-        record.errors.add(attribute, :blank) 
+        record.errors.add(attribute, :blank)
       elsif BCrypt::Password.new(record.password_digest) != record.current_password
-        record.errors.add(attribute, :current_password_no_mathch)
+        record.errors.add(attribute, :current_password_no_match)
       end
     end
   end
