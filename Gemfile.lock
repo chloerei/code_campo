@@ -109,6 +109,8 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -191,6 +193,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mongoid
+  quiet_assets
   rails (= 3.2.7)
   rails-i18n
   rails-timeago

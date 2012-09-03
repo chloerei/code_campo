@@ -34,6 +34,7 @@ end
 gem 'whenever', :require => false
 gem 'capistrano', :require => false
 gem 'rvm-capistrano', :require => false
+gem 'quiet_assets'
 
 group :test, :development do
   gem 'factory_girl_rails'
