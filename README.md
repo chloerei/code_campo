@@ -11,6 +11,8 @@ It's the source of http://codecampo.com , a light weight bbs for developer.
 ## Setup
 
     git clone git://github.com/chloerei/code_campo.git
+    #if you would to run this project in windows, just clone here
+    #git clone git://github.com/ywjno/code_campo.git
     cd code_campo
     bundle install
     cp config/app_config.example.yml config/app_config.yml
