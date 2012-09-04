@@ -10,7 +10,7 @@ It's the source of http://codecampo.com , a light weight bbs for developer.
 
 ## Setup
 
-    git clone git@github.com:chloerei/code_campo.git
+    git clone git://github.com/chloerei/code_campo.git
     cd code_campo
     bundle install
     cp config/app_config.example.yml config/app_config.yml
@@ -26,4 +26,8 @@ In config/app_config.yml, replace admin_emails, for example:
       - "youremail@yourdomain.com"
       - "anotheradmin@yourdomain.com"
 
-Then the user use this email will be admin.
+Restart application, then the user use this email will be admin.
+
+## More deploy step
+
+Notice there is a whenever config, your can run `whenever --update-crontab` to update crontab config or use capistrano, see config/deploy.rb for more info.
