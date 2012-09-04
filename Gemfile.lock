@@ -38,6 +38,7 @@ GEM
       railties (>= 3.0)
       sass (>= 3.2)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     bson (1.7.0)
     bson_ext (1.7.0)
@@ -164,6 +165,7 @@ GEM
       rails (>= 3.1.1)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES

@@ -4,3 +4,17 @@
 // Set the correct sprite paths
 $iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png', image);
 $iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png', image);
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.breadcrumb {
+  background-color: white;
+  border: 1px solid #DDD;
+
+}
