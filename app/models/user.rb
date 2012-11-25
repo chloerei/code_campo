@@ -18,9 +18,9 @@ class User
   validates :email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/}
   validates :password, :password_confirmation, :presence => true, :on => :create
   validates :password, :length => {:minimum => 6, :allow_nil => true}
-  validates :current_password, :current_password => {:fields => [:name, :email, :password]}, :on => :update
+  validates :current_password, :current_password => {:fields => [:name, :email, :password_digest]}, :on => :update
   validates :locale, :inclusion => {:in => AllowLocale}
-  
+
   attr_accessor :current_password
   attr_accessible :name, :email, :password, :password_confirmation, :current_password, :locale
 
@@ -118,7 +118,7 @@ class User
     20.times { digest = User.secure_digest(digest) }
     digest
   end
-  
+
   def self.secure_digest(*args)
     Digest::SHA512.hexdigest(args.flatten.join)
   end

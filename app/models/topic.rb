@@ -68,7 +68,7 @@ class Topic
                         {"$addToSet" => {:marker_ids => user.id}})
       marker_ids.push user.id
     end
- end
+  end
 
   def unmark_by(user)
     if marked_by? user

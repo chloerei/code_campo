@@ -10,12 +10,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should generate remember token" do
-    user = create :user
+    password = '123456'
+    user = create :user, :password => password, :password_confirmation => password
     assert_not_nil user.remember_token
     token = user.remember_token
     assert_equal user, User.find_by_remember_token(token)
 
-    user.update_attributes :password => 'change', :password_confirmation => 'change'
+    user.update_attributes :password => 'change', :password_confirmation => 'change', :current_password => password
     assert_not_equal token, user.remember_token
     assert_nil User.find_by_remember_token(token)
   end
