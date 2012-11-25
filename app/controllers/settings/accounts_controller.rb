@@ -8,7 +8,7 @@ class Settings::AccountsController < ApplicationController
 
   def update
     if current_user.update_attributes params[:user]
-      flash[:success] = 'Successful Update.'
+      flash[:success] = I18n.t(:success_update)
       redirect_to :action => :show
     else
       render :show

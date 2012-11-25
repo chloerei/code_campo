@@ -18,6 +18,7 @@ zh-CN:
   en: "英文"
   newest_topics_title: "%{site_name} 最新主题"
   tagged_newest_topics_title: "%{site_name} 最新主题 标签：%{tag}"
+  success_update: "成功更新"
 
   layouts:
     settings:

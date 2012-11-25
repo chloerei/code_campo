@@ -18,6 +18,7 @@ en:
   en: "English"
   newest_topics_title: "%{site_name} newest topics"
   tagged_newest_topics_title: "%{site_name} newest topics tagged: %{tag}"
+  success_update: "Success update"
 
   layouts:
     settings:

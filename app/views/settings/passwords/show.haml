@@ -1,3 +1,4 @@
+= render :partial => 'shared/flash_messages'
 %header
   %h3= t '.password_settings'
 = form_for current_user, :url => settings_password_path, :validate => true do |f|
