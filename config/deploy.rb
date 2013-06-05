@@ -12,7 +12,7 @@ set :scm, :git
 set :branch, "master"
 
 set :user, "webuser"
-set :deploy_to, "~/#{application}"
+set :deploy_to, "/home/webuser/#{application}"
 set :use_sudo, false
 
 role :web, "codecampo.com"
