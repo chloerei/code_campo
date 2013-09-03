@@ -96,6 +96,8 @@ table.clear-table {
 
 table.item-list {
   width: 100%;
+  table-layout: fixed;
+  width: 800px;
 
   tr {
     border-top: 1px solid #DDD;
