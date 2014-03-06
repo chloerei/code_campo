@@ -1,3 +1,5 @@
+Goto -> https://github.com/chloerei/campo
+
 # CodeCampo
 
 It's the source of http://codecampo.com , a light weight bbs for developer.
