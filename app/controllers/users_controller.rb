@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :require_no_logined
+  before_filter :require_no_logined, :except => :destroy
+  before_filter :require_logined, :only => :destroy
 
   def new
     @user = User.new
@@ -14,5 +15,12 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    current_user.destroy
+    flash[:success] = I18n.t('settings.accounts.show.delete_success', :name => current_user.name)
+    logout
+    redirect_back_or_default root_url
   end
 end

@@ -4,7 +4,8 @@ CodeCampo::Application.routes.draw do
   get 'signup' => 'users#new', :as => :signup
   get 'login' => 'user_sessions#new', :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout
-  resources :users, :only => [:create]
+  resources :users, :only => [:create, :destroy]
+
   resources :user_sessions, :only => [:create]
 
   resource :search, :controller => 'search', :only => 'show'

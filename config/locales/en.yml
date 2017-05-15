@@ -85,6 +85,10 @@ en:
     accounts:
       show:
         account_settings: "Account settings"
+        danger_action: "Danger Action"
+        delete_user: "Delete User"
+        delete_confirm: "Are you sure destroy user %{name} ? (Topics and Replies will be destroy together)"
+        delete_success: "success destroy user %{name}"
     passwords:
       show:
         password_settings: "Password settings"
